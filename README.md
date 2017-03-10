@@ -8,6 +8,8 @@ https://www.packtpub.com/web-development/learning-threejs-javascript-3d-library-
 
 ## References
 
+https://courses.engr.illinois.edu/cs498sl3/sp2017/
+
 https://www.evl.uic.edu/aej/528/
 
 http://creativecoding.evl.uic.edu/courses/cs491/
