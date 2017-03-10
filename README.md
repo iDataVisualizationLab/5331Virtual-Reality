@@ -2,7 +2,9 @@
 
 
 ## Textbooks
+
 Jos Dirksen, Learning Three.js : The JavaScript 3D Library for WebGL, 2013
+
 https://www.packtpub.com/web-development/learning-threejs-javascript-3d-library-webgl
 
 
