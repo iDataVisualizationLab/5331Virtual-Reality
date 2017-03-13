@@ -1,5 +1,6 @@
-## 5331.003 Virtual-Reality
+## 5331.003 Virtual-Reality Website
 
+https://idatavisualizationlab.github.io/CS5331-VirtualReality
 
 ## Textbooks
 
