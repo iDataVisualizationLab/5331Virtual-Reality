@@ -1,26 +1,20 @@
 ## 5331.003 Virtual-Reality Website
 
-https://idatavisualizationlab.github.io/CS5331-VirtualReality
+Course website: https://idatavisualizationlab.github.io/CS5331-VirtualReality
 
 ## Textbooks
 
-Jos Dirksen, Learning Three.js : The JavaScript 3D Library for WebGL, 2015
-
+1) Jos Dirksen, Learning Three.js : The JavaScript 3D Library for WebGL, 2015
 https://www.packtpub.com/web-development/learning-threejs-javascript-3d-library-webgl
 
-Jos Dirksen, Three.js cookbook, 2015
-
+2) Jos Dirksen, Three.js cookbook, 2015
 https://www.packtpub.com/web-development/threejs-cookbook
 
-Andreas Anyuru, Professional WebGL Programming: Developing 3D Graphics for the Web, 2012
-
+3) Andreas Anyuru, Professional WebGL Programming: Developing 3D Graphics for the Web, 2012
 http://www.wrox.com/WileyCDA/WroxTitle/Professional-WebGL-Programming-Developing-3D-Graphics-for-the-Web.productCd-1119968860.html
 
-Isaac Sukin, Game development with Three.js, 2013
-
+4) Isaac Sukin, Game development with Three.js, 2013
 https://www.amazon.com/Game-Development-Three-js-Isaac-Sukin-ebook/dp/B00G58JD4K
-
-
 
 ## References
 
