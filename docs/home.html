@@ -8,47 +8,55 @@
     <script src="figures/jsImgSlider/themes/4/js-image-slider.js" type="text/javascript"></script>
     <link href="figures/jsImgSlider/generic.css" rel="stylesheet" type="text/css" />
 
+    <!-- Start slider HEAD section -->
+    <link rel="stylesheet" type="text/css" href="slider/js/style.css" />
+    <script type="text/javascript" src="slider/js/jquery.js"></script>
+    <!-- End slider HEAD section -->
   </head>
   <body bgcolor="white" text="black">
-    <div id="sliderFrame">
-        <div id="slider">
-          <img src="figures/jsImgSlider/images/Picture1.png" />
-          <img src="figures/jsImgSlider/images/Picture2.png" />
-          <img src="figures/jsImgSlider/images/Picture3.png" />
-          <img src="figures/jsImgSlider/images/Picture4.png" />
-          <img src="figures/jsImgSlider/images/DashboardDesign_Final.png" />
-          <img src="figures/jsImgSlider/images/Picture5.jpg" />
-          <img src="https://www.evl.uic.edu/resizedImages/1280x720-senseipanama.png" />
-          <img src="https://www.evl.uic.edu/resizedImages/1280x720-_ljl2805.jpg" />
+  <!-- Start slider BODY section -->
+  <div id="wowslider-container1">
+    <div class="ws_images"><ul>
+      <li><img src="slider/data/images/cardboard_and_oculus.png" alt="cardboard and oculus" title="cardboard and oculus" id="wows1_0"/></li>
+      <li><img src="slider/data/images/picture2.png" alt="Picture2" title="Picture2" id="wows1_1"/></li>
+      <li><img src="slider/data/images/picture1.png" alt="Picture1" title="Picture1" id="wows1_2"/></li>
+      <li><img src="slider/data/images/maingif.gif" alt="maingif" title="maingif" id="wows1_3"/></li>
+      <li><img src="slider/data/images/view.png" alt="view" title="view" id="wows1_4"/></li>
+      <li><img src="slider/data/images/dashboarddesign_final.png" alt="image slider" title="DashboardDesign_Final" id="wows1_5"/></a></li>
+      <li><img src="slider/data/images/picture5.jpg" alt="Picture5" title="Picture5" id="wows1_6"/></li>
+    </ul></div>
+    <div class="ws_bullets"><div>
+      <a href="#" title="cardboard and oculus"><span><img src="slider/data/tooltips/cardboard_and_oculus.png" alt="cardboard and oculus"/>1</span></a>
+      <a href="#" title="Picture2"><span><img src="slider/data/tooltips/picture2.png" alt="Picture2"/>2</span></a>
+      <a href="#" title="Picture1"><span><img src="slider/data/tooltips/picture1.png" alt="Picture1"/>3</span></a>
+      <a href="#" title="maingif"><span><img src="slider/data/tooltips/maingif.jpg" alt="maingif"/>4</span></a>
+      <a href="#" title="view"><span><img src="slider/data/tooltips/view.png" alt="view"/>5</span></a>
+      <a href="#" title="DashboardDesign_Final"><span><img src="slider/data/tooltips/dashboarddesign_final.png" alt="DashboardDesign_Final"/>6</span></a>
+      <a href="#" title="Picture5"><span><img src="slider/data/tooltips/picture5.jpg" alt="Picture5"/>7</span></a>
+    </div></div>
+    <div class="ws_shadow"></div>
+  </div>
+  <script type="text/javascript" src="slider/js/wowslider.js"></script>
+  <script type="text/javascript" src="slider/js/script.js"></script>
 
-        </div>
-        <!--Custom navigation buttons on both sides-->
-        <div class="group1-Wrapper">
-          <a onclick="imageSlider.previous()" class="group1-Prev"></a>
-          <a onclick="imageSlider.next()" class="group1-Next"></a>
-        </div>
-        <!--nav bar-->
-        <!--<div style="text-align:center;padding:20px;z-index:20;">
-            <a onclick="imageSlider.previous()" class="group2-Prev"></a>
-            <a id='auto' onclick="switchAutoAdvance()"></a>
-            <a onclick="imageSlider.next()" class="group2-Next"></a>
-        </div>-->
-    </div>
+  <!-- End slider BODY section -->
 
-    <!--
-    <div align="center"><font style="font-family:
-        Helvetica,Arial,sans-serif;" color="black" size="5">Sample data visualization projects</font></div>
 
-      <table style="text-align: left; width: 100%;" border="0"
-        cellpadding="4" cellspacing="4">
-        <tbody>
-          <tr>
-            <td style="vertical-align: top;">&nbsp;<img style="width:
-                46%;" src="figures/P1_2016_James.png"> 
-                <img style="width: 52%;" src="figures/P2_2016_Mano.png" alt="">
-          </tr>
-        </tbody>
-      </table> -->
+
+  <!--
+  <div align="center"><font style="font-family:
+      Helvetica,Arial,sans-serif;" color="black" size="5">Sample data visualization projects</font></div>
+
+    <table style="text-align: left; width: 100%;" border="0"
+      cellpadding="4" cellspacing="4">
+      <tbody>
+        <tr>
+          <td style="vertical-align: top;">&nbsp;<img style="width:
+              46%;" src="figures/P1_2016_James.png">
+              <img style="width: 52%;" src="figures/P2_2016_Mano.png" alt="">
+        </tr>
+      </tbody>
+    </table> -->
 
       <div align="left"><font style="font-family:
         Helvetica,Arial,sans-serif;" color="black" size="5">Announcements:</font></div>
