@@ -415,19 +415,19 @@
 	background-color:rgba(37, 37, 37, 0.8);
 	color:#fff;
 	
-	-webkit-border-radius: 0.4em;
-	-moz-border-radius: 0.4em;
-	border-radius: 0.4em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 #wowslider-container1 .ws-title span{
-	font-size: 1.8em;
-	background-color:rgba(170,170,170, 0.5);
-	color:rgba(37, 37, 37, 0.8);
+	font-size: 16px;
+	background-color:rgba(0,0,0, 0.5);
+	color:#fff;
 	
 	-webkit-border-radius: 0.4em;
 	-moz-border-radius: 0.4em;
 	border-radius: 0.4em;
-	min-width: 700px;
+	min-width: 500px;
 	text-align: center;
 	margin: auto;
 }#wowslider-container1 .ws_images > ul{
