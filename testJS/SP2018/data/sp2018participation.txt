@@ -1,0 +1,28 @@
+Date	Students	Scores
+1/18/2018	Alexandre Soares da Silva	3
+1/18/2018	Thomas Sanchez	1
+1/18/2018	Trent Myers	2
+1/18/2018	Benjamin Fox Bolduc	1
+1/18/2018	Matthew Jordan	1
+1/18/2018	Gantaphon Chalumporn	1
+1/18/2018	Cody Otterbine 	1
+1/18/2018	Megan Taylor	1
+1/18/2018	Justin Wright	1
+1/18/2018	Prerit Datta	3
+1/18/2018	Reynaldo Garcia	1
+1/23/2018	Tien Dang	1
+1/23/2018	Thomas Sanchez	2
+1/23/2018	Jordan Coe	1
+1/23/2018	Simon Menbere Woldemichael	1
+1/23/2018	Trent Myers	1
+1/23/2018	Cheol Hwan Im	1
+1/23/2018	Kevon Manahan	4
+1/23/2018	Luciano Wolff 	2
+1/23/2018	Amitsingh Pardeshi	2
+1/23/2018	Matthew Jordan	1
+1/23/2018	David Cooper	1
+1/23/2018	Reynaldo Garcia	2
+1/23/2018	Cody Otterbine 	1
+1/23/2018	Athaa Bader M Alotaibi	1
+1/23/2018	Prerit Datta	1
+1/23/2018	Gantaphon Chalumporn	2
