@@ -75,7 +75,7 @@ var valueline = d3.line()
 // Student info data  
 var data2 = {};
 var groupCount = [{},{},{},{}];
-d3.tsv("data/students2.csv", function(error, data_) {
+d3.tsv("data/Students.txt", function(error, data_) {
   data_.forEach(function(d) {
     if (data2[d.Fullname]==undefined)
         data2[d.Fullname] = {};
@@ -121,7 +121,7 @@ var nodesP2=[];
 var linksP2=[];
 var nodesP3=[];
 var linksP3=[];
-var today = new Date("December 12, 2016");
+var today = new Date("January 17, 2018");
     
 function getCategoty(str){
   if (str=="PhD")
@@ -137,7 +137,7 @@ var data = {};
 
 
 function main(){
-  d3.tsv("data/participations.csv", function(error, data_) {
+  d3.tsv("data/sp2018participation.txt", function(error, data_) {
     data_.forEach(function(d) {
       if (data[d.Students]==undefined)
           data[d.Students] = {};
