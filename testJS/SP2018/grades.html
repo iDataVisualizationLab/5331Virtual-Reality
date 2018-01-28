@@ -75,7 +75,7 @@ var valueline = d3.line()
 // Student info data  
 var data2 = {};
 var groupCount = [{},{},{},{}];
-d3.tsv("data/Students.txt", function(error, data_) {
+d3.csv("data/Students.csv", function(error, data_) {
   data_.forEach(function(d) {
     if (data2[d.Fullname]==undefined)
         data2[d.Fullname] = {};
@@ -137,17 +137,14 @@ var data = {};
 
 
 function main(){
-  d3.tsv("data/sp2018participation.txt", function(error, data_) {
+  d3.csv("data/participation.csv", function(error, data_) {
     data_.forEach(function(d) {
       if (data[d.Students]==undefined)
           data[d.Students] = {};
       if (data[d.Students].array==undefined)
           data[d.Students].array= [];
-
       var object =  {}; 
       object.date = new Date(d.Date);
-
-        console.log(object.date)
       object.score = +d.Scores/2;
       data[d.Students].array.push(object);
       data[d.Students].array.name = d.Students;

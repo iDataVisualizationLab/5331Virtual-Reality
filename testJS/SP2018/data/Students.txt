@@ -6,7 +6,7 @@ Athaa Bader M Alotaibi	3tb	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	MSCS	Graduate	5	Athaa.A
 Benjamin Fox Bolduc	Fox	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	4	Fox.Bolduc@ttu.edu	Benjamin.jpg	foxbolduc.github.io	
 Cheol Hwan Im	Andrew	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	4	Cheol-Hwan.Im@ttu.edu	Cheol.JPG		
 Christine Huber	C	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	5.5	Christine.Huber@ttu.edu	Christine.jpg	https://github.com/christine-elise	
-Cody Otterbine 	Dauntless	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	7	Cody.Otterbine@ttu.edu	Cody.jpg	https://dauntlessdash.github.io/Personal-Website/	
+Cody Otterbine	Dauntless	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	7	Cody.Otterbine@ttu.edu	Cody.jpg	https://dauntlessdash.github.io/Personal-Website/	
 Darien Sokolov	Darien	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	5	darien.sokolov@ttu.edu	Darien.jpg	https://github.com/XT3RM1N8R	
 David Cooper	David	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	8	David.P.Cooper@ttu.edu	David.JPG		
 Derek Fritz	DJ	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	3.5	Derek.Fritz@ttu.edu	Derek.png	https://github.com/defritz	
@@ -20,7 +20,7 @@ Joyelle Woodson	Joy	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	5	Joyelle.Wood
 Justin Wright	Ghidorah	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	4			https://github.com/justinmwright	
 Kevon Manahan	SuperKev	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	4	Kevon.Manahan@ttu.edu	Kevon.JPG	http://www.myweb.ttu.edu/kemanaha	
 Lino Abiel Virgen Gracia	L12	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	MSSE	MSSE	5	Lino.Virgen@ttu.edu	VirgenGraciaLino_1.jpg	github.com/lvrg12	
-Luciano Wolff 	Lucho	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	6	Luciano.Wolff@ttu.edu	LucianoWolffPhoto.jpg	https://github.com/SpeedyRacoon/Luciano_Wolff_Virtual_Reality_CS4331.git	
+Luciano Wolff	Lucho	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	6	Luciano.Wolff@ttu.edu	LucianoWolffPhoto.jpg	https://github.com/SpeedyRacoon/Luciano_Wolff_Virtual_Reality_CS4331.git	
 Luis Rausseo	lrausseo	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	6	Luis.Rausseo@ttu.edu	Luis-Rausseo.png	https://github.com/luisrausseo	
 Mayur Maheshkumar Bhakta Bhakta	MBK	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	4	mayur.bhakta@ttu.edu	Mayur.jpg	https://github.com/mBhakta95/Virtual-Reality	
 Megan Taylor	MKT	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	4	Megan.Taylor@ttu.edu	Megan.png	https://github.com/mktaylor5	
@@ -29,7 +29,7 @@ Olisa Omekam	Oo	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	3	Olisa.Omekam@ttu
 Prerit Datta	predat	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	PhD	PhD	8	Prerit.Datta@ttu.edu	Prerit_Datta.jpg	https://github.com/prd90/CS-5331-Virtual-Reality	
 Reynaldo Garcia	qcf4	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	4	Reynaldo.Garcia@ttu.edu	Reynaldo.png	https://raygar.github.io/	
 Simon Menbere Woldemichael	Sy	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	4	Simon.Woldemichael@ttu.edu	Simon Woldemichael.jpg	swoldemi.github.io	
-Scott Blechman 	Scott	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	5	Scott.Blechman@ttu.edu	Scott.jpg	 http://scottblechman.me/cs5331/ 	
+Scott Blechman	Scott	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	5	Scott.Blechman@ttu.edu	Scott.jpg	 http://scottblechman.me/cs5331/ 	
 Thomas Sanchez	Blue Leader	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	3	Thomas.Sanchez@ttu.edu	Thomas_Sanchez.JPG	https://github.com/Thomas245166	
 Tien Dang	Rin	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	2	tien.dang@ttu.edu	Tien.JPG	https://sksdow.github.io/Projects-and-Qualifications/	
 Travis Ahlberg	Travis	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	BS	Undegraduate	3	Travis.Ahlberg@ttu.edu	Travis Ahlberg.jpeg	https://github.com/ahlbergta	
