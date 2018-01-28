@@ -1,77 +1,79 @@
-Date,Students,Scores,,,,
-1/18/2018,Michael Acosta ,0,,,,
-1/18/2018,Amitsingh Pardeshi,0,,,,
-1/18/2018,Alexandre Soares da Silva,3,,,,
-1/18/2018,Athaa Bader M Alotaibi,0,,,,
-1/18/2018,Benjamin Fox Bolduc,1,,,,
-1/18/2018,Cheol Hwan Im,0,,,,
-1/18/2018,Christine Huber,0,,,,
-1/18/2018,Cody Otterbine,1,,,,
-1/18/2018,Darien Sokolov,0,,,,
-1/18/2018,David Cooper,0,,,,
-1/18/2018,Derek Fritz,0,,,,
-1/18/2018,Emre Unal,0,,,,
-1/18/2018,Eddie Garcia,0,,,,
-1/18/2018,Gantaphon Chalumporn,1,,,,
-1/18/2018,Jakob Dozier,0,,,,
-1/18/2018,Jessica Hao,0,,,,
-1/18/2018,Jordan Coe,0,,,,
-1/18/2018,Joyelle Woodson,0,,,,
-1/18/2018,Justin Wright,1,,,,
-1/18/2018,Kevon Manahan,0,,,,
-1/18/2018,Lino Abiel Virgen Gracia,0,,,,
-1/18/2018,Luciano Wolff,0,,,,
-1/18/2018,Luis Rausseo,0,,,,
-1/18/2018,Mayur Maheshkumar Bhakta Bhakta,0,,,,
-1/18/2018,Megan Taylor,1,,,,
-1/18/2018,Matthew Jordan,1,,,,
-1/18/2018,Olisa Omekam,0,,,,
-1/18/2018,Prerit Datta,3,,,,
-1/18/2018,Reynaldo Garcia,1,,,,
-1/18/2018,Simon Menbere Woldemichael,0,,,,
-1/18/2018,Scott Blechman,0,,,,
-1/18/2018,Thomas Sanchez,1,,,,
-1/18/2018,Tien Dang,0,,,,
-1/18/2018,Travis Ahlberg,0,,,,
-1/18/2018,Trent Myers,2,,,,
-1/18/2018,Wesley Scott,0,,,,
-1/18/2018,xujia wu,0,,,,
-1/18/2018,Yong Wu,0,,,,
-1/23/2018,Michael Acosta ,0,,,,
-1/23/2018,Amitsingh Pardeshi,2,,,,
-1/23/2018,Alexandre Soares da Silva,0,,,,
-1/23/2018,Athaa Bader M Alotaibi,1,,,,
-1/23/2018,Benjamin Fox Bolduc,0,,,,
-1/23/2018,Cheol Hwan Im,1,,,,
-1/23/2018,Christine Huber,0,,,,
-1/23/2018,Cody Otterbine,1,,,,
-1/23/2018,Darien Sokolov,0,,,,
-1/23/2018,David Cooper,1,,,,
-1/23/2018,Derek Fritz,0,,,,
-1/23/2018,Emre Unal,0,,,,
-1/23/2018,Eddie Garcia,0,,,,
-1/23/2018,Gantaphon Chalumporn,2,,,,
-1/23/2018,Jakob Dozier,0,,,,
-1/23/2018,Jessica Hao,0,,,,
-1/23/2018,Jordan Coe,1,,,,
-1/23/2018,Joyelle Woodson,0,,,,
-1/23/2018,Justin Wright,0,,,,
-1/23/2018,Kevon Manahan,4,,,,
-1/23/2018,Lino Abiel Virgen Gracia,0,,,,
-1/23/2018,Luciano Wolff,2,,,,
-1/23/2018,Luis Rausseo,0,,,,
-1/23/2018,Mayur Maheshkumar Bhakta Bhakta,0,,,,
-1/23/2018,Megan Taylor,0,,,,
-1/23/2018,Matthew Jordan,1,,,,
-1/23/2018,Olisa Omekam,0,,,,
-1/23/2018,Prerit Datta,1,,,,
-1/23/2018,Reynaldo Garcia,1,,,,
-1/23/2018,Simon Menbere Woldemichael,1,,,,
-1/23/2018,Scott Blechman,0,,,,
-1/23/2018,Thomas Sanchez,2,,,,
-1/23/2018,Tien Dang,1,,,,
-1/23/2018,Travis Ahlberg,0,,,,
-1/23/2018,Trent Myers,1,,,,
-1/23/2018,Wesley Scott,0,,,,
-1/23/2018,xujia wu,0,,,,
-1/23/2018,Yong Wu,0,,,,
+Date,Students,Scores
+1/18/2018,Michael Acosta ,0
+1/18/2018,Amitsingh Pardeshi,0
+1/18/2018,Alexandre Soares da Silva,3
+1/18/2018,Athaa Bader M Alotaibi,0
+1/18/2018,Benjamin Fox Bolduc,1
+1/18/2018,Cheol Hwan Im,0
+1/18/2018,Christine Huber,0
+1/18/2018,Cody Otterbine,1
+1/18/2018,Darien Sokolov,0
+1/18/2018,David Cooper,0
+1/18/2018,Derek Fritz,0
+1/18/2018,Emre Unal,0
+1/18/2018,Eddie Garcia,0
+1/18/2018,Gantaphon Chalumporn,1
+1/18/2018,Jakob Dozier,0
+1/18/2018,Jessica Hao,0
+1/18/2018,Jordan Coe,0
+1/18/2018,Joyelle Woodson,0
+1/18/2018,Jonathan Bouligny,0
+1/18/2018,Justin Wright,1
+1/18/2018,Kevon Manahan,0
+1/18/2018,Lino Abiel Virgen Gracia,0
+1/18/2018,Luciano Wolff,0
+1/18/2018,Luis Rausseo,0
+1/18/2018,Mayur Maheshkumar Bhakta Bhakta,0
+1/18/2018,Megan Taylor,1
+1/18/2018,Matthew Jordan,1
+1/18/2018,Olisa Omekam,0
+1/18/2018,Prerit Datta,3
+1/18/2018,Reynaldo Garcia,1
+1/18/2018,Simon Menbere Woldemichael,0
+1/18/2018,Scott Blechman,0
+1/18/2018,Thomas Sanchez,1
+1/18/2018,Tien Dang,0
+1/18/2018,Travis Ahlberg,0
+1/18/2018,Trent Myers,2
+1/18/2018,Wesley Scott,0
+1/18/2018,xujia wu,0
+1/18/2018,Yong Wu,0
+1/23/2018,Michael Acosta ,0
+1/23/2018,Amitsingh Pardeshi,2
+1/23/2018,Alexandre Soares da Silva,0
+1/23/2018,Athaa Bader M Alotaibi,1
+1/23/2018,Benjamin Fox Bolduc,0
+1/23/2018,Cheol Hwan Im,1
+1/23/2018,Christine Huber,0
+1/23/2018,Cody Otterbine,1
+1/23/2018,Darien Sokolov,0
+1/23/2018,David Cooper,1
+1/23/2018,Derek Fritz,0
+1/23/2018,Emre Unal,0
+1/23/2018,Eddie Garcia,0
+1/23/2018,Gantaphon Chalumporn,2
+1/23/2018,Jakob Dozier,0
+1/23/2018,Jessica Hao,0
+1/23/2018,Jordan Coe,1
+1/23/2018,Joyelle Woodson,0
+1/23/2018,Jonathan Bouligny,0
+1/23/2018,Justin Wright,0
+1/23/2018,Kevon Manahan,4
+1/23/2018,Lino Abiel Virgen Gracia,0
+1/23/2018,Luciano Wolff,2
+1/23/2018,Luis Rausseo,0
+1/23/2018,Mayur Maheshkumar Bhakta Bhakta,0
+1/23/2018,Megan Taylor,0
+1/23/2018,Matthew Jordan,1
+1/23/2018,Olisa Omekam,0
+1/23/2018,Prerit Datta,1
+1/23/2018,Reynaldo Garcia,1
+1/23/2018,Simon Menbere Woldemichael,1
+1/23/2018,Scott Blechman,0
+1/23/2018,Thomas Sanchez,2
+1/23/2018,Tien Dang,1
+1/23/2018,Travis Ahlberg,0
+1/23/2018,Trent Myers,1
+1/23/2018,Wesley Scott,0
+1/23/2018,xujia wu,0
+1/23/2018,Yong Wu,0
