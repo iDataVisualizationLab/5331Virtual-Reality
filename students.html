@@ -12,7 +12,7 @@
         <div align="left"><font style="font-family:
         Helvetica,Arial,sans-serif;" color="black" size="3">The table lists all students for this class (Simple Student Profile)</font></div>
               
-    <table style="width: 99%;" border="1" cellpadding="0" cellspacing="0">
+    <table id="targettable" style="width: 99%;" border="1" cellpadding="0" cellspacing="0">
       <tbody style="text-align:center">
         <tr bgcolor="#aaa">
           <td>Photo</td>
@@ -458,6 +458,27 @@
         Helvetica,Arial,sans-serif;" color="black" size="2">&copy; Last revised: Sep 8th, 2016  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</font></div> 
      
     </ul>
-     
+     <script>
+         var table = document.getElementById("targettable");
+
+         var tr = document.createElement("tr");
+         var photo = document.createElement("img");
+         var photo_url = document.createAttribute('src');
+         photo_url.value='url';
+         photo.setAttribute(photo_url);
+         var fullname = document.createElement("td");
+         var fullname_text = document.createTextNode("some value");
+         fullname.appendChild(fullname_text);
+         var program = document.createElement("td");
+         var level = document.createElement("td");
+         var eperience = document.createElement("td");
+         var email = document.createElement("td");
+         var github = document.createElement("td");
+         var txt = document.createTextNode("some value");
+
+         td.appendChild(txt);
+         tr.appendChild(td);
+         table.appendChild(tr);
+     </script>
   </body>
 </html>
