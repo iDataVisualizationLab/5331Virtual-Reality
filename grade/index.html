@@ -28,7 +28,7 @@ path {
 <svg width="2000" height="650"></svg>
 
 <div id="controlHolder"  class="controlHolder">
- <input type="checkbox" id="checkboxP1" value="value2" class="check" onclick="showP1()">
+ <input type="checkbox" id="checkboxP1" visibility="hidden" value="value2" class="check" onclick="showP1()" disabled>
 <label for="checkboxP1"> Project results</label> 
 </div> 
 
@@ -121,17 +121,18 @@ var nodesP2=[];
 var linksP2=[];
 var nodesP3=[];
 var linksP3=[];
-var today = new Date("5/13/2018");
+var startDate = new Date("1/16/2018");
+var today = new Date();
     
 function getCategoty(str){
   if (str=="PhD")
-    return 0;
+    return 3;
   else if (str=="MSSE")
     return 2;
   else if (str=="MSCS")
     return 1;
   else 
-    return 3; 
+    return 0; 
 }
 var data = {};
 
@@ -190,8 +191,8 @@ function main(){
       groupCount[arr.group].program = data2[key].Program;
     }
      // Scale the range of the data
-      x.domain([aData[0][0].date,today]);
-      xNew.domain([aData[0][0].date,today]);
+      x.domain([startDate,today]);
+      xNew.domain([startDate,today]);
       y.domain([0, 15]);
       yAxis.domain([0, 0.15]);
       yP1.domain([0, 20]);
@@ -633,9 +634,9 @@ function main(){
         countC++;
         finalGrade = "C";
       }    
-      console.log( finalGrade+ " "+nodesP1[i].name+" sum="+sum);           
+      //console.log( finalGrade+ " "+nodesP1[i].name+" sum="+sum);           
     }  
-    console.log("countA="+countA+" countB="+countB +" countC="+countC);   
+    //console.log("countA="+countA+" countB="+countB +" countC="+countC);   
     link = svg.selectAll(".links")
       .data(links)
       .enter().append("line")
@@ -800,12 +801,12 @@ function main(){
                           .attr("x", "0")
                           .attr("y", "0")
 
-    catpattern.append("image")
+    /*catpattern.append("image")
          .attr("x", 0)
          .attr("y", 0)
          .attr("height", radius*2)
          .attr("width", radius*2)
-         .attr("xlink:href", "../photos/"+nodes[i].image)
+         .attr("xlink:href", "../photos/"+nodes[i].image.trim())*/
   }
 
   var dur = 400;

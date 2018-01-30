@@ -1,4 +1,11 @@
 Date	Students	Scores
+1/16/2018	Alexandre Soares da Silva	0
+1/16/2018	Thomas Sanchez	0
+1/16/2018	Trent Myers	0
+1/16/2018	Benjamin Fox Bolduc	0
+1/16/2018	Matthew Jordan	0
+1/16/2018	Gantaphon Chalumporn	0
+1/16/2018	Cody Otterbine	0
 1/18/2018	Alexandre Soares da Silva	3
 1/18/2018	Thomas Sanchez	1
 1/18/2018	Trent Myers	2
@@ -26,3 +33,4 @@ Date	Students	Scores
 1/23/2018	Athaa Bader M Alotaibi	1
 1/23/2018	Prerit Datta	1
 1/23/2018	Gantaphon Chalumporn	2
+1/28/2018	Gantaphon Chalumporn	2
