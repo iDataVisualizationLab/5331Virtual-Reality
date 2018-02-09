@@ -25,7 +25,7 @@ path {
 
 </style>
 <body bgcolor="white" text="black" id="mainBody">
-<svg width="2000" height="750"></svg>
+<svg width="2000" height="800"></svg>
 
 <div id="controlHolder"  class="controlHolder">
  <input type="checkbox" id="checkboxP1" visibility="hidden" value="value2" class="check" onclick="showP1()" disabled>
@@ -147,9 +147,10 @@ function main(){
       var object =  {}; 
       object.date = new Date(d.Date);
       object.score = +d.Scores/2;
+      //object.studentTalk = +d.StudentTalk;
       data[d.Students].array.push(object);
       data[d.Students].array.name = d.Students;
-      debugger;
+      data[d.Students].array.studentTalk = +data2[d.Students].StudentTalk;
       data[d.Students].array.nickname =data2[d.Students].Nickname;
       data[d.Students].array.group = getCategoty(data2[d.Students].Program);
       data[d.Students].array.image = data2[d.Students].Photoname;
@@ -176,7 +177,7 @@ function main(){
         if (i>0)
           arr[i].score+=arr[i-1].score;
         arr.score= arr[i].score;  // Copy the final score to array
-        arr.date = arr[i].date; 
+        arr.date = arr[i].date;
       }
     }
 
@@ -485,6 +486,7 @@ function main(){
       nod2.group = aData[i].group;
       nod2.score = aData[i].score;
       nod2.date = aData[i].date;
+      nod2.studentTalk = aData[i].studentTalk;
       nod2.image = aData[i].image;
       nodes.push(nod2);
 
@@ -997,7 +999,19 @@ function main(){
         .attr("fill", "#000")
         .attr("x", radius+nodes[index].x+5)
         .attr("y", nodes[index].y+3)
-        .text("Contribution: "+nodes[index].score+"%");  
+        .text("Participation: "+nodes[index].score+"%");
+
+       if (nodes[index].studentTalk>0){
+        svg.append("text")
+            .attr("class", "textStudentTalk")
+            .style("font-size", "13px")
+            .attr("text-anchor", "left")
+            .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
+            .attr("fill", "#000")
+            .attr("x", radius+nodes[index].x+5)
+            .attr("y", nodes[index].y+20)
+            .text("SC Talk: "+nodes[index].studentTalk+"%");
+       }
     }  
     
     function textP1(index){
@@ -1174,6 +1188,7 @@ function main(){
       svg.selectAll(".textP2").remove();
       svg.selectAll(".textP3").remove();
       svg.selectAll(".textContribution").remove();
+      svg.selectAll(".textStudentTalk").remove();
     }
 
     fadeP1();  
