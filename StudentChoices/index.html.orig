@@ -1,3 +1,5 @@
+<!-- Adapted from https://www.evl.uic.edu/aej/424/ -->
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -76,13 +78,16 @@
         <td>Topic</td>
         <td>Scheduled presentation</td>
         <td>Link presentation</td>
-        <td>Report</td>
     </tr>
     <tr>
         <td>Jonathan Bouligny</td>
+<<<<<<< HEAD
+        <td><a href="https://www.youtube.com/watch?time_continue=236&v=RAZidk_mPc8">Gloveone</a> : Feel Virtual Reality</td><td><font color="#aaa">Feb 6</font></td>
+=======
         <td><a href="https://www.youtube.com/watch?time_continue=236&v=RAZidk_mPc8">Gloveone</a> : Feel Virtual Reality
         </td>
-        <td><font color="#aaa">Feb 6</font></td>
+        <td><font color="#888">Feb 6</font></td>
+>>>>>>> 47f1fdb86ea2c3002a2125be255d30908c678f30
     </tr>
 
     <tr>
@@ -90,9 +95,9 @@
         <td><a href="https://developer.apple.com/videos/play/wwdc2017/602/"> ARKit</a>: Augmented Reality for iOS</td>
         <td><font color="#aaa">Feb 6</font></td>
         <td><a href="https://github.com/JakobDozier/StudentChoice">
-            <img height="100" src="../images/ARKit-main.jpg" alt="">
+            <img  height="100" src="../images/ARKit-main.jpg" alt="">
 
-        </a></td><td><a href="https://github.com/JakobDozier/StudentChoice">Report</a></td>
+        </a></td>
 
     </tr>
     <tr>
@@ -103,9 +108,7 @@
     <tr>
         <td>Simon Woldemichael</td>
         <td><a href="https://www.nvidia.com/en-us/design-visualization/technologies/holodeck/">Nvidia's Holodeck</a>:
-            Photorealistic collaborative design <envirliv>
-
-            </envirliv>onment in virtual reality
+            Photorealistic collaborative design environment in virtual reality
         </td>
         <td><font color="#aaa">Feb 6</font></td>
     </tr>
@@ -122,7 +125,7 @@
         </td>
         <td><font color="#888">Feb 8</font></td>
         <td><a href="http://slides.com/jordancoe/deck/fullscreen">
-            <img height="100" src="../images/talk.coe.jpg" alt="">
+            <img  height="100" src="../images/talk.coe.jpg" alt="">
 
         </a></td>
     </tr>
@@ -145,18 +148,23 @@
         <td><a href="https://youtu.be/pppkQ4jIrMU">Oculus Touch </a>- Hand Presence Technology</td>
         <td><font color="#666">Feb 13</font></td>
         <td><a href="https://trentm95.github.io/CS4331-VR/Student'sChoice/">
-            <img height="100" src="../images/myer_oculus.png" alt="">
+            <img  height="100" src="../images/myer_oculus.png" alt="">
 
         </a></td>
     </tr>
     <tr>
         <td>Prerit Datta</td>
+<<<<<<< HEAD
+        <td><a href="https://augmented.reality.news/news/is-big-business-cities-native-american-tribes-are-leveraging-power-ar-via-daqri-headsets-0182241/ ">DAQRI Headsets  </a></td>
+        <td><font color="#666">Feb 13</font></td>
+=======
         <td>
             <a href="https://augmented.reality.news/news/is-big-business-cities-native-american-tribes-are-leveraging-power-ar-via-daqri-headsets-0182241/ ">DAQRI
                 Headsets </a></td>
-        <td><font color="#666">Feb 13</font></td>
+        <td><font color="#f00">Feb 13</font></td>
+>>>>>>> 47f1fdb86ea2c3002a2125be255d30908c678f30
         <td><a href="www.slides.com/prd90/daqri">
-            <img height="100" src="../images/Datta.jpg" alt="">
+            <img  height="100" src="../images/Datta.jpg" alt="">
 
         </a></td>
     </tr>
@@ -164,32 +172,48 @@
     <tr>
         <td>Athaa Bader M Alotaibi</td>
         <td><a href="https://youtu.be/bqra7wslwCM">Osso VR </a></td>
+<<<<<<< HEAD
         <td><font color="#666">Feb 13</font></td>
-        <td><a href="https://sites.google.com/site/athaaalotaibi/vr-course"><img height="100"
+        <td><a href="https://sites.google.com/site/athaaalotaibi/vr-course"><img  height="100" src="../images/athaa_alotaibi.jpg" alt=""></a> </td>
+=======
+        <td><font color="#f00">Feb 13</font></td>
+        <td><a href="https://sites.google.com/site/athaaalotaibi/vr-course"><img width="120" height="100"
                                                                                  src="../images/athaa_alotaibi.jpg"
                                                                                  alt=""></a></td>
+>>>>>>> 47f1fdb86ea2c3002a2125be255d30908c678f30
     </tr>
     <tr>
         <td>Im, Cheol Hwan</td>
         <td><a href="https://www.mirareality.com/">Mira Prism AR Headset</a></td>
+<<<<<<< HEAD
         <td><font color="#666">Feb 13</font></td>
+        <td><a href="https://docs.google.com/presentation/d/1YF9UhuGy3EFQ7b1rm2biz1XCd9J0eQahhphc7crmpqY/edit?usp=sharing">
+            <img  height="100" src="../images/Im.png" alt="">
+=======
+        <td><font color="#f00">Feb 13</font></td>
         <td>
             <a href="https://docs.google.com/presentation/d/1YF9UhuGy3EFQ7b1rm2biz1XCd9J0eQahhphc7crmpqY/edit?usp=sharing">
-                <img height="100" src="../images/Im.png" alt="">
+                <img width="120" height="100" src="../images/Im.png" alt="">
+>>>>>>> 47f1fdb86ea2c3002a2125be255d30908c678f30
 
-            </a></td><td><a href="Reports/Mira%20Prism%20Report.docx">Report</a></td>
+            </a></td>
     </tr>
 
     <tr>
+<<<<<<< HEAD
         <td>Jessica Hao</td>
-        <td><a href="https://vrscout.com/news/vr-ar-2018-winter-olympics/#">VR & AR </a>- Goes For Gold At 2018 Winter
-            Olympic Games
-        </td>
+        <td><a href="https://vrscout.com/news/vr-ar-2018-winter-olympics/#">VR & AR </a>- Goes For Gold At 2018 Winter Olympic Games</td>
         <td><font color="#666">Feb 13</font></td>
         <td><a href="https://slides.com/jjh/deck/edit">
             <img height="100" src="../images/Hao.PNG" alt="">
-
-        </a></td>
+        </a> </td>
+=======
+        <td>Cody Otterbine</td>
+        <td>
+            <a href="https://www.forbes.com/sites/zarastone/2017/08/02/the-business-of-virtual-reality-arcades-a-future-45-billion-industry/#331e27ab7fc6">The
+                Business of Virtual Reality Arcades</a></td>
+        <td><font color="#f00">Feb 13</font></td>
+>>>>>>> 47f1fdb86ea2c3002a2125be255d30908c678f30
     </tr>
 
     <tr>
@@ -197,54 +221,76 @@
         <td>A Walk Through Dementia.</td>
         <td><font color="#f00">Feb 15</font></td>
         <td><a href="https://slides.com/wesleyscott-1/a-walk-through-dementia">
-            <img height="100" src="../images/AWtD.jpg" alt=""/></a></td>
+<<<<<<< HEAD
+            <img  height="100" src="../images/AWtD.jpg" alt=""/></a></td>>
+=======
+            <img width="120" height="100" src="../images/AWtD.jpg" alt=""/></a></td>
         >
+>>>>>>> 47f1fdb86ea2c3002a2125be255d30908c678f30
     </tr>
     <tr>
         <td>Travis, Ahlberg</td>
         <td>Google's Tilt Brush</td>
+<<<<<<< HEAD
         <td><font color="#f00">Feb 15</font></td>
+=======
+        <td><font color="#fa0">Feb 15</font></td>
         <td><a href="https://docs.google.com/presentation/u/0/">
-            <img height="100" src="../images/talk.ahlberg.jpg" alt=""/>
+            <img width="120" height="100" src="../images/talk.ahlberg.jpg" alt=""/>
 
         </a></td>
+>>>>>>> 47f1fdb86ea2c3002a2125be255d30908c678f30
     </tr>
     <tr>
         <td>Reynaldo Garcia</td>
         <td><a href="https://youtu.be/AJDf_HRNo54">Sketch AR</a> Art with Mixed Reality</td>
         <td><font color="#f00">Feb 15</font></td>
         <td><a href="https://slides.com/vraccount/deck/live#/">
-            <img height="100" src="../images/talk.garcia.jpg" alt=""/>
+            <img  height="100" src="../images/talk.garcia.jpg" alt=""/>
 
         </a></td>
         >
     </tr>
 
     <tr>
+<<<<<<< HEAD
+        <td>Acosta, Michael </td>
+        <td><a href="https://www.tomsguide.com/us/meta-2-ar-haptics,news-26417.html">Meta 2 AR Headset Let Us Touch and Feel Holograms </a></td>
+        <td><font color="#f00">Feb 15</font></td>
+=======
         <td>Acosta, Michael</td>
         <td><a href="https://www.tomsguide.com/us/meta-2-ar-haptics,news-26417.html">Meta 2 AR Headset Let Us Touch and
             Feel Holograms </a></td>
-        <td><font color="#f00">Feb 15</font></td>
+        <td><font color="#fa0">Feb 15</font></td>
+>>>>>>> 47f1fdb86ea2c3002a2125be255d30908c678f30
         <td><a href="https://slides.com/michaelacosta/deck/edit#">
-<<<<<<< HEAD
-            <img width="120" height="100" src="../images/talk.Acosta.jpg" alt="">
-        </a></td><td><a href="Reports/Meta2ARHeadset.docx">Report</a> </td>
-=======
-            <img height="100" src="../images/talk.Acosta.jpg" alt="">
+            <img  height="100" src="../images/talk.Acosta.jpg" alt="">
 
         </a></td>
->>>>>>> 68b32efcdcf1f59e9113b3f477d215c2b30246ac
     </tr>
     <tr>
         <td>Gantaphon Chalumporn</td>
         <td><a href="https://www.youtube.com/watch?v=MeKRVo7hfZ4">Vive Tracker</a></td>
         <td><font color="#f00">Feb 15</font></td>
         <td><a href="http://slides.com/gantaphonchalumporn/deck#/">
-            <img height="100" src="../images/VIVETracker.Chalumporn.jpg" alt="">
+            <img  height="100" src="../images/VIVETracker.Chalumporn.jpg" alt="">
 
-        </a></td><td><a href="https://github.com/gchalump/CS5331-Virtual-Reality-TTU/blob/master/Student%20Choice/Report.txt">Report</a></td>
+        </a></td>
     </tr>
 
+<<<<<<< HEAD
+=======
+    <tr>
+        <td>Jessica Hao</td>
+        <td><a href="https://vrscout.com/news/vr-ar-2018-winter-olympics/#">VR & AR </a>- Goes For Gold At 2018 Winter
+            Olympic Games
+        </td>
+        <td><font color="#0a0">Feb 13</font></td>
+        <td><a href="https://slides.com/jjh/deck/edit">
+            <img width="120" height="100" src="../images/Hao.PNG" alt="">
+
+        </a></td>
+>>>>>>> 47f1fdb86ea2c3002a2125be255d30908c678f30
 
 
 
@@ -253,7 +299,6 @@
         <td><a href="https://www.youtube.com/watch?v=_QIbI4Wtgug">Ghostbusters</a>: Dimension Hyper-Reality Gameplay
             Trailer - THE VOID
         </td>
-        <td><font color="#0a0">March and Later</font></td>
     </tr>
 
     <tr>
@@ -261,25 +306,13 @@
         <td><a href="https://qz.com/app/">Quartz: News Stories in AR </a></td>
     </tr>
     <tr>
-        <td>Cody Otterbine</td>
-        <td>
-            <a href="https://www.forbes.com/sites/zarastone/2017/08/02/the-business-of-virtual-reality-arcades-a-future-45-billion-industry/#331e27ab7fc6">The
-                Business of Virtual Reality Arcades</a></td>
-        <td><font color="#666"></font></td>
-    </tr>
-    <tr>
         <td>Taylor, Megan</td>
         <td><a href="https://youtu.be/N3ywcoqR4Co">Tribemix </a>Virtual Reality for Dementia Care</td>
         <td></td>
         <td><a href="https://slides.com/megantaylor/tribemix/live#/">
-<<<<<<< HEAD
-            <img width="120" height="100" src="../images/megan.png" alt="">
-=======
-            <img height="100" src="../images/megan.png" alt="">
+            <img  height="100" src="../images/megan.png" alt="">
 
->>>>>>> 68b32efcdcf1f59e9113b3f477d215c2b30246ac
         </a></td>
-        <td><a href="Reports/Tribemix.docx">Report</a></td>
     </tr>
     <tr>
         <td>Garcia, Eddie</td>
@@ -287,14 +320,28 @@
     </tr>
     <tr>
         <td>Lino Abiel Virgen Gracia</td>
+<<<<<<< HEAD
+        <td><a href="https://www.getfove.com/">Home</a>- FOVE Eye Tracking Virtual Reality Headset</td> <td></td>
+
+        <td><a href="https://docs.google.com/presentation/d/14em7L2hOkxQNCQeoT6wNA4lxLmxQqNYd86f7qhgEH3I/edit?usp=sharing">
+            <img  height="100" src="../images/foveVirgen.jpg" alt="">
+        </a> </td>
+=======
         <td><a href="https://www.getfove.com/">Home</a>- FOVE Eye Tracking Virtual Reality Headset</td>
-        <td></td>
+        <td><font color="#fa0">Feb 15</font></td>
 
         <td>
             <a href="https://docs.google.com/presentation/d/14em7L2hOkxQNCQeoT6wNA4lxLmxQqNYd86f7qhgEH3I/edit?usp=sharing">
-                <img height="100" src="../images/foveVirgen.jpg" alt="">
+                <img width="120" height="100" src="../images/foveVirgen.jpg" alt="">
 
             </a></td>
+>>>>>>> 47f1fdb86ea2c3002a2125be255d30908c678f30
+    </tr>
+
+    <tr>
+        <td>Cody Otterbine</td>
+        <td><a href="https://www.forbes.com/sites/zarastone/2017/08/02/the-business-of-virtual-reality-arcades-a-future-45-billion-industry/#331e27ab7fc6">The Business of Virtual Reality Arcades</a></td>
+        <td><font color="#666"></font></td>
     </tr>
 
     <tr>
@@ -302,9 +349,9 @@
         <td><a href="https://youtu.be/943NZj_SSWQ">BraveMind VR </a></td>
         <td></td>
         <td><a href="https://drive.google.com/open?id=1hYoJmmEYgffSIJP6gh45rZtCu7JHQ_jD7_MvL5f2AE4">
-            <img height="100" src="../images/talk.Wolff.jpg" alt="">
+            <img  height="100" src="../images/talk.Wolff.jpg" alt="">
 
-        </a></td><td><a href="https://drive.google.com/open?id=1ysdTEaOb4Qg2h59aI4BIjVD2wrmHZseca89DjjXPXCk">Report</a></td>
+        </a></td>
     </tr>
     <tr>
         <td>Omekam, Olisa</td>
@@ -314,16 +361,16 @@
         <td>Huber, Christine</td>
         <td><a href="https://www.etc.cmu.edu/projects/music-everywhere/#">AR-Assisted Piano Improvisation</a></td>
         <td></td>
+<<<<<<< HEAD
+        <td><a href="https://docs.google.com/presentation/d/1mKsdByLSbi_xtr7-XJyoB43yKRcqd1UZr6FMnr_P1TU/edit?usp=sharing">
+            <img  height="100" src="../images/talk.Huber.jpg" alt="">
+=======
         <td>
             <a href="https://docs.google.com/presentation/d/1mKsdByLSbi_xtr7-XJyoB43yKRcqd1UZr6FMnr_P1TU/edit?usp=sharing">
-<<<<<<< HEAD
                 <img width="120" height="100" src="../images/talk.Huber.jpg" alt="">
-=======
-                <img height="100" src="../images/talk.Huber.jpg" alt="">
+>>>>>>> 47f1fdb86ea2c3002a2125be255d30908c678f30
 
->>>>>>> 68b32efcdcf1f59e9113b3f477d215c2b30246ac
             </a></td>
-        <td><a href="https://github.com/christine-elise/Student-s-Choice">Report</a></td>
     </tr>
     <tr>
         <td>Tien Dang</td>
@@ -335,17 +382,23 @@
         <td><a href="http://looxidlabs.com/device/">LooxidVR</a></td>
         <td></td>
         <td><a href="https://defritz.github.io/VirtualRealityProjects/">
-            <img height="100" src="../images/fritz.jpg" alt="">
+            <img  height="100" src="../images/fritz.jpg" alt="">
 
-        </a></td><td><a href="https://defritz.github.io/VirtualRealityProjects/">Report</a> </td>
+        </a></td>
     </tr>
     <tr>
         <td>Amitsingh Pardeshi</td>
+<<<<<<< HEAD
+        <td><a href="https://youtu.be/WHN-ZGncQhY">360 Degree (Omnidirectional) Treadmills from Virtuix</a></td><td></td>
+        <td><a href="https://docs.google.com/presentation/d/1JlfR9LC_srCoiCcPTJqeTtlcRpqrc5zhXwE408GF7Rw/edit?usp=sharing">
+            <img  height="100" src="../images/Amitsingh_pardeshi.jpg" alt="">
+=======
         <td><a href="https://youtu.be/WHN-ZGncQhY">360 Degree (Omnidirectional) Treadmills from Virtuix</a></td>
         <td></td>
         <td>
             <a href="https://docs.google.com/presentation/d/1JlfR9LC_srCoiCcPTJqeTtlcRpqrc5zhXwE408GF7Rw/edit?usp=sharing">
-                <img height="100" src="../images/Amitsingh_pardeshi.jpg" alt="">
+                <img width="120" height="100" src="../images/Amitsingh_pardeshi.jpg" alt="">
+>>>>>>> 47f1fdb86ea2c3002a2125be255d30908c678f30
 
             </a></td>
     </tr>
@@ -361,9 +414,9 @@
         <td><a href="https://vrzone-pic.com/en/activity/mariocart.html">Mario Kart Arcade GP VR</a></td>
         <td></td>
         <td><a href="http://slides.com/thomas245166/student-choice-presentation/fullscreen">
-            <img height="100" src="../images/Mario-Kart-VR-featured.jpg" alt="">
+            <img  height="100" src="../images/Mario-Kart-VR-featured.jpg" alt="">
 
-        </a></td><td><a href="https://thomas245166.github.io/StudentChoice/">Report</a></td>
+        </a></td>
     </tr>
     <tr>
         <td>Luis Rausseo</td>
@@ -371,7 +424,7 @@
         </td>
         <td></td>
         <td><a href="https://luisrausseo.github.io/Presentation/index.html">
-            <img height="100" src="../images/talk.Rausseo.jpg" alt="">
+            <img  height="100" src="../images/talk.Rausseo.jpg" alt="">
 
         </a></td>
     </tr>
@@ -384,9 +437,14 @@
         <td>Jijun Sui</td>
         <td><a href="https://www.leapmotion.com/">Leap Motion</a></td>
         <td></td>
+<<<<<<< HEAD
+        <td><a href="https://docs.google.com/presentation/d/1az1b5f8w-yF9y3SO0R-bxXRd_5KloU8vFRRhPyr46qE/edit?usp=sharing">
+            <img  height="100" src="../images/talk.Sui.jpg" alt="">
+=======
         <td>
             <a href="https://docs.google.com/presentation/d/1az1b5f8w-yF9y3SO0R-bxXRd_5KloU8vFRRhPyr46qE/edit?usp=sharing">
-                <img height="100" src="../images/talk.Sui.jpg" alt="">
+                <img width="120" height="100" src="../images/talk.Sui.jpg" alt="">
+>>>>>>> 47f1fdb86ea2c3002a2125be255d30908c678f30
 
             </a></td>
 
@@ -396,14 +454,9 @@
         <td><a href="https://developers.google.com/ar/">Google ARCore </a></td>
         <td></td>
         <td><a href="https://davidcooper1.github.io/presentation-report.html">
-<<<<<<< HEAD
-            <img width="120" height="100" src="../images/talk.cooper.jpg" alt="">
-        </a></td><td><a href="https://davidcooper1.github.io/presentation-report.html">Report</a> </td>
-=======
-            <img height="100" src="../images/talk.cooper.jpg" alt="">
+            <img  height="100" src="../images/talk.cooper.jpg" alt="">
 
         </a></td>
->>>>>>> 68b32efcdcf1f59e9113b3f477d215c2b30246ac
     </tr>
 
     <tr>
@@ -411,9 +464,9 @@
         <td><a href="https://www.microsoft.com/en-us/hololens">Microsoft HoloLens</a></td>
         <td></td>
         <td><a href="http://slides.com/mjordan29/deck/fullscreen">
-            <img height="100" src="../images/talk.jordan.jpg" alt="">
+            <img  height="100" src="../images/talk.jordan.jpg" alt="">
 
-        </a></td><td><a href="https://github.com/Mattjordan29/VR-students-choice/blob/master/Microsoft%20HoloLens%20report.docx">Report</a> </td>
+        </a></td>
 
     </tr>
 
@@ -425,9 +478,6 @@
     <tr>
         <td>Justin, Wright</td>
         <td>VVR Teleoperation</td>
-        <td></td>
-        <td></td>
-        <td><a href="Reports/CS4331reportJustinWright.docx">Report</a></td>
     </tr>
     <tr>
         <td>Alexandre Soares da Silva</td>
