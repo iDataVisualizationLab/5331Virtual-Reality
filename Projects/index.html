@@ -1,0 +1,116 @@
+<!-- Adapted from http://www.evl.uic.edu/aej/424/ -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>CS CS5331-004 Syllabus</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style type="text/css">
+        img {
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body bgcolor="white" text="black">
+<div align="left"><font style="font-family:
+      Helvetica,Arial,sans-serif;" color="black" size="5">Project 1 </font></div>
+<table style="width:100%;">
+    <tr>
+        <td>
+            <table style="width:98%;" border="1" cellpadding="3" cellspacing="0" id="tb1">
+                <tr bgcolor="#aaa">
+                    <td>No</td>
+                    <td>Team</td>
+                    <td>Demo Link</td>
+                    <td>Repository</td>
+                    <td>Screenshot</td>
+                </tr>
+            </table>
+        </td>
+        <td style="width:2%;">
+        </td>
+        <td>
+            <table style="width:98%;" border="1" cellpadding="3" cellspacing="0" id="tb2">
+                <tr bgcolor="#aaa">
+                    <td>No</td>
+                    <td>Team</td>
+                    <td>Demo Link</td>
+                    <td>Repository</td>
+                    <td>Screenshot</td>
+                </tr>
+
+            </table>
+        </td>
+    </tr>
+</table>
+
+<br>
+<br>
+
+
+<hr style="width: 100%; height: 1px;">
+<div align="right"><font style="font-family:
+        Helvetica,Arial,sans-serif;" color="black" size="2">&copy; Last revised: Feb 18, 2018 &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp;</font></div>
+<script>
+    d3.csv('P1.csv', function (data) {
+        var rows_per_table = Math.ceil(data.length / 2);
+        console.log(rows_per_table)
+        var dataTB1 = data.slice(0, rows_per_table);
+        var dataTB2 = data.slice(rows_per_table);
+
+        dataTB1.forEach(function (row, index) {
+            var demolink = "";
+            var demoVideo = "";
+            var Github ="";
+            if (row.Demolink != "") {
+                demolink = '<a href=' + row.Demolink + ' target=blank>Demo Link</a>';
+            }
+            if (row.DemoVideo != "") {
+                demoVideo = '<a href=' + row.DemoVideo + ' target=blank>Demo Video</a>';
+                demolink += "<br>" + demoVideo
+            }
+            if(row.Github!=""){
+                Github = '<a href=' + row.Github + ' target=blank>Github</a>';
+            }
+
+            var Screenshot = '<img src="images/no-thumbnail.png"/>';
+            if(row.Screenshot !=""){
+                Screenshot = '<img src=' + row.Screenshot + '></img>';
+            }
+            $('#tb1').append('<tr><td>' + (index + 1) + '</td><td>' + row.Team + '</td><td>' + demolink + '</td><td>' + Github + '</td><td>' + Screenshot + '</td></tr>');
+
+
+        })
+
+        dataTB2.forEach(function (row, index) {
+            console.log(row)
+            var demolink = "";
+            var demoVideo = "";
+            if (row.Demolink != "") {
+                demolink = '<a href=' + row.Demolink + ' target=blank>Demo Link</a>';
+            }
+            if (row.DemoVideo != "") {
+                demoVideo = '<a href=' + row.DemoVideo + ' target=blank>Demo Video</a>';
+                demolink += "<br>" + demoVideo
+            }
+            var Github ="";
+            if(row.Github!=""){
+                Github = '<a href=' + row.Github + ' target=blank>Github</a>';
+            }
+            var Screenshot = '<img src="images/no-thumbnail.png"/>';
+            if(row.Screenshot !=""){
+                Screenshot = '<img src=' + row.Screenshot + '></img>';
+            }
+
+
+            $('#tb2').append('<tr><td>' + (rows_per_table + index + 1) + '</td><td>' + row.Team + '</td><td>' + demolink + '</td><td>' + Github + '</td><td>' + Screenshot + '</td></tr>');
+
+
+        })
+    })
+</script>
+</body>
+</html>
