@@ -57,57 +57,17 @@
 <script>
     d3.csv('P1.csv', function (data) {
         var rows_per_table = Math.ceil(data.length / 2);
-        console.log(rows_per_table)
-        var dataTB1 = data.slice(0, rows_per_table);
-        var dataTB2 = data.slice(rows_per_table);
+        data.forEach(function (row,index) {
+            var demolink = row.Demolink != ""? '<a href=' + row.Demolink + ' target=blank>Demo Link</a>':"";
+            var demoVideo = row.DemoVideo != ""? '<br><a href=' + row.DemoVideo + ' target=blank>Demo Video</a>':"";
+            var Github = row.Github!="" ? '<a href=' + row.Github + ' target=blank>Github</a>':"";
+            var Screenshot = row.Screenshot !=""?'<img src=' + row.Screenshot + '></img>':'<img src="images/no-thumbnail.png"/>';
 
-        dataTB1.forEach(function (row, index) {
-            var demolink = "";
-            var demoVideo = "";
-            var Github ="";
-            if (row.Demolink != "") {
-                demolink = '<a href=' + row.Demolink + ' target=blank>Demo Link</a>';
+            if(index < rows_per_table){
+                $('#tb1').append('<tr><td>' + (index + 1) + '</td><td>' + row.Team + '</td><td>' + demolink + demoVideo+'</td><td>' + Github + '</td><td>' + Screenshot + '</td></tr>');
+            }else{
+                $('#tb2').append('<tr><td>' + (index + 1) + '</td><td>' + row.Team + '</td><td>' + demolink + demoVideo+'</td><td>' + Github + '</td><td>' + Screenshot + '</td></tr>');
             }
-            if (row.DemoVideo != "") {
-                demoVideo = '<a href=' + row.DemoVideo + ' target=blank>Demo Video</a>';
-                demolink += "<br>" + demoVideo
-            }
-            if(row.Github!=""){
-                Github = '<a href=' + row.Github + ' target=blank>Github</a>';
-            }
-
-            var Screenshot = '<img src="images/no-thumbnail.png"/>';
-            if(row.Screenshot !=""){
-                Screenshot = '<img src=' + row.Screenshot + '></img>';
-            }
-            $('#tb1').append('<tr><td>' + (index + 1) + '</td><td>' + row.Team + '</td><td>' + demolink + '</td><td>' + Github + '</td><td>' + Screenshot + '</td></tr>');
-
-
-        })
-
-        dataTB2.forEach(function (row, index) {
-            console.log(row)
-            var demolink = "";
-            var demoVideo = "";
-            if (row.Demolink != "") {
-                demolink = '<a href=' + row.Demolink + ' target=blank>Demo Link</a>';
-            }
-            if (row.DemoVideo != "") {
-                demoVideo = '<a href=' + row.DemoVideo + ' target=blank>Demo Video</a>';
-                demolink += "<br>" + demoVideo
-            }
-            var Github ="";
-            if(row.Github!=""){
-                Github = '<a href=' + row.Github + ' target=blank>Github</a>';
-            }
-            var Screenshot = '<img src="images/no-thumbnail.png"/>';
-            if(row.Screenshot !=""){
-                Screenshot = '<img src=' + row.Screenshot + '></img>';
-            }
-
-
-            $('#tb2').append('<tr><td>' + (rows_per_table + index + 1) + '</td><td>' + row.Team + '</td><td>' + demolink + '</td><td>' + Github + '</td><td>' + Screenshot + '</td></tr>');
-
 
         })
     })
