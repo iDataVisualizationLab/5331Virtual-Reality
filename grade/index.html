@@ -151,6 +151,7 @@ function main(){
       data[d.Students].array.push(object);
       data[d.Students].array.name = d.Students;
       data[d.Students].array.studentTalk = +data2[d.Students].StudentTalk;
+      data[d.Students].array.studentReport = +data2[d.Students].StudentReport;
       data[d.Students].array.nickname =data2[d.Students].Nickname;
       data[d.Students].array.group = getCategoty(data2[d.Students].Program);
       data[d.Students].array.image = data2[d.Students].Photoname;
@@ -487,6 +488,7 @@ function main(){
       nod2.score = aData[i].score;
       nod2.date = aData[i].date;
       nod2.studentTalk = aData[i].studentTalk;
+      nod2.studentReport = aData[i].studentReport;
       nod2.image = aData[i].image;
       nodes.push(nod2);
 
@@ -1012,6 +1014,29 @@ function main(){
             .attr("y", nodes[index].y+20)
             .text("SC Talk: "+nodes[index].studentTalk+"%");
        }
+       else{
+         svg.append("text")
+             .attr("class", "textStudentTalk")
+             .style("font-size", "13px")
+             .attr("text-anchor", "left")
+             .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
+             .attr("fill", "#00f")
+             .attr("x", radius+nodes[index].x+5)
+             .attr("y", nodes[index].y+20)
+             .text("SC Talk: not yet presented");
+
+       }
+        if (nodes[index].studentReport>=0){
+            svg.append("text")
+                .attr("class", "textStudentReport")
+                .style("font-size", "13px")
+                .attr("text-anchor", "left")
+                .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
+                .attr("fill", "#000")
+                .attr("x", radius+nodes[index].x+5)
+                .attr("y", nodes[index].y+35)
+                .text("SC Report: "+nodes[index].studentReport+"%");
+        }
     }  
     
     function textP1(index){
@@ -1189,6 +1214,7 @@ function main(){
       svg.selectAll(".textP3").remove();
       svg.selectAll(".textContribution").remove();
       svg.selectAll(".textStudentTalk").remove();
+      svg.selectAll(".textStudentReport").remove();
     }
 
     fadeP1();  
