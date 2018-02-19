@@ -55,9 +55,12 @@
     d3.csv('P1.csv', function (data) {
         var rows_per_table = Math.ceil(data.length / 2);
         data.forEach(function (row,index) {
-            var demolink = row.Demolink != ""? '<a href=' + row.Demolink + ' target=blank>Demo Link</a>':"";
-            var demoVideo = row.DemoVideo != ""? '<br><a href=' + row.DemoVideo + ' target=blank>Demo Video</a>':"";
-            var Github = row.Github!="" ? '<a href=' + row.Github + ' target=blank>Github</a>':"";
+            var demolink="";
+            var demoVideo="";
+            var Github="";
+            // var demolink = row.Demolink != ""? '<a href=' + row.Demolink + ' target=blank>Demo Link</a>':"";
+            // var demoVideo = row.DemoVideo != ""? '<br><a href=' + row.DemoVideo + ' target=blank>Demo Video</a>':"";
+            // var Github = row.Github!="" ? '<a href=' + row.Github + ' target=blank>Github</a>':"";
             var Screenshot = row.Screenshot !=""?'<img src=' + row.Screenshot + '></img>':'<img src="images/no-thumbnail.png"/>';
             var Schedule = row.Schedule!="" ? row.Schedule:"";
 
