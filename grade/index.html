@@ -59,7 +59,7 @@ var xNew = d3.scaleTime().range([0, width/2-margin.left]);
 
 var y = d3.scaleLinear().range([height, 0]);
 var yAxis= d3.scaleLinear().range([height, 0]);
-var yP1= d3.scaleLinear().range([height*2, 0]);
+var yP1= d3.scaleLinear().range([height*1.7, 0]);
 
 
 // Define the line
@@ -1463,25 +1463,25 @@ function showP1(){
         .attr("stroke", "#000")
         .attr("stroke-width", 1)
         .attr("x1", width*0.99)
-        .attr("y1", yP1(aGrades[i]))
+        .attr("y1", yP1(aGrades[i])-50)
         .attr("x2", width*0.99)
-        .attr("y2", yP1(aGrades[i+1]+0.3));
+        .attr("y2", yP1(aGrades[i+1]+0.3)-50);
        svg.append("line")
         .attr("class", "lineGradeP1")
         .attr("stroke", "#000")
         .attr("stroke-width", 1)
         .attr("x1", width*0.98)
-        .attr("y1", yP1(aGrades[i]))
+        .attr("y1", yP1(aGrades[i])-50)
         .attr("x2", width*0.99)
-        .attr("y2", yP1(aGrades[i])); 
+        .attr("y2", yP1(aGrades[i])-50); 
       svg.append("line")
         .attr("class", "lineGradeP1")
         .attr("stroke", "#000")
         .attr("stroke-width", 1)
         .attr("x1", width*0.98)
-        .attr("y1", yP1(aGrades[i+1]+0.3))
+        .attr("y1", yP1(aGrades[i+1]+0.3)-50)
         .attr("x2", width*0.99)
-        .attr("y2", yP1(aGrades[i+1]+0.3));    
+        .attr("y2", yP1(aGrades[i+1]+0.3)-50);    
       svg.append("text")
         .attr("class", "textGradeP1")
         .style("font-size", "18px")
