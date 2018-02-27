@@ -3,33 +3,38 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title>CS CS5331-004 Project 2</title>
+    <title>Virtual Reality: Project 2</title>
+      <link rel="shortcut icon" href="../styles/oculus.png">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   </head>
   <body bgcolor="white" text="black">
    
     
 
     <div align="left"><font style="font-family:
-        Helvetica,Arial,sans-serif;" color="black" size="5">Project 2: Text and Geospatial visualization</font></div>
+        Helvetica,Arial,sans-serif;" color="black" size="5">Project 2: Water resources</font></div>
 
     <div align="left"><font style="font-family:
         Helvetica,Arial,sans-serif;" color="black" size="4">
         <ul>
-        <li style="margin-left: 30px">  Project screenshot (a 1200 x 600 <b>jpg</b> image of your visualization which should be named p1.&lt;your_last_name1&gt;&lt;your_last_name2&gt;&lt;your_last_name3&gt;.jpg), demo link, and github link are due at <font color="#e00">3pm Wednesday, Nov 9th</font> to the <b>TA</b>. The TA will make an html table with your group projects.
-        <li style="margin-left: 30px"> You can update your source code and project report uptill <font color="#e00">3pm Friday, Nov 11th</font>.<br>
-        <li style="margin-left: 30px">  This project is <b>30%</b> of your final grade:<br>
-        <li style="margin-left: 60px"> <b>20%</b> for design and implementation.</li>
-        <li style="margin-left: 60px">  <b>5%</b> for in-class presentation.</li>
-        <li style="margin-left: 60px">  <b>5%</b> for project report on Github.</li>
+        <li style="margin-left: 30px">  This project is <b>25%</b> of your final grade:<br>
+        <li style="margin-left: 80px"> <b>15%</b> for design and implementation.</li>
+        <li style="margin-left: 80px">  <b>5%</b> for in-class presentation.</li>
+        <li style="margin-left: 80px">  <b>5%</b> for project report on Github.</li>
         </li>
-        <li style="margin-left: 30px"> Each student needs to send a peer evaluation for other teammates by <font color="#e00">3pm Monday, Nov 14th</font> to the <b>TA</b>. This peer evaluation is significant to your individual project grade. One team member can get A but another can get D or Fail. The peer evaluation contains:</li>
-          <li style="margin-left: 60px"> Teammate name.</li>
-          <li style="margin-left: 60px"> Rating from 0 to 5 (5 is best).</li>
-          <li style="margin-left: 60px"> Less than 3-sentence review.</li>
+        <li style="margin-left: 30px">  Project screenshot (a 1200 x 600 <b>jpg</b> image of your work which should be named p2.&lt;your_last_name1&gt;&lt;your_last_name2&gt;.jpg, demo link, video link, and github link are due at <font color="#e00">11am Sunday, March 25</font> to the TA: <b>vinh.nguyen[at]ttu.edu</b>.
+            <br>The presentation schedule should look like <a href="http://www.myweb.ttu.edu/tnhondan/CS5331/Presentations/index.html"> this</a>.
+        <li style="margin-left: 30px"> You can update your source code and project report until <font color="#e00">11am Tuesday, March 27</font>.<br>
+        <li style="margin-left: 30px"> Each student needs to send a peer evaluation for other teammates by <font color="#e00">11am Thursday, March 29</font> to the TA: <b>vinh.nguyen[at]ttu.edu</b>. Forget submitting the peer evaluation cost 5% of your total grade. This peer evaluation is significant to your individual project grade. One team member can get A, but another can get D or Fail (<b>team score is the average</b>). The peer evaluation contains:</li>
+          <li style="margin-left: 60px"> Group id and teammate name.</li>
+          <li style="margin-left: 60px"> Rating from 0 to 10 (10 is best).</li>
+          <li style="margin-left: 60px"> One to three sentence review (about how you came up with your teammate rating).</li>
         <ul>  
         </font></div>
-
- <center><img style="width: 100%;" src="figures/map1.png" alt=""></center>
+ <center><img style="width: 80%;" src=" figures/DashboardDesign_Final.png" alt=""></center>
      
 
     <hr style="width: 100%; height: 1px;">
@@ -38,101 +43,204 @@
 
     <font style="font-family:Helvetica;" color="black" size="4">
     <ul>
-      <li style="margin-left: 30px"> Project 2 is a group (3 or 4 students) project (assigned <a href="../Presentations/index.html"> here</a>). A leader is also selected by the instructor.</li>
-      <li style="margin-left: 30px"> In this project, students will work on the texts extracted from news/blogs and classified into 4 categories: people names, locations, organizations, and miscellaneous. Each entry also contains the published time/date of the article/blog.
-      </li>
-      <li style="margin-left: 30px"> Students are provided 2 datasets: The <a href="http://en.wikinews.org/wiki/Main_Page">Wikinews</a> data (roughly <a href="data/wikinews.tsv">3.3M</a>) contains 11,267 articles and the <a href="http://www.huffingtonpost.com/">Huffington Post</a> data (roughly <a href="data/huffington.tsv">29.4M</a>) contains 75,293 political blogs. Students are required to demonstrate their web applications on both datasets.</li>
+      <li style="margin-left: 30px"> Project 2 has several options:</li>
+
+<ol>
+<!--Option 1 -->
+  <li>  
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#option1">The AR watershed game</button>
+      <div id="option1" class="collapse">
+        The virtual watershed game is coupled with an Augmented Reality (AR) app. The app is loosely modeled
+after Pokémon GO , an app-based AR game that most students are familiar withwith. The AR app asks the students to identify natural and engineered features such as culverts, embankments, detention and retention basins, and discharge channels within their watersheds. Students identify these features in the “real-world” and learn about their role in maintaining sustainable water resources (both quality and quantity) within their watersheds while earning coins for use in the VR game.The scoreboard of top players will also be provided to interconnect students involving in the same tasks in real time. 
+      </div>
+  </li>
+  
+<!--Option 2 -->
+  <li>  
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#option2">The VR watershed game</button>
+    <div id="option2" class="collapse">
+      <iframe width="1000" height="480" src="https://www.youtube.com/embed/ltKKNnWau8A" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><br>
+
+        The watershed development and management game is envisioned as a multiplayer game modeled after the classic Monopoly and SimCity. Students are provided a fixed amount of coins and a distinct parcel of land (which is assigned randomly) on which they can either build or expand urban areas, grow crops or engage in industrial activities. All these activities release pollutants (biochemical oxygen demand (BOD) and nutrients) into streams and creeks. The release of these pollutants will affect the in-stream health which is measured by decreases in dissolved oxygen (DO) and increases in algae. Critical thresholds of DO and algae (cholorophyll-a) will be used to simulate catastrophic events such as fish kills and loss of riparian habitats. A set of compliance points (CP) are set up on the stream segment to monitor water quality in the stream.  
+    </div>
+  </li>
+  <li>  
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#option3">The water elevation</button>
+    <div id="option3" class="collapse">
+      I am working on this <a href="https://codepen.io/kevinnewcombe/pen/XMVoKv/">https://codepen.io/kevinnewcombe/pen/XMVoKv/</a> 
+      and <a href="https://github.com/datadesk/vr-interactives-three-js">https://github.com/datadesk/vr-interactives-three-js</a>
+    </div>
+  </li>
+  <li>  
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#option4">Flooding evacuation</button>
+    <div id="option4" class="collapse">
+     <iframe width="854" height="480" src="https://www.youtube.com/embed/Iod-MojUeUQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </li>
+</ol>
+
+
+      <br> 
+      <li style="margin-left: 30px"> Project 2 is a group (of 2 or 3 students) project, exceptions are allowed. Students select their group member and the topic (from the list above). If you can't, Tommy will assign your group. As soon as you have found your group, please send the TA by <font color="#e00">11am Thursday, March 8</font>.</li>
+      
+
+      <li style="margin-left: 30px"> 
+        To help in planning your dream house, you will be given  a <a href="https://alex-nguyen.github.io/CS5331001-Virtual-Reality/index.html">3D model of the TTU Computer Science VR showroom </a> and redecorate it to turn it into your ideal home. The sample project to get you started can be found <a href="https://github.com/Alex-Nguyen/CS5331001-Virtual-Reality" target="_blank">here</a>.
+    </li>
+
+        <li style="margin-left: 30px">
+            Space must include several chairs/sofas, tables, wall decorations, and be decorated in some kind of a consistent style.
+        You should be able to walk around the house.
+        </li>
+
+         
+<!--
+        <font style="font-family:Helvetica;" color="black" size="4">
+            For a <b>C</b>, you need to:
+            <ul>
+                <li> Customize the TTU Computer Science VR showroom into your dream house with your own style of floor and ceiling</li>
+                <li> Have at least unique 10 models at appropriate locations</li>
+                <li> Have appropriate lighting. Do not give me a dark screen.</li>
+            </ul>
+            For a <b>B</b>, you need to:
+            <ul>
+                <li> Add an additional 5 unique models</li>
+                <li> Give the user control over the lighting</li>
+                <li> You should be able to navigate around the space</li>
+            </ul>
+            For a <b>A</b>, you need to:
+            <ul>
+                <li> Interact with certain objects: Click to trigger a sound track or a song, OR</li>
+                <li> Add one dynamic object (moving model, such as a dog or an avatar)</li>
+            </ul>
+        </font>
+-->
+
+        <!--  <li style="margin-left: 30px"> Students are provided 2 datasets: The <a href="http://en.wikinews.org/wiki/Main_Page">Wikinews</a> data (roughly <a href="data/wikinews.tsv">3.3M</a>) contains 11,267 articles and the <a href="http://www.huffingtonpost.com/">Huffington Post</a> data (roughly <a href="data/huffington.tsv">29.4M</a>) contains 75,293 political blogs. Students are required to demonstrate their web applications on both datasets.</li>-->
     </ul>
-    </font>   
-        
+    </font>
 
-    <hr style="width: 100%; height: 1px;"> 
-    <font style="font-family:Helvetica;" color="black" size="4">
-    For a <b>C</b>, you need to visualize <b>terms</b>:
+    <hr style="width: 100%; height: 1px;">
+    <div align="left"><font style="font-family:
+        Helvetica,Arial,sans-serif;" color="black" size="5">Testing your VR:</font></div>
     <ul>
-      <li> Show the top 50 popular terms (all categories) in Worldle/Tag Cloud</li>
-      <li> Show the monthly frequency of the 50 popular terms over time</li>
-      <li> Select a term and highlight its monthly frequency</li>
-      <li> Allow users to quickly zoom into a time interval for more details (daily frequencies)</li>
-    </ul>  
-    For a <b>B</b>, you need to visualize <b>relationships</b>:
-    <ul>
-      <li> Input a term and display the top 50 related terms (terms appear in the same blog)</li>
-      <li> Show relationships between terms</li>
-      <li> Mousing over a term highlight related terms (within the 50 terms)</li>
-    </ul> 
-    For a <b>A</b>, you need to make <b>discoveries</b>:
-    <ul>
-      <li> Plot locations mentioned in news/blogs on a map.</li>
-      <li> Your ideas on making visualizations for highlighting patterns within the data</li>
-      <li> Automatically highlight importants events.</li>
-      <li> Compare topics from 2 sources?</li>
-      <li> Tell your stories.</li>
-    </ul>   
-    </font> 
+        <li style="margin-left: 30px" >
+            <font style="font-family:Helvetica;" size="4">
+                <b>Hardware</b>: <a href="https://vr.google.com/cardboard/">Google Cardboard</a>, <a href="https://www.oculus.com/rift/">oculus rift</a>, or other VR head sets.
+            </font>
+        </li>
+
+        <li style="margin-left: 30px" >
+            <font style="font-family:Helvetica;" size="4">
+                We have 2 cardboards and 2 oculus rifts at our lab (EC CS 305) for testing.
+            </font>
+        </li>
+
+    </ul>
 
 
-    
+  <hr style="width: 100%; height: 1px;">    
+     <div align="left"><font style="font-family:
+        Helvetica,Arial,sans-serif;" color="black" size="5">Advice:</font></div>
+      <ul>  
+        <li style="margin-left: 30px" >  
+        <font style="font-family:Helvetica;" size="4">
+          Don't stick with all the bullet points above, but use them as suggestions for your project. Feel free to bring in your own requirements and create your designs/solutions (be creative).
+        </font>  
+        </li> 
+        <li style="margin-left: 30px" >  
+        <font style="font-family:Helvetica;" size="4">
+          Understand the requirements thoroughly and come up the stategy (design) for the entire project.
+        </font>  
+        </li>      
+        <li style="margin-left: 30px" >  
+        <font style="font-family:Helvetica;"  size="4">
+          Sketching with pen/pencil is a good way to come up with a unified design.
+         </font>  
+        </li>
+
+          <li style="margin-left: 30px" >
+              <font style="font-family:Helvetica;" size="4">
+                  We will conduct P2 midterm reports updates for this project (<font color="#e00">Mar 20 and 22</font>). Don't wait until the last week to implement your project. Especially, don't update your codes in the last minutes.
+
+              </font>
+          </li>
+
+        <li style="margin-left: 30px" >  
+        <font style="font-family:Helvetica;" size="4">
+          Don't stuck at some parts of the project: perform the team works in parallel.
+            <a href="workingGroupNotes.html"> Other tips on working in groups</a><br>
+         </font>  
+        </li>
+      </ul>
+
+
    <hr style="width: 100%; height: 1px;">    
      <div align="left"><font style="font-family:
         Helvetica,Arial,sans-serif;" color="black" size="5">Notes:</font></div>
+      <ul>  
+        <li style="margin-left: 30px" >  
+        <font style="font-family:Helvetica;" color="black" size="4">
+          This project is written in javascript, <a href="https://threejs.org/">three.js</a>, or Unity (you can use any libraries).
+        </font>  
+        </li> 
+        <li style="margin-left: 30px" >  
+        <font style="font-family:Helvetica;" color="black" size="4">
+          Your code should run on all modern browsers/simulator and the VR head set of your choice.
+        </font>  
+        </li>
 
-      <li style="margin-left: 30px" >  
-      <font style="font-family:Helvetica;" color="black" size="4">
-        This project is a web-based application in javascript, html, and D3 (you can use other javascript libraries).
-      </font>  
-      </li> 
-      <li style="margin-left: 30px" >  
-      <font style="font-family:Helvetica;" color="black" size="4">
-        Your code should run on all browsers (Chrome, Safari, Firefox, Explorer,...). <b> No refreshing</b>: Every refresh costs you <b>1%</b>.
-      </font>  
-      </li>      
-      <li style="margin-left: 30px" >  
-      <font style="font-family:Helvetica;" color="black" size="4">
-        Your application should start out showing some data or an overview and then allow users to add more or request details on demand. Do not start with an empty screen and do not overwhelm viewers by showing a lot of the data right away.
-       </font>  
-      </li>
-
-      <li style="margin-left: 30px" >  
-      <font style="font-family:Helvetica;" color="black" size="4">
-        Do not write the application at the last minute to avoid mistakes. Make sure that your code runs and that you have enough time to design intuitive interfaces.
-       </font>  
-      </li>
-
-      <li style="margin-left: 30px" >  
-      <font style="font-family:Helvetica;" color="black" size="4">
-        Make sure your code is well commented (this is a good practice since you will work in a team). Instructor may inspect your source code.
-       </font>  
-      </li>
+        <li style="margin-left: 30px" >  
+        <font style="font-family:Helvetica;" color="black" size="4">
+          Make sure your code is well commented (this is a good practice since you will work in a team). The instructor may inspect your source code.
+         </font>  
+        </li>
+          <li style="margin-left: 30px" >
+              <font style="font-family:Helvetica;" color="black" size="4">
+          It is easier to get your VR working but harder to get working well. Be sure to think carefully with your design decisions and to test them on the actual hardware regularly.
+          </li>
+      </ul>
 
 <hr style="width: 100%; height: 1px;">    
      <div align="left"><font style="font-family:
         Helvetica,Arial,sans-serif;" color="black" size="5">Project report on Github (readme file):</font></div>
+      <ul>
+          <li style="margin-left: 30px" >
+              <font style="font-family:Helvetica;" color="black" size="4">
+                  See example here: <a href="https://github.com/swoldemi/VR-Project-1">Simon's Project 1 report</a>
+              </font>
+          </li>
 
-      <li style="margin-left: 30px" >  
-      <font style="font-family:Helvetica;" color="black" size="4"> 
-         Create a 3-minute video showing the use of your application with your voice over. That video should appear on the top of your github readme file.
-         The video is a good way to show your interactive application in a short amount of time. If you submit a paper to a visualization conference, a video is very useful. It can be also a backup during your presentation just in case of something go wrong.      
-      </font>  
-      </li>
+        <li style="margin-left: 30px" >
+        <font style="font-family:Helvetica;" color="black" size="4">
+           Create a 3-minute video showing the use of your application with your voice over. That video should appear on the top of your github readme file.
+           The video can be used as a backup during your presentation just in case of something go wrong.
+        </font>
+        </li>
 
-      <li style="margin-left: 30px" >  
-      <font style="font-family:Helvetica;" color="black" size="4"> 
-         Add a link to your web-based application (right after the video). You can host it <a href="https://pages.github.com/">on your github</a> or your ttu personal page.            
-      </font>  
-      </li>
+        <li style="margin-left: 30px" >  
+        <font style="font-family:Helvetica;" color="black" size="4"> 
+           Add a link to your web-based application (right after the video). You can host it <a href="https://pages.github.com/">on your github</a> or your ttu personal page.            
+        </font>  
+        </li>
 
-      <li style="margin-left: 30px" >  
-      <font style="font-family:Helvetica;" color="black" size="4"> 
-         <b>Clearly explain the duties of each student in your group. </b>         
-      </font>  
-      </li>
+        <li style="margin-left: 30px" >  
+        <font style="font-family:Helvetica;" color="black" size="4"> 
+           Clearly explain the duties of each student in your group (if you work as a group).
+        </font>  
+        </li>
 
-       <li style="margin-left: 30px" >  
-      <font style="font-family:Helvetica;" color="black" size="4"> 
-         Discrible your application and highlight your findings by screenshots.         
-      </font>  
-      </li>
+         <li style="margin-left: 30px" >  
+        <font style="font-family:Helvetica;" color="black" size="4">
+            Describe your application by screenshots (with meaningful captions) and text. Make sure you have the list and screenshots of models.
+        </font>  
+        </li>
+          <li style="margin-left: 30px" >
+              <font style="font-family:Helvetica;" color="black" size="4">
+                  Links to all the source code and any assets (models, textures, sounds). Make sure you source code is well-commented.
+              </font>
+          </li>
+      </ul>
 <!--<font style="font-family:Helvetica;" color="black" size="4"> 
 An example github report can be found <a href="https://github.com/CreativeCodingLab/TimeArcs">here<a>.            
 </font> -->
@@ -141,22 +249,46 @@ An example github report can be found <a href="https://github.com/CreativeCoding
      <div align="left"><font style="font-family:
         Helvetica,Arial,sans-serif;" color="black" size="5">In-class presentation:</font></div>
       
-
+    <ul>  
       <li style="margin-left: 30px" >  
       <font style="font-family:Helvetica;" color="black" size="4"> 
-         The presentation is 10 minutes per group (everyone needs to present). It is 8 minute talk and 2 minute for questions. Make sure that you are ready to talk right after the group in front of you is done.            
+         The presentation is 6 minutes per group (everyone needs to present). It is 5-minute talk and 1 minute for questions. You can present directly on your report and demo.
+          Make sure that you are ready to talk right after the person/group in front of you is done.
       </font>  
       </li>
-       
-       <li style="margin-left: 30px" >  
+        <li style="margin-left: 30px" >
+            <font style="font-family:Helvetica;" color="black" size="4">
+                Show a live demo of your work: Show the basic functionality and emphasize why your VR is different. You should include screenshots in your report as well.
+            </font>
+        </li>
+
+        <li style="margin-left: 30px" >
+            <font style="font-family:Helvetica;" color="black" size="4">
+                Make sure your demo/app is self-contained: No hidden keyboard/mouse control, no hidden functionality (for example, users might not know that they have to click on the Angry bird to play the sound). In case you have these hidden controls, you need to make them available in the GUI:
+        </li>
+
+        <li style="margin-left: 60px" >
+            <font style="font-family:Helvetica;" color="black" size="4">
+                Use highlighting principles (such as blinking) in my lecture 4.
+            </font>
+        </li>
+        <li style="margin-left: 60px" >
+            <font style="font-family:Helvetica;" color="black" size="4">
+                A <b>help</b> menu is useful for uses of keyboard/mouse and it can work as a quick manual.
+            </font>
+        </li>
+
+
+        <li style="margin-left: 30px" >
       <font style="font-family:Helvetica;" color="black" size="4"> 
-         Please practice your talk. Show the basic functionality and emphasize on why your visualization is different.          
+         Please practice your talk.
       </font>  
       </li>   
-
-     <hr style="width: 100%; height: 1px;">    
+    </ul>
+    
+    <hr style="width: 100%; height: 1px;">
       <div align="right"><font style="font-family:
-        Helvetica,Arial,sans-serif;" color="black" size="2">&copy; Last revised: Oct 14, 2016  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</font></div>
+        Helvetica,Arial,sans-serif;" color="black" size="2">&copy; Last revised: Feb 26, 2018  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</font></div>
      
   </body>
 </html>
