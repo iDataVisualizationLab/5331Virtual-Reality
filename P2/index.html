@@ -319,6 +319,7 @@ An example github report can be found <a href="https://github.com/CreativeCoding
              var grouped_filer = d3.nest().key(function (d) {
                  return d.Group;
              }).entries(data);
+             grouped_filer =grouped_filer.sort(function (a,b) { return d3.ascending(a.key,b.key) })
              grouped_filer.forEach(function (group, index) {
                  if(group.key ==""){
                      group.values.forEach(function (student,i) {
