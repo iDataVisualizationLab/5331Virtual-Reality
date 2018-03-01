@@ -8,6 +8,8 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://d3js.org/d3.v4.min.js"></script>
+
 
   </head>
   <body bgcolor="white" text="black">
@@ -51,7 +53,7 @@
       <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#option1">The AR watershed game</button>
       <div id="option1" class="collapse">
         The virtual watershed game is coupled with an Augmented Reality (AR) app. The app is loosely modeled
-after Pokémon GO , an app-based AR game that most students are familiar withwith. The AR app asks the students to identify natural and engineered features such as culverts, embankments, detention and retention basins, and discharge channels within their watersheds. Students identify these features in the “real-world” and learn about their role in maintaining sustainable water resources (both quality and quantity) within their watersheds while earning coins for use in the VR game.The scoreboard of top players will also be provided to interconnect students involving in the same tasks in real time. 
+after Pokémon GO , an app-based AR game that most students are familiar with. The AR app asks the students to identify natural and engineered features such as culverts, embankments, detention and retention basins, and discharge channels within their watersheds. Students identify these features in the “real-world” and learn about their role in maintaining sustainable water resources (both quality and quantity) within their watersheds while earning coins for use in the VR game.The scoreboard of top players will also be provided to interconnect students involving in the same tasks in real time. 
       </div>
   </li>
   
@@ -61,12 +63,15 @@ after Pokémon GO , an app-based AR game that most students are familiar withwit
     <div id="option2" class="collapse">
       <iframe width="1000" height="480" src="https://www.youtube.com/embed/ltKKNnWau8A" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><br>
 
-        The watershed development and management game is envisioned as a multiplayer game modeled after the classic Monopoly and SimCity. Students are provided a fixed amount of coins and a distinct parcel of land (which is assigned randomly) on which they can either build or expand urban areas, grow crops or engage in industrial activities. All these activities release pollutants (biochemical oxygen demand (BOD) and nutrients) into streams and creeks. The release of these pollutants will affect the in-stream health which is measured by decreases in dissolved oxygen (DO) and increases in algae. Critical thresholds of DO and algae (cholorophyll-a) will be used to simulate catastrophic events such as fish kills and loss of riparian habitats. A set of compliance points (CP) are set up on the stream segment to monitor water quality in the stream.  
+        The watershed development and management game is envisioned as a "multiplayer" game modeled after the classic Monopoly and SimCity. Students are provided a fixed amount of coins and a distinct parcel of land (which is assigned randomly) on which they can either build or expand urban areas, grow crops or engage in industrial activities. All these activities release pollutants (biochemical oxygen demand (BOD) and nutrients) into streams and creeks. The release of these pollutants will affect the in-stream health which is measured by decreases in dissolved oxygen (DO) and increases in algae. Critical thresholds of DO and algae (cholorophyll-a) will be used to simulate catastrophic events such as fish kills and loss of riparian habitats. A set of compliance points (CP) are set up on the stream segment to monitor water quality in the stream.  
+
+        Students can come up with more playing rules for this game.
     </div>
   </li>
   <li>  
     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#option3">The water elevation</button>
     <div id="option3" class="collapse">
+      Source of <a href="https://viewer.nationalmap.gov/basic/">Elevation Data </a>
       I am working on this <a href="https://codepen.io/kevinnewcombe/pen/XMVoKv/">https://codepen.io/kevinnewcombe/pen/XMVoKv/</a> 
       and <a href="https://github.com/datadesk/vr-interactives-three-js">https://github.com/datadesk/vr-interactives-three-js</a>
     </div>
@@ -287,8 +292,50 @@ An example github report can be found <a href="https://github.com/CreativeCoding
     </ul>
     
     <hr style="width: 100%; height: 1px;">
+    <div id="students">
+        <div>Group Assigned</div>
+        <table style="width:98%;" border="1" cellpadding="3" cellspacing="0" id="tbl_assiged">
+            <tr bgcolor="#aaa">
+                <td>Team</td>
+                <td>Members</td>
+                <td>Repository</td>
+                <td>Note</td>
+            </tr>
+        </table>
+        <hr style="width: 100%; height: 1px;">
+        <div>Group NOT Assigned</div>
+        <table style="width:98%;" border="1" cellpadding="3" cellspacing="0" id="tbl_unassiged">
+            <tr bgcolor="#aaa">
+                <td>No</td>
+                <td>Students</td>
+                <td>Note</td>
+            </tr>
+        </table>
+    </div>
       <div align="right"><font style="font-family:
         Helvetica,Arial,sans-serif;" color="black" size="2">&copy; Last revised: Feb 26, 2018  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</font></div>
-     
+     <script>
+         d3.csv('P2.csv', function (data) {
+             var grouped_filer = d3.nest().key(function (d) {
+                 return d.Group;
+             }).entries(data);
+             grouped_filer =grouped_filer.sort(function (a,b) { return d3.ascending(a.key,b.key) })
+             grouped_filer.forEach(function (group, index) {
+                 if(group.key ==""){
+                     group.values.forEach(function (student,i) {
+                         $('#tbl_unassiged').append('<tr><td>'+(i+1)+'</td> <td >'+student.Student+'</td> <td>unassingned</td></tr>');
+                     })
+
+                 }else {
+                     var students =[];
+                     group.values.forEach(function (student) {
+                        students.push(student.Student);
+                     });
+                     console.log(students.toString())
+                     $('#tbl_assiged').append('<tr><td align="center">'+group.key+'</td><td>'+students.join(', ')+'</td><td></td><td></td></tr>')
+                 }
+             })
+         })
+     </script>
   </body>
 </html>
