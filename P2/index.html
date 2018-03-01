@@ -319,7 +319,7 @@ An example github report can be found <a href="https://github.com/CreativeCoding
              grouped_filer.forEach(function (group, index) {
                  if(group.key ==""){
                      group.values.forEach(function (student,i) {
-                         $('#tbl_unassiged').append('<tr><td>'+i+'</td> <td>'+student.Student+'</td> <td>unassingned</td></tr>');
+                         $('#tbl_unassiged').append('<tr><td>'+(i+1)+'</td> <td >'+student.Student+'</td> <td>unassingned</td></tr>');
                      })
 
                  }else {
@@ -328,7 +328,7 @@ An example github report can be found <a href="https://github.com/CreativeCoding
                         students.push(student.Student);
                      });
                      console.log(students.toString())
-                     $('#tbl_assiged').append('<tr><td>'+group.key+'</td><td>'+students.join(', ')+'</td><td></td><td></td></tr>')
+                     $('#tbl_assiged').append('<tr><td align="center">'+group.key+'</td><td>'+students.join(', ')+'</td><td></td><td></td></tr>')
                  }
              })
          })
