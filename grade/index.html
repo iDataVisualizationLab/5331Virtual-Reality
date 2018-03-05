@@ -342,7 +342,7 @@ function main(){
           .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });
         svg.selectAll(".links02")
           .transition().duration(dur)
-          .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });  
+          .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });
         svg.selectAll(".linksP3")  
           .transition().duration(dur)
           .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });
@@ -400,7 +400,7 @@ function main(){
             .attr("stroke-opacity", 1);  
           svg.selectAll(".links02")
             .transition().duration(dur)
-            .attr("stroke-opacity", 1); 
+            .attr("stroke-opacity", 1);
 
           svg.selectAll(".nodeImageP3")
             .transition().duration(dur)
@@ -666,7 +666,7 @@ function main(){
         .attr("stroke", function(d){
           return color(d.group);
         })
-        .attr("stroke-width",0.5);  
+        .attr("stroke-width",0.5);
 
     linkP3 = svg.selectAll(".linksP3")
       .data(linksP2)
@@ -980,7 +980,7 @@ function main(){
         .transition().duration(dur)
         .attr("stroke-opacity", function (d2){ 
           if (!document.getElementById("checkboxP1").checked) return 0;
-          return d1.name==d2.source.name ? 1 : 0.1; });      
+          return d1.name==d2.source.name ? 1 : 0.1; });
        svg.selectAll(".links03")  
         .transition().duration(dur)
         .attr("stroke-opacity", function (d2){ 
@@ -1179,10 +1179,10 @@ function main(){
       if (document.getElementById("checkboxP1").checked){
         svg.selectAll(".linksP1")  
           .transition().duration(dur)
-          .attr("stroke-opacity", 1);  
+          .attr("stroke-opacity", 1);
         svg.selectAll(".linksP2")  
           .transition().duration(dur)
-          .attr("stroke-opacity", 1);  
+          .attr("stroke-opacity", 1);
         svg.selectAll(".linksP3")  
           .transition().duration(dur)
           .attr("stroke-opacity", 1); 
@@ -1427,16 +1427,12 @@ function showP1(){
     // Project 2  
     svg.selectAll(".links02")
       .transition().duration(400)
-      .attr("stroke-opacity",function(d){ 
-        return (d.source.name.indexOf("Manasa")<0 && d.source.name.indexOf("Paul")<0)? 1 : 0;
-      });
+      .attr("stroke-opacity",0);   // 2018 Tommy
 
     // Project 3
     svg.selectAll(".links03")
       .transition().duration(400)
-      .attr("stroke-opacity",function(d){ 
-        return (d.source.name.indexOf("Manasa")<0 && d.source.name.indexOf("Paul")<0)? 1 : 0;
-      });
+      .attr("stroke-opacity",1); // 2018 Tommy
 
       
 
