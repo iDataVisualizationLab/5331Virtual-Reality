@@ -365,14 +365,16 @@ An example github report can be found <a href="https://github.com/CreativeCoding
         Helvetica,Arial,sans-serif;" color="black" size="2">&copy; Last revised: Feb 26, 2018  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</font></div>
      <script>
          d3.csv('P2.csv', function (data) {
-			 data.forEach(function (d){d.Group = +d.Group;})
-			 
+
              var grouped_filer = d3.nest().key(function (d) {
                  return d.Group;
              }).entries(data);
-			 
-			 
-             grouped_filer =grouped_filer.sort(function (a,b) { return d3.ascending(a.key,b.key) })
+
+             grouped_filer.forEach(function (d) {
+                 d.position = +d.key;
+             })
+             grouped_filer =grouped_filer.sort(function (a,b) { return d3.ascending(a.position,b.position) })
+             console.log(grouped_filer)
              grouped_filer.forEach(function (group, index) {
                  if(group.key ==""){
                      group.values.forEach(function (student,i) {
