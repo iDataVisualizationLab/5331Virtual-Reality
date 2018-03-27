@@ -409,7 +409,7 @@ An example github report can be found <a href="https://github.com/CreativeCoding
                         students.push(student.Student);
                      });
                      console.log(students.toString())
-                     $('#tbl_assiged').append('<tr><td align="center" >'+group.key+'</td><td title='+group.values[0].Abstract+'>'+students.join(', ')+'</td><td>'+group.values[0].Abstract+'</td><td></td></tr>')
+                     $('#tbl_assiged').append('<tr><td align="center" >'+group.key+'</td><td title='+group.values[0].Abstract+'>'+students.join(', ')+'</td><td>'+group.values[0].Abstract.toString()+'</td><td></td></tr>')
                  }
              })
          })
