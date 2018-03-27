@@ -190,6 +190,7 @@ function main(){
       data[d.Students].array.P1_code = parseFloat(data2[d.Students].P1_code);
       data[d.Students].array.P1_talk = parseFloat(data2[d.Students].P1_talk);
       data[d.Students].array.P1_report = parseFloat(data2[d.Students].P1_report);
+      data[d.Students].array.P1_survey = parseFloat(data2[d.Students].P1_survey);
       data[d.Students].array.P2_code = parseFloat(data2[d.Students].P2_code);
       data[d.Students].array.P2_talk = parseFloat(data2[d.Students].P2_talk);
       data[d.Students].array.P2_report = parseFloat(data2[d.Students].P2_report);
@@ -552,6 +553,7 @@ function main(){
       nodeP11.P1_code = aData[i].P1_code;
       nodeP11.P1_talk = aData[i].P1_talk;
       nodeP11.P1_report = aData[i].P1_report;
+      nodeP11.P1_survey = aData[i].P1_survey;
       nodeP11.date = aData[i].date;
       nodeP11.image = aData[i].image;
       nodesP1.push(nodeP11);
@@ -564,6 +566,7 @@ function main(){
       nodeP12.P1_code = aData[i].P1_code;
       nodeP12.P1_talk = aData[i].P1_talk;
       nodeP12.P1_report = aData[i].P1_report;
+      nodeP12.P1_survey = aData[i].P1_survey;
       nodeP12.date = aData[i].date;
       nodeP12.image = aData[i].image;
       nodesP1.push(nodeP12);
@@ -1491,6 +1494,16 @@ function textP1(index){
         .attr("x", radius+nodesP1[index].x+5)
         .attr("y", nodesP1[index].y+18)
         .text("Report: "+nodesP1[index].P1_report+"%");
+
+      svg.append("text")
+        .attr("class", "textP1")
+        .style("font-size", "13px")
+        .attr("text-anchor", "left")
+        .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
+        .attr("fill", "#000")
+        .attr("x", radius+nodesP1[index].x+5)
+        .attr("y", nodesP1[index].y+33)
+        .text("Survey: "+nodesP1[index].P1_survey+"%");  
 
        // Project 2
        svg.append("text")
