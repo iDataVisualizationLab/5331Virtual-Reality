@@ -1,6 +1,6 @@
 Fullname,Nickname,P1_code,P1_talk,P1_report,P1_survey,P2_group_id,P2_group_score,P2_code,P2_talk,P2_report,P2_review,P3_group,P3_code,P3_talk,P3_report,P3_review,P3_reviewReceived,Program,Level,ProgrammingYears,Email,Photoname,ResearchInterest,StudentTalk,StudentReport
 Michael Acosta,M1221,10,5,3,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,BS,Undegraduate,2,Michael.Acosta@ttu.edu,Michael.png,https://www.linkedin.com/in/michael-acosta-b8472414a/,5,4.5
-Amitsingh Pardeshi,Amit,9.5,5,4.5,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,MSCS,Graduate,6,Amitsingh.Pardeshi@ttu.edu,Amit.jpg,https://github.com/pardeshiamitsingh,,4.5
+Amitsingh Pardeshi,Amit,9.5,5,4.5,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,MSCS,Graduate,6,Amitsingh.Pardeshi@ttu.edu,Amit.jpg,https://github.com/pardeshiamitsingh,5,4.5
 Alexandre Soares da Silva,big_Al,-1,-1,-1,-100,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,BS,Undegraduate,1.5,Alexandre.Soares-Da-Silva@ttu.edu,Soares_da_Silva_Alexandre.JPG,https://github.com/alexandresoaresilva/VR_class,,0
 Athaa Bader M Alotaibi,3tb,6.5,3.5,3.5,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,MSCS,Graduate,5,Athaa.Alotaibi@ttu.edu,no-image-icon-11.PNG,https://github.com/Abdrotb,4,5
 Benjamin Fox Bolduc,Fox,10.5,5,4,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,BS,Undegraduate,4,Fox.Bolduc@ttu.edu,Benjamin.jpg,foxbolduc.github.io,5,4.5
@@ -11,7 +11,7 @@ Darien Sokolov,Darien,9,4.5,3.5,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,BS,Undegra
 David Cooper,David,8.5,4.5,3.5,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,BS,Undegraduate,8,David.P.Cooper@ttu.edu,David.JPG,,,5
 Derek Fritz,DJ,9,5,4,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,BS,Undegraduate,3.5,Derek.Fritz@ttu.edu,Derek.png,https://github.com/defritz,5,5
 Emre Unal,Emrrr,8.5,4.5,3.5,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,BS,Undegraduate,4,Emre.Unal@ttu.edu,Emre_Unal.jpg,https://github.com/emreunal93/CS-4331---Virtual-Reality,,5
-Eddie Garcia,gar37012,8,4.5,3,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,BS,Undegraduate,2,Eddie.Garcia@ttu.edu,EddieGarcia.PNG,github: gar37012,,4.5
+Eddie Garcia,gar37012,8,4.5,3,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,BS,Undegraduate,2,Eddie.Garcia@ttu.edu,EddieGarcia.PNG,github: gar37012,5,4.5
 Gantaphon Chalumporn,Golf,9.5,5,5,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,PhD,PhD,6,G.Chalumporn@ttu.edu,Chalumporn.jpg,https://github.com/gchalump/CS5331-Virtual-Reality-TTU,5,5
 Jakob Dozier,Ezio,8.5,4.5,3.5,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,BS,Undegraduate,2,Jakob.Dozier@ttu.edu,JakobDozier.JPEG,https://github.com/JakobDozier,4.5,5
 Jessica Hao,JJJJ,8.5,5,4.5,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,BS,Undegraduate,4.5,Yanan.Hao@ttu.edu,Jessica.jpeg,https://github.com/hujiku9/VR-Designing.git,4.5,4.5
