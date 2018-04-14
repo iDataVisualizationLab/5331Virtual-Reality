@@ -103,7 +103,7 @@ var dataG = {};
 var groupCount = [{},{},{},{}];
 d3.csv("data/Students.csv", function(error, data_) {
   d3.csv("data/ResearchInsights.csv", function(error, dataG_) {
-    dataG = dataG-;
+    dataG = dataG_;
     data_.forEach(function(d) {
       if (data2[d.Fullname]==undefined)
           data2[d.Fullname] = {};
@@ -134,8 +134,8 @@ var dur = 400;  // animation duration
 // Force-directed layout
 var nodes=[];
 var links=[];
-var nodesP1=[];
-var linksP1=[];
+var nodesG=[];
+var linksG=[];
 var nodesP2=[];
 var linksP2=[];
 var nodesP3=[];
@@ -234,13 +234,7 @@ function main(){
       });
   });
  
-   /* groupCount.sort(function(a,b){
-      if (a.program<b.program)
-        return 1;
-      else
-        return -1;
-    })*/
-    // Draw color legend *************************
+  // Draw color legend *************************
     svg.append("line")
       .attr("class", "legendLine10")
       .attr("stroke", "#000")
@@ -296,162 +290,7 @@ function main(){
       .on("mouseover", mouseoverLegend)
       .on("mouseout", mouseoutLegend);
     
-    function mouseoverLegend(d1){
-      svg.selectAll(".legendText")
-          .attr("fill-opacity", function (d2){
-           return d1.program==d2.program ? 1 : 0.1; });
-        svg.selectAll(".legendLine")
-          .attr("stroke-opacity", function (d2){
-           return d1.program==d2.program ? 1 : 0.1; });
-        svg.selectAll(".legendCircle")
-          .attr("fill-opacity", function (d2){
-           return d1.program==d2.program ? 1 : 0.1; });
-        svg.selectAll(".lineGraph")
-          .transition().duration(dur)
-          .attr("stroke-opacity", function (d2){
-           return getCategoty(d1.program)==d2.group ? 1 : 0.05; });
-        svg.selectAll(".nodeImage")
-          .transition().duration(dur)
-          .attr("stroke-opacity", function (d2){ 
-            return getCategoty(d1.program)==d2.group ? 1 : 0.05; })
-          .attr("fill-opacity", function (d2){ 
-            return getCategoty(d1.program)==d2.group ? 1 : 0.1; });   
-        svg.selectAll(".nodeImageP1")
-          .transition().duration(dur)
-          .attr("stroke-opacity", function (d2){ 
-            if (!document.getElementById("checkboxP1").checked) return 0;
-            return getCategoty(d1.program)==d2.group ? 1 : 0.05; })
-          .attr("fill-opacity", function (d2){ 
-            if (!document.getElementById("checkboxP1").checked) return 0;
-            return getCategoty(d1.program)==d2.group ? 1 : 0.1; });   
-        svg.selectAll(".nodeCircle")  
-          .transition().duration(dur)
-          .attr("fill-opacity", function (d2){ 
-            return getCategoty(d1.program)==d2.group ? 1 : 0.1; });   
-        if (document.getElementById("checkboxP1").checked) {
-          svg.selectAll(".nodeP1")  
-            .transition().duration(dur)
-            .attr("stroke-opacity", function (d2){ 
-              return getCategoty(d1.program)==d2.group ? 1 : 0.05; })
-            .attr("fill-opacity", function (d2){ 
-              return getCategoty(d1.program)==d2.group ? 1 : 0.1; });   
-
-          svg.selectAll(".nodeP2")  
-            .transition().duration(dur)
-            .attr("stroke-opacity", function (d2){ 
-              return getCategoty(d1.program)==d2.group ? 1 : 0.05; })
-            .attr("fill-opacity", function (d2){ 
-              return getCategoty(d1.program)==d2.group ? 1 : 0.1; });   
-
-          svg.selectAll(".nodeP3")  
-            .transition().duration(dur)
-            .attr("stroke-opacity", function (d2){ 
-              return getCategoty(d1.program)==d2.group ? 1 : 0.05; })
-            .attr("fill-opacity", function (d2){ 
-              return getCategoty(d1.program)==d2.group ? 1 : 0.1; });         
-        }
-        else{
-           svg.selectAll(".nodeP1")  
-            .transition().duration(dur)
-            .attr("fill-opacity", 0);
-           svg.selectAll(".nodeP2")  
-            .transition().duration(dur)
-            .attr("fill-opacity", 0); 
-
-            svg.selectAll(".nodeP3")  
-            .transition().duration(dur)
-            .attr("fill-opacity", 0);    
-        }
-        svg.selectAll(".links")  
-          .transition().duration(dur)
-          .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });
-        svg.selectAll(".linksP1")  
-          .transition().duration(dur)
-          .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });
-        svg.selectAll(".links01")
-          .transition().duration(dur)
-          .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });
-        svg.selectAll(".linksP2")  
-          .transition().duration(dur)
-          .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });
-        svg.selectAll(".links02")
-          .transition().duration(dur)
-          .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });
-        svg.selectAll(".linksP3")  
-          .transition().duration(dur)
-          .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });
-        svg.selectAll(".links03")
-          .transition().duration(dur)
-          .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });    
-     
-    }  
-    function mouseoutLegend(d1){
-      svg.selectAll(".legendText")
-          .attr("fill-opacity", 1);
-        svg.selectAll(".legendLine")
-          .attr("stroke-opacity", 1);
-        svg.selectAll(".legendCircle")
-          .attr("fill-opacity", 1);
-        svg.selectAll(".lineGraph")
-          .transition().duration(dur)
-          .attr("stroke-opacity", 1);
-        svg.selectAll(".nodeImage")
-          .transition().duration(dur)
-          .attr("stroke-opacity", 1)
-          .attr("fill-opacity", 1);   
-        svg.selectAll(".links")  
-          .transition().duration(dur)
-          .attr("stroke-opacity", 1); 
-        svg.selectAll(".nodeCircle")  
-          .transition().duration(dur)
-          .attr("fill-opacity", 1);  
-          
-        if (document.getElementById("checkboxP1").checked){  
-          svg.selectAll(".nodeImageP1")
-            .transition().duration(dur)
-            .attr("stroke-opacity", 1)
-            .attr("fill-opacity", 1); 
-          svg.selectAll(".nodeP1")
-            .transition().duration(dur)
-            .attr("stroke-opacity", 1)
-            .attr("fill-opacity", 1); 
-          svg.selectAll(".linksP1")  
-            .transition().duration(dur)
-            .attr("stroke-opacity", 1);  
-          svg.selectAll(".links01")
-            .transition().duration(dur)
-            .attr("stroke-opacity", 1);  
-          svg.selectAll(".nodeImageP2")
-            .transition().duration(dur)
-            .attr("stroke-opacity", 1)
-            .attr("fill-opacity", 1); 
-          svg.selectAll(".nodeP2")
-            .transition().duration(dur)
-            .attr("stroke-opacity", 1)
-            .attr("fill-opacity", 1); 
-          svg.selectAll(".linksP2")  
-            .transition().duration(dur)
-            .attr("stroke-opacity", 1);  
-          svg.selectAll(".links02")
-            .transition().duration(dur)
-            .attr("stroke-opacity", 1);
-
-          svg.selectAll(".nodeImageP3")
-            .transition().duration(dur)
-            .attr("stroke-opacity", 1)
-            .attr("fill-opacity", 1); 
-          svg.selectAll(".nodeP3")
-            .transition().duration(dur)
-            .attr("stroke-opacity", 1)
-            .attr("fill-opacity", 1); 
-          svg.selectAll(".linksP3")  
-            .transition().duration(dur)
-            .attr("stroke-opacity", 1);  
-          svg.selectAll(".links03")
-            .transition().duration(dur)
-            .attr("stroke-opacity", 1);        
-        }    
-    }  
+    
     // Draw title *******************************
      svg.append("text")
       .attr("class", "title")
@@ -532,104 +371,6 @@ function main(){
       lin.group = nod1.group;
       links.push(lin);
 
-  // PROJECT 1
-      var nodeP11 = {};
-      nodeP11.name = aData[i].name;
-      nodeP11.nickname = aData[i].nickname;
-      nodeP11.group = aData[i].group;
-      nodeP11.score = aData[i].score;
-      nodeP11.P1_code = aData[i].P1_code;
-      nodeP11.P1_talk = aData[i].P1_talk;
-      nodeP11.P1_report = aData[i].P1_report;
-      nodeP11.P1_survey = aData[i].P1_survey;
-      nodeP11.date = aData[i].date;
-      nodeP11.image = aData[i].image;
-      nodesP1.push(nodeP11);
-
-      var nodeP12 = {};
-      nodeP12.name = aData[i].name;
-      nodeP12.nickname = aData[i].nickname;
-      nodeP12.group = aData[i].group;
-      nodeP12.score = aData[i].score;
-      nodeP12.P1_code = aData[i].P1_code;
-      nodeP12.P1_talk = aData[i].P1_talk;
-      nodeP12.P1_report = aData[i].P1_report;
-      nodeP12.P1_survey = aData[i].P1_survey;
-      nodeP12.date = aData[i].date;
-      nodeP12.image = aData[i].image;
-      nodesP1.push(nodeP12);
-
-      var linP1 = {};
-      linP1.source = nodeP11;
-      linP1.target = nodeP12;
-      linP1.group = nodeP11.group;
-      linksP1.push(linP1);
-      
-      // PROJECT 2
-      var nodeP21 = {};
-      nodeP21.name = aData[i].name;
-      nodeP21.nickname = aData[i].nickname;
-      nodeP21.group = aData[i].group;
-      nodeP21.score = aData[i].score;
-      nodeP21.P2_code = aData[i].P2_code;
-      nodeP21.P2_talk = aData[i].P2_talk;
-      nodeP21.P2_report = aData[i].P2_report;
-      nodeP21.P2_review = aData[i].P2_review;
-      nodeP21.date = aData[i].date;
-      nodeP21.image = aData[i].image;
-      nodesP2.push(nodeP21);
-
-      var nodeP22 = {};
-      nodeP22.name = aData[i].name;
-      nodeP22.nickname = aData[i].nickname;
-      nodeP22.group = aData[i].group;
-      nodeP22.score = aData[i].score;
-      nodeP22.P2_code = aData[i].P2_code;
-      nodeP22.P2_talk = aData[i].P2_talk;
-      nodeP22.P2_report = aData[i].P2_report;
-      nodeP22.P2_review = aData[i].P2_review;
-      nodeP22.date = aData[i].date;
-      nodeP22.image = aData[i].image;
-      nodesP2.push(nodeP22);
-
-      var linP2 = {};
-      linP2.source = nodeP21;
-      linP2.target = nodeP22;
-      linP2.group = nodeP21.group;
-      linksP2.push(linP2);
-
-      // PROJECT 3
-      var nodeP31 = {};
-      nodeP31.name = aData[i].name;
-      nodeP31.nickname = aData[i].nickname;
-      nodeP31.group = aData[i].group;
-      nodeP31.score = aData[i].score;
-      nodeP31.P3_code = aData[i].P3_code;
-      nodeP31.P3_talk = aData[i].P3_talk;
-      nodeP31.P3_report = aData[i].P3_report;
-      nodeP31.P3_review = aData[i].P3_review;
-      nodeP31.date = aData[i].date;
-      nodeP31.image = aData[i].image;
-      nodesP3.push(nodeP31);
-
-      var nodeP32 = {};
-      nodeP32.name = aData[i].name;
-      nodeP32.nickname = aData[i].nickname;
-      nodeP32.group = aData[i].group;
-      nodeP32.score = aData[i].score;
-      nodeP32.P3_code = aData[i].P3_code;
-      nodeP32.P3_talk = aData[i].P3_talk;
-      nodeP32.P3_report = aData[i].P3_report;
-      nodeP32.P3_review = aData[i].P3_review;
-      nodeP32.date = aData[i].date;
-      nodeP32.image = aData[i].image;
-      nodesP3.push(nodeP32);
-
-      var linP3 = {};
-      linP3.source = nodeP31;
-      linP3.target = nodeP32;
-      linP3.group = nodeP31.group;
-      linksP3.push(linP3);
     }
 
     // Compute the summary
@@ -686,32 +427,7 @@ function main(){
           return color(d.group);
         })
         .attr("stroke-width",0.5);
-    linkP1 = svg.selectAll(".linksP1")
-      .data(linksP1)
-      .enter().append("line")
-        .attr("class", "linksP1")
-        .attr("stroke", function(d){
-          return color(d.group);
-        })
-        .attr("stroke-width",0.5);
-
-    linkP2 = svg.selectAll(".linksP2")
-      .data(linksP2)
-      .enter().append("line")
-        .attr("class", "linksP2")
-        .attr("stroke", function(d){
-          return color(d.group);
-        })
-        .attr("stroke-width",0.5);
-
-    linkP3 = svg.selectAll(".linksP3")
-      .data(linksP2)
-      .enter().append("line")
-        .attr("class", "linksP3")
-        .attr("stroke", function(d){
-          return color(d.group);
-        })
-        .attr("stroke-width",0.5);        
+       
 
     link01 = svg.selectAll(".links01")
       .data(links)
@@ -763,74 +479,7 @@ function main(){
               .on("drag", dragged)
               .on("end", dragended));
 
-    nodeP1 = svg.selectAll(".nodeP1")
-          .data(nodesP1)
-          .enter().append("circle")
-            .attr("class","nodeP1")
-            .attr("r", function(d,i) { 
-              if (i%2==0)
-                return 0; 
-              else
-                return radius+1;
-            })
-            .attr("fill", function(d,i) { 
-              if (i%2==0)
-                return "#110"; 
-              else
-                return color(d.group);
-            })
-            .on("mouseover", mouseoverNode)
-            .on("mouseout", mouseoutNode)
-            .call(d3.drag()
-              .on("start", dragstarted)
-              .on("drag", dragged)
-              .on("end", dragended)); 
-    
-    nodeP2 = svg.selectAll(".nodeP2")
-          .data(nodesP2)
-          .enter().append("circle")
-            .attr("class","nodeP2")
-            .attr("r", function(d,i) { 
-              if (i%2==0)
-                return 0; 
-              else
-                return radius+1;
-            })
-            .attr("fill", function(d,i) { 
-              if (i%2==0)
-                return "#110"; 
-              else
-                return color(d.group);
-            })
-            .on("mouseover", mouseoverNode)
-            .on("mouseout", mouseoutNode)
-            .call(d3.drag()
-              .on("start", dragstarted)
-              .on("drag", dragged)
-              .on("end", dragended));       
-
-      nodeP3 = svg.selectAll(".nodeP3")
-          .data(nodesP3)
-          .enter().append("circle")
-            .attr("class","nodeP3")
-            .attr("r", function(d,i) { 
-              if (i%2==0)
-                return 0; 
-              else
-                return radius+1;
-            })
-            .attr("fill", function(d,i) { 
-              if (i%2==0)
-                return "#110"; 
-              else
-                return color(d.group);
-            })
-            .on("mouseover", mouseoverNode)
-            .on("mouseout", mouseoutNode)
-            .call(d3.drag()
-              .on("start", dragstarted)
-              .on("drag", dragged)
-              .on("end", dragended));                        
+                        
 
   for (var i=0;i<nodes.length;i++){
     var imgurl = "http://wallpapers.androlib.com/wallicons/wallpaper.big-pqC.cs.png"
@@ -913,21 +562,10 @@ function main(){
     else{
       node.append("title")
         .text(function(d) { return d.nickname; });
-      nodeP1.append("title")
-        .text(function(d) { return d.nickname; });  
-      nodeP2.append("title")
-        .text(function(d) { return d.nickname; });  
-      nodeP3.append("title")
-        .text(function(d) { return d.nickname; });      
     }
-     
-
-  
     
-
     fadeP1();  
-      
-    
+
     simulation
       .nodes(nodes)
       .on("tick", ticked);
@@ -1009,13 +647,11 @@ function tickedP2() {
         var yy = nodesP2[i].P2_code+nodesP2[i].P2_talk+nodesP2[i].P2_report
                 +nodesP2[i].P2_review;
         nodesP2[i].y = yP1(yy*20/35);  // 35% compared to 20%
-     //   nodesP2[i].y = (nodesP2[i].y)/3;
       }
       else{
         nodesP2[i].x = x(nodesP2[i].date);  
         nodesP2[i].y = y(nodesP2[i].score);   
-      }
-      
+      }   
     }
     linkP2
         .attr("x1", function(d) { return d.source.x; })
@@ -1040,7 +676,6 @@ function tickedP3() {
         var yy = nodesP3[i].P3_code+nodesP3[i].P3_talk+nodesP3[i].P3_report
                 +nodesP3[i].P3_review;
         nodesP3[i].y = yP1(yy*20/35);  // 35% compared to 20%
-     //   nodesP2[i].y = (nodesP2[i].y)/3;
       }
       else{
         nodesP3[i].x = x(nodesP3[i].date);  
@@ -1111,9 +746,7 @@ function showP1(){
     // Project 3
     svg.selectAll(".links03")
       .transition().duration(400)
-      .attr("stroke-opacity",1); // 2018 Tommy
-
-      
+      .attr("stroke-opacity",1); // 2018 Tommy  
 
     if (!revealIdentity){
       svg.selectAll(".nodeP1")
@@ -1126,8 +759,6 @@ function showP1(){
         .transition().duration(400)
         .attr("fill-opacity",1);    
     }  
-
-
 
     // Draw grade axis ***********
     var aGrades = [20, 16, 12, 8];
@@ -1170,15 +801,8 @@ function showP1(){
   else{
       fadeP1();
   }    
-
   simulation.restart();
   simulation.alpha(0.3);
-  simulationP1.restart();
-  simulationP1.alpha(0.3);
-  simulationP2.restart();
-  simulationP2.alpha(0.3);
-  simulationP3.restart();
-  simulationP3.alpha(0.3);
 
   svg.selectAll(".lineGraph")
       .transition().duration(300)
@@ -1258,8 +882,7 @@ function searchNode() {
       }  
     }
     mouseoutNode(obj);
-    mouseoverNode(obj);
-    
+    mouseoverNode(obj);    
 }
 
 
@@ -1604,6 +1227,164 @@ function textP1(index){
       svg.selectAll(".textStudentTalk").remove();
       svg.selectAll(".textStudentReport").remove();
     }
+
+function mouseoverLegend(d1){
+      svg.selectAll(".legendText")
+          .attr("fill-opacity", function (d2){
+           return d1.program==d2.program ? 1 : 0.1; });
+        svg.selectAll(".legendLine")
+          .attr("stroke-opacity", function (d2){
+           return d1.program==d2.program ? 1 : 0.1; });
+        svg.selectAll(".legendCircle")
+          .attr("fill-opacity", function (d2){
+           return d1.program==d2.program ? 1 : 0.1; });
+        svg.selectAll(".lineGraph")
+          .transition().duration(dur)
+          .attr("stroke-opacity", function (d2){
+           return getCategoty(d1.program)==d2.group ? 1 : 0.05; });
+        svg.selectAll(".nodeImage")
+          .transition().duration(dur)
+          .attr("stroke-opacity", function (d2){ 
+            return getCategoty(d1.program)==d2.group ? 1 : 0.05; })
+          .attr("fill-opacity", function (d2){ 
+            return getCategoty(d1.program)==d2.group ? 1 : 0.1; });   
+        svg.selectAll(".nodeImageP1")
+          .transition().duration(dur)
+          .attr("stroke-opacity", function (d2){ 
+            if (!document.getElementById("checkboxP1").checked) return 0;
+            return getCategoty(d1.program)==d2.group ? 1 : 0.05; })
+          .attr("fill-opacity", function (d2){ 
+            if (!document.getElementById("checkboxP1").checked) return 0;
+            return getCategoty(d1.program)==d2.group ? 1 : 0.1; });   
+        svg.selectAll(".nodeCircle")  
+          .transition().duration(dur)
+          .attr("fill-opacity", function (d2){ 
+            return getCategoty(d1.program)==d2.group ? 1 : 0.1; });   
+        if (document.getElementById("checkboxP1").checked) {
+          svg.selectAll(".nodeP1")  
+            .transition().duration(dur)
+            .attr("stroke-opacity", function (d2){ 
+              return getCategoty(d1.program)==d2.group ? 1 : 0.05; })
+            .attr("fill-opacity", function (d2){ 
+              return getCategoty(d1.program)==d2.group ? 1 : 0.1; });   
+
+          svg.selectAll(".nodeP2")  
+            .transition().duration(dur)
+            .attr("stroke-opacity", function (d2){ 
+              return getCategoty(d1.program)==d2.group ? 1 : 0.05; })
+            .attr("fill-opacity", function (d2){ 
+              return getCategoty(d1.program)==d2.group ? 1 : 0.1; });   
+
+          svg.selectAll(".nodeP3")  
+            .transition().duration(dur)
+            .attr("stroke-opacity", function (d2){ 
+              return getCategoty(d1.program)==d2.group ? 1 : 0.05; })
+            .attr("fill-opacity", function (d2){ 
+              return getCategoty(d1.program)==d2.group ? 1 : 0.1; });         
+        }
+        else{
+           svg.selectAll(".nodeP1")  
+            .transition().duration(dur)
+            .attr("fill-opacity", 0);
+           svg.selectAll(".nodeP2")  
+            .transition().duration(dur)
+            .attr("fill-opacity", 0); 
+
+            svg.selectAll(".nodeP3")  
+            .transition().duration(dur)
+            .attr("fill-opacity", 0);    
+        }
+        svg.selectAll(".links")  
+          .transition().duration(dur)
+          .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });
+        svg.selectAll(".linksP1")  
+          .transition().duration(dur)
+          .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });
+        svg.selectAll(".links01")
+          .transition().duration(dur)
+          .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });
+        svg.selectAll(".linksP2")  
+          .transition().duration(dur)
+          .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });
+        svg.selectAll(".links02")
+          .transition().duration(dur)
+          .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });
+        svg.selectAll(".linksP3")  
+          .transition().duration(dur)
+          .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });
+        svg.selectAll(".links03")
+          .transition().duration(dur)
+          .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });    
+     
+    }  
+    function mouseoutLegend(d1){
+      svg.selectAll(".legendText")
+          .attr("fill-opacity", 1);
+        svg.selectAll(".legendLine")
+          .attr("stroke-opacity", 1);
+        svg.selectAll(".legendCircle")
+          .attr("fill-opacity", 1);
+        svg.selectAll(".lineGraph")
+          .transition().duration(dur)
+          .attr("stroke-opacity", 1);
+        svg.selectAll(".nodeImage")
+          .transition().duration(dur)
+          .attr("stroke-opacity", 1)
+          .attr("fill-opacity", 1);   
+        svg.selectAll(".links")  
+          .transition().duration(dur)
+          .attr("stroke-opacity", 1); 
+        svg.selectAll(".nodeCircle")  
+          .transition().duration(dur)
+          .attr("fill-opacity", 1);  
+          
+        if (document.getElementById("checkboxP1").checked){  
+          svg.selectAll(".nodeImageP1")
+            .transition().duration(dur)
+            .attr("stroke-opacity", 1)
+            .attr("fill-opacity", 1); 
+          svg.selectAll(".nodeP1")
+            .transition().duration(dur)
+            .attr("stroke-opacity", 1)
+            .attr("fill-opacity", 1); 
+          svg.selectAll(".linksP1")  
+            .transition().duration(dur)
+            .attr("stroke-opacity", 1);  
+          svg.selectAll(".links01")
+            .transition().duration(dur)
+            .attr("stroke-opacity", 1);  
+          svg.selectAll(".nodeImageP2")
+            .transition().duration(dur)
+            .attr("stroke-opacity", 1)
+            .attr("fill-opacity", 1); 
+          svg.selectAll(".nodeP2")
+            .transition().duration(dur)
+            .attr("stroke-opacity", 1)
+            .attr("fill-opacity", 1); 
+          svg.selectAll(".linksP2")  
+            .transition().duration(dur)
+            .attr("stroke-opacity", 1);  
+          svg.selectAll(".links02")
+            .transition().duration(dur)
+            .attr("stroke-opacity", 1);
+
+          svg.selectAll(".nodeImageP3")
+            .transition().duration(dur)
+            .attr("stroke-opacity", 1)
+            .attr("fill-opacity", 1); 
+          svg.selectAll(".nodeP3")
+            .transition().duration(dur)
+            .attr("stroke-opacity", 1)
+            .attr("fill-opacity", 1); 
+          svg.selectAll(".linksP3")  
+            .transition().duration(dur)
+            .attr("stroke-opacity", 1);  
+          svg.selectAll(".links03")
+            .transition().duration(dur)
+            .attr("stroke-opacity", 1);        
+        }    
+    }  
+
 function dragstarted(d) {
   if (!d3.event.active) simulation.alphaTarget(0.3).restart();
   d.fx = d.x;
