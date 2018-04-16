@@ -33,7 +33,7 @@ path {
 }
 </style>
 <body bgcolor="white" text="black" id="mainBody">
-<svg width="2000" height="800"></svg>
+<svg width="2100" height="700"></svg>
 
 <div id="searchHolder"  class="searchHolder">
   <input id="search">
@@ -56,8 +56,10 @@ path {
 <!-- load the d3.js library -->    
 <script src="jquery.min.js"></script>
 <script type='text/javascript' src="jquery-ui.min.js"> </script>
-<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="js/d3.v4.js"></script>
+<script src="js/d3.tip.v0.6.3.js"></script>
 <link href="jquery-ui.css" rel="stylesheet" type="text/css" />
+<script src="myscripts/tooltip.js"></script>
 
 <script>
 
@@ -86,22 +88,13 @@ var yAxis= d3.scaleLinear().range([height, 0]);
 var yP1= d3.scaleLinear().range([height*1.7, 0]);
 
 
-
-
 // Student info data  
 var data2 = {};
 var dataG = {};
-
 var groupCount = [{},{},{},{}];
 d3.csv("data/Students.csv", function(error, data_) {
   d3.csv("data/ResearchInsights.csv", function(error, dataG_) {
     dataG = dataG_;
-    data_.forEach(function(d) {
-      if (data2[d.Fullname]==undefined)
-          data2[d.Fullname] = {};
-      data2[d.Fullname] =d;  
-
-    });
     main();
   })  
 })
@@ -126,12 +119,9 @@ var dur = 400;  // animation duration
 // Force-directed layout
 var nodes=[];
 var links=[];
-var nodesG=[];
-var linksG=[];
 
 var startDate = new Date("3/1/2018");
-var endtDate = new Date("1/1/2020");
-
+var endtDate = new Date("1/1/2019");
 var today = new Date();
     
 function getCategoty(str){
@@ -149,137 +139,76 @@ var data = {};
 
 
 function main(){
-  d3.csv("data/participation.csv", function(error, data_) {
-    data_.forEach(function(d) {
-      if (data[d.Students]==undefined)
-          data[d.Students] = {};
-      if (data[d.Students].array==undefined)
-          data[d.Students].array= [];
-      var object =  {}; 
-      object.date = new Date(d.Date);
-      object.score = +d.Scores/2;
-      //object.studentTalk = +d.StudentTalk;
-      data[d.Students].array.push(object);
-      data[d.Students].array.name = d.Students;
-      data[d.Students].array.studentTalk = +data2[d.Students].StudentTalk;
-      data[d.Students].array.studentReport = +data2[d.Students].StudentReport;
-      data[d.Students].array.nickname =data2[d.Students].Nickname;
-      data[d.Students].array.group = getCategoty(data2[d.Students].Program);
-      data[d.Students].array.image = data2[d.Students].Photoname;
-      data[d.Students].array.P1_code = parseFloat(data2[d.Students].P1_code);
-      data[d.Students].array.P1_talk = parseFloat(data2[d.Students].P1_talk);
-      data[d.Students].array.P1_report = parseFloat(data2[d.Students].P1_report);
-      data[d.Students].array.P1_survey = parseFloat(data2[d.Students].P1_survey);
-      data[d.Students].array.P2_code = parseFloat(data2[d.Students].P2_code);
-      data[d.Students].array.P2_talk = parseFloat(data2[d.Students].P2_talk);
-      data[d.Students].array.P2_report = parseFloat(data2[d.Students].P2_report);
-      data[d.Students].array.P2_review = parseFloat(data2[d.Students].P2_review);
-      data[d.Students].array.P2_group_score = parseFloat(data2[d.Students].P2_group_score); 
-      data[d.Students].array.P3_code = parseFloat(data2[d.Students].P3_code);
-      data[d.Students].array.P3_talk = parseFloat(data2[d.Students].P3_talk);
-      data[d.Students].array.P3_report = parseFloat(data2[d.Students].P3_report);
-      data[d.Students].array.P3_review = parseFloat(data2[d.Students].P3_review);
-      data[d.Students].array.P3_group_score = parseFloat(data2[d.Students].P3_group_score); 
-      data[d.Students].array.index = data[d.Students].array.length-1;
-    });
-      
-    // Accumulate values
-    for (var key in data){
-      var arr = data[key].array;
-      for (var i=0; i< arr.length; i++){
-        if (i>0)
-          arr[i].score+=arr[i-1].score;
-        arr.score= arr[i].score;  // Copy the final score to array
-        arr.date = arr[i].date;
-      }
-    }
-
-    // Make a new array
-
-    for (var key in data){
-      var arr = data[key].array
-      aData.push(arr);
-      // count group (students by program)
-      if (groupCount[arr.group].count==undefined)
-        groupCount[arr.group].count=0;  
-      groupCount[arr.group].count++;
-      groupCount[arr.group].program = data2[key].Program;
-    }
-     // Scale the range of the data
-      x.domain([startDate,endtDate]);
-      xNew.domain([startDate,endtDate]);
-      y.domain([0, 15]);
-      yAxis.domain([0, 0.15]);
-      yP1.domain([0, 25]);
-
-
-  // Search student nicknam
-  var optArray =[];
-  for (var student in data2) {
-     optArray.push(data2[student].Nickname);
-  }
-  optArray = optArray.sort();
-  $(function () {
-      $("#search").autocomplete({
-          source: optArray
-      });
-  });
+  // Scale the range of the data
+  x.domain([startDate,endtDate]);
+  xNew.domain([startDate,endtDate]);
+  y.domain([0, 15]);
+  yAxis.domain([0, 0.15]);
+  yP1.domain([0, 25]);
  
   // Draw color legend *************************
-    svg.append("line")
-      .attr("class", "legendLine10")
-      .attr("stroke", "#000")
-      .attr("stroke-width", 1)
-      .style("stroke-dasharray", ("3, 3"))
-      .attr("x1", 200)
-      .attr("y1", y(10))
-      .attr("x2", x(today))
-      .attr("y2", y(10));
-
-    svg.selectAll(".legendCircle")
-      .data(groupCount).enter()
-      .append("circle")
-      .attr("class", "legendCircle")
-      .attr("stroke", function(d,i) {
-        return color(i);
-      })
-      .attr("stroke-width", 1)
-      .attr("fill", function(d,i) {
-        return color(i);
-      })
-      .attr("cx", 60)
-      .attr("cy", function(d, i){ return 30+20*i})
-      .attr("r", 7)
-      .on("mouseover", mouseoverLegend)
-      .on("mouseout", mouseoutLegend);  
-    
-    svg.selectAll(".legendLine")
-      .data(groupCount).enter()
-      .append("line")
-      .attr("class", "legendLine")
-      .attr("stroke", function(d,i) {
-        return color(i);
-      })
-      .attr("stroke-width", 1)
-      .attr("fill", "#fff")
-      .attr("x1", 40)
-      .attr("y1", function(d, i){ return 30+20*i})
-      .attr("x2", 62)
-      .attr("y2", function(d, i){ return 30+20*i});
-
-    svg.selectAll(".legendText")
-      .data(groupCount).enter()
-      .append("text")
-      .attr("class", "legendText")
-      .style("font-size", "15px")
+  svg.append("line")
+    .attr("class", "legendLine10")
+    .attr("stroke", "#000")
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("2, 2"))
+    .attr("x1", x(today))
+    .attr("y1", y(10))
+    .attr("x2", x(today))
+    .attr("y2", height);
+   svg.append("text")
+      .attr("class", "title")
+      .style("font-size", "14px")
       .attr("text-anchor", "left")
-      .attr("fill", function(d,i) {return color(i); })
-      .attr("x", 62+radius)
-      .attr("y", function(d, i){ return 36+20*i})
-      .text(function(d){
-        return d.program + " ("+d.count+" students)"})
-      .on("mouseover", mouseoverLegend)
-      .on("mouseout", mouseoutLegend);
+      .attr("fill", "#666")
+      .attr("x", x(today))
+      .attr("y", y(10))
+      .text("Today");  
+
+  svg.selectAll(".legendCircle")
+    .data(groupCount).enter()
+    .append("circle")
+    .attr("class", "legendCircle")
+    .attr("stroke", function(d,i) {
+      return color(i);
+    })
+    .attr("stroke-width", 1)
+    .attr("fill", function(d,i) {
+      return color(i);
+    })
+    .attr("cx", 60)
+    .attr("cy", function(d, i){ return 30+20*i})
+    .attr("r", 7)
+    .on("mouseover", mouseoverLegend)
+    .on("mouseout", mouseoutLegend);  
+    
+  svg.selectAll(".legendLine")
+    .data(groupCount).enter()
+    .append("line")
+    .attr("class", "legendLine")
+    .attr("stroke", function(d,i) {
+      return color(i);
+    })
+    .attr("stroke-width", 1)
+    .attr("fill", "#fff")
+    .attr("x1", 40)
+    .attr("y1", function(d, i){ return 30+20*i})
+    .attr("x2", 62)
+    .attr("y2", function(d, i){ return 30+20*i});
+
+  svg.selectAll(".legendText")
+    .data(groupCount).enter()
+    .append("text")
+    .attr("class", "legendText")
+    .style("font-size", "15px")
+    .attr("text-anchor", "left")
+    .attr("fill", function(d,i) {return color(i); })
+    .attr("x", 62+radius)
+    .attr("y", function(d, i){ return 36+20*i})
+    .text(function(d){
+      return d.program + " ("+d.count+" students)"})
+    .on("mouseover", mouseoverLegend)
+    .on("mouseout", mouseoutLegend);
     
     
     // Draw title *******************************
@@ -316,106 +245,127 @@ function main(){
         .call(d3.axisLeft(yAxis).ticks(12, "%"));
 
       // Append xAxis label
-      svg.append("text")
+    /*  svg.append("text")
         .style("fill", "black")
         .style("font-size", "17px")
         .attr("dy", ".35em")
         .attr("text-anchor", "middle")
         .attr("transform", "translate(-52,"+height/2+") rotate(-90)")
-        .text("Percentage of participations in student's final grade");    
+        .text("Percentage of participations in student's final grade");    */
 ////
+    var minAmount= +dataG[0].Amount;
+    var maxAmount= +dataG[0].Amount;
     for (var i=0; i<dataG.length;i++){
+      dataG[i].Amount = +dataG[i].Amount;
+
       var nod1 = {};
-        nod1.name = dataG[i].Title;
-        nod1.Deadline = new Date(dataG[i].Deadline);
-        nodes.push(nod1);
+      nod1.name = dataG[i].Title;
+      nod1.Amount = dataG[i].Amount;
+      nod1.Deadline = new Date(dataG[i].Deadline);
+      nodes.push(nod1);
 
-        var nod2 = {};
-        nod2.name = dataG[i].Title;
-        nod2.Deadline = new Date(dataG[i].Deadline);
-        nodes.push(nod2);
+      var nod2 = {};
+      nod2.name = dataG[i].Title;
+      nod2.Amount = dataG[i].Amount;
+      nod2.Deadline = new Date(dataG[i].Deadline);
+      nodes.push(nod2);
 
-        var lin = {};
-        lin.source = nod1;
-        lin.target = nod2;
-        lin.group = nod1.group;
-        links.push(lin);
-      }
+      // Compute min and max amount
+      if (dataG[i].Amount<minAmount)
+        minAMount = dataG[i].Amount;
+      if (dataG[i].Amount>maxAmount)
+        maxAmount = dataG[i].Amount;
 
-      link = svg.selectAll(".links")
-        .data(links)
-        .enter().append("line")
-          .attr("class", "links")
-          .attr("stroke", function(d){
-            return color(d.group);
-          })
-          .attr("stroke-width",0.5);
+
+      var lin = {};
+      lin.source = nod1;
+      lin.target = nod2;
+      lin.group = nod1.group;
+      links.push(lin);
+    }
+
+    // Search student nicknam
+    var optArray =[];
+    for (var g in dataG) {
+       optArray.push(g.Title);
+    }
+    optArray = optArray.sort();
+    $(function () {
+        $("#search").autocomplete({
+            source: optArray
+        });
+    });
+    
+    link = svg.selectAll(".links")
+      .data(links)
+      .enter().append("line")
+        .attr("class", "links")
+        .attr("stroke", function(d){
+          return color(d.group);
+        })
+        .attr("stroke-width",0.5);
          
 
-      link01 = svg.selectAll(".links01")
-        .data(links)
-        .enter().append("line")
-          .attr("class", "links01")
-          .attr("stroke", function(d){ return color(d.group);})
-          .attr("stroke-width",0.5);    
+  link01 = svg.selectAll(".links01")
+    .data(links)
+    .enter().append("line")
+      .attr("class", "links01")
+      .attr("stroke", function(d){ return color(d.group);})
+      .attr("stroke-width",0.5);    
 
-      link02 = svg.selectAll(".links02")
-        .data(links)
-        .enter().append("line")
-          .attr("class", "links02")
-          .attr("stroke", function(d){ return color(d.group);})
-          .attr("stroke-width", function(d){
-           // console.log(d.source.name);
-            return d.source.name=="Sara Sartoli" ? 0 : 0.5;
-          });   
+  link02 = svg.selectAll(".links02")
+    .data(links)
+    .enter().append("line")
+      .attr("class", "links02")
+      .attr("stroke", function(d){ return color(d.group);})
+      .attr("stroke-width", function(d){
+       // console.log(d.source.name);
+        return d.source.name=="Sara Sartoli" ? 0 : 0.5;
+      });   
 
-      link03 = svg.selectAll(".links03")
-        .data(links)
-        .enter().append("line")
-          .attr("class", "links03")
-          .attr("stroke", function(d){ return color(d.group);})
-          .attr("stroke-width", function(d){
-           // console.log(d.source.name);
-            return d.source.name=="Sara Sartoli" ? 0 : 0.5;
-          });           
-              
-      node = svg.selectAll(".nodeCircle")
-            .data(nodes)
-            .enter().append("circle")
-              .attr("class","nodeCircle")
-              .attr("r", function(d,i) { 
-                if (i%2==0)
-                  return 0; 
-                else
-                  return radius+1;
-             })
-              .attr("fill", function(d,i) { 
-                if (i%2==0)
-                  return "#110"; 
-                else
-                  return color(d.group);
-            })
-            .on("mouseover", mouseoverNode)
-            .on("mouseout", mouseoutNode)
-            .call(d3.drag()
-                .on("start", dragstarted)
-                .on("drag", dragged)
-                .on("end", dragended));     
+    link03 = svg.selectAll(".links03")
+      .data(links)
+      .enter().append("line")
+        .attr("class", "links03")
+        .attr("stroke", function(d){ return color(d.group);})
+        .attr("stroke-width", function(d){
+         // console.log(d.source.name);
+          return d.source.name=="Sara Sartoli" ? 0 : 0.5;
+        });           
+  
+  var radiusScale = d3.scaleLinear().range([10, 30]).domain([Math.sqrt(minAmount),Math.sqrt(maxAmount)]) ;
+  function getRadius(d,i){
+    if (i%2==0)
+      return 0; 
+    else
+      return radiusScale(Math.sqrt(d.Amount));
+  } 
+
+  node = svg.selectAll(".nodeCircle")
+        .data(nodes)
+        .enter().append("circle")
+          .attr("class","nodeCircle")
+          .attr("r", getRadius)
+          .attr("fill", function(d,i) { 
+            if (i%2==0)
+              return "#110"; 
+            else
+              return color(d.group);
+        })
+        .on("mouseover", mouseoverNode)
+        .on("mouseout", mouseoutNode)
+        .call(d3.drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended));     
                         
   simulation
       .nodes(nodes)
       .on("tick", ticked);
     simulation.force("link")
         .links(links);
-    simulation.force("collide", d3.forceCollide(function(d,i){
-      if (i%2==0)
-        return 0;
-      else
-        return radius+1;
-    }));  
+    simulation.force("collide", d3.forceCollide(getRadius));  
     simulation.alpha(0.25);
-
-  });
 }
 
   function ticked() {
@@ -452,6 +402,8 @@ function searchNode() {
 
 
     function mouseoverNode(d1){
+       showTip(d1);
+
       //if (d1.P1_code!=undefined && !document.getElementById("checkboxP1").checked)
       //   return; 
       svg.selectAll(".lineGraph")
