@@ -17,7 +17,7 @@ path {
 #controlHolder {
   position:absolute;
   z-index: 0;
-  top: 165px;
+  top: 100px;
   left: 127px;
   border: 0px solid rgba(0,0,0, 1);
   background-color: none;
@@ -26,10 +26,20 @@ path {
 #searchHolder {
   position:absolute;
   z-index: 0;
-  top: 65px;
+  top: 15px;
   left: 427px;
   border: 0px solid rgba(0,0,0, 1);
   background-color: none;
+}
+
+#networkHolder {
+    position:absolute;
+    z-index: 0;
+    top: 0px;
+    left: 820px;
+    border: 0px solid rgba(255,0,0, 1);
+    background-color: rgba(0,0,255, 0.2);
+    border-radius: 6px;
 }
 
 /* tooltip */
@@ -41,7 +51,7 @@ path {
   background: rgba(204, 204, 204, 0.96);
   color: #000;
   border: 1px solid rgba(0,0,0, 1);
-  border-radius: 6px;
+  border-radius: 12px;
 }
 
 /* Style northward tooltips differently */
@@ -76,8 +86,12 @@ table, th, td {
 
 <div id="controlHolder"  class="controlHolder">
  <input type="checkbox" id="checkboxP1" visibility="hidden" value="value2" class="check" onclick="showP1()">
-<label for="checkboxP1"> Project results</label> 
-</div> 
+<label for="checkbox1"> Order by time</label>
+</div>
+
+<div id="networkHolder"  class="networkHolder">
+    <svg  id="svg2" width="400" height="300"></svg>
+</div>
 
 <!-- load the d3.js library -->    
 <script src="js/jquery.min.js"></script>
@@ -90,9 +104,7 @@ table, th, td {
 
 // Set the dimensions of the canvas / graph
 var margin = {top: 5, right: 30, bottom: 50, left: 70};
-var revealIdentity = false;
-var aData = [];
- 
+
 var svg = d3.select("svg"),
     width = +document.getElementById("mainBody").offsetWidth-margin.left-margin.right,
     height = +svg.attr("height")-margin.top-margin.bottom;
@@ -100,6 +112,8 @@ var svg = d3.select("svg"),
 svg = svg.append("g")
         .attr("transform", 
               "translate(" + margin.left + "," + margin.top + ")");
+
+var svg2 = document.getElementById("svg2");
 
 // Parse the date / time
 var parseTime = d3.timeParse("%m/%d/%y");
@@ -145,7 +159,7 @@ var dur = 400;  // animation duration
 var nodes=[];
 var links=[];
 
-var startDate = new Date("3/1/2018");
+var startDate = new Date("4/1/2018");
 var endtDate = new Date("1/1/2019");
 var today = new Date();
     
@@ -188,61 +202,16 @@ function main(){
       .attr("fill", "#666")
       .attr("x", x(today))
       .attr("y", y(10))
-      .text("Today");  
-
-  svg.selectAll(".legendCircle")
-    .data(groupCount).enter()
-    .append("circle")
-    .attr("class", "legendCircle")
-    .attr("stroke", function(d,i) {
-      return color(i);
-    })
-    .attr("stroke-width", 1)
-    .attr("fill", function(d,i) {
-      return color(i);
-    })
-    .attr("cx", 60)
-    .attr("cy", function(d, i){ return 30+20*i})
-    .attr("r", 7)
-    .on("mouseover", mouseoverLegend)
-    .on("mouseout", mouseoutLegend);  
-    
-  svg.selectAll(".legendLine")
-    .data(groupCount).enter()
-    .append("line")
-    .attr("class", "legendLine")
-    .attr("stroke", function(d,i) {
-      return color(i);
-    })
-    .attr("stroke-width", 1)
-    .attr("fill", "#fff")
-    .attr("x1", 40)
-    .attr("y1", function(d, i){ return 30+20*i})
-    .attr("x2", 62)
-    .attr("y2", function(d, i){ return 30+20*i});
-
-  svg.selectAll(".legendText")
-    .data(groupCount).enter()
-    .append("text")
-    .attr("class", "legendText")
-    .style("font-size", "15px")
-    .attr("text-anchor", "left")
-    .attr("fill", function(d,i) {return color(i); })
-    .attr("x", 62+radius)
-    .attr("y", function(d, i){ return 36+20*i})
-    .text(function(d){
-      return d.program + " ("+d.count+" students)"})
-    .on("mouseover", mouseoverLegend)
-    .on("mouseout", mouseoutLegend);
+      .text("Today");
     
     
     // Draw title *******************************
      svg.append("text")
       .attr("class", "title")
-      .style("font-size", "22px")
+      .style("font-size", "20px")
       .attr("text-anchor", "left")
       .attr("fill", "#000")
-      .attr("x", margin.left+230)
+      .attr("x", margin.left)
       .attr("y", 20)
       .text("Related research grants");
     
@@ -297,7 +266,9 @@ function main(){
       nod2.Deadline = new Date(dataG[i].Deadline);
       nod2.Link = dataG[i].Link;
       nod2.Sponsors = dataG[i].Sponsors;
-      nodes.push(nod2);
+      nod2.SponsorList = dataG[i].Sponsors.split(", ");
+
+        nodes.push(nod2);
 
       // Compute min and max amount
       if (dataG[i].Amount<minAmount)
@@ -311,6 +282,46 @@ function main(){
       lin.target = nod2;
       lin.group = nod1.group;
       links.push(lin);
+    }
+
+    function isContainObject(array, name) {
+        var found = false;
+        for(var i = 0; i < array.length; i++) {
+            if (array[i].name == name) {
+                found = true;
+                break;
+            }
+        }
+        return found;
+    }
+
+
+    // Compute Sponsors list
+    var sponsorlist = [];
+    var indexOfsponsorlist = {};
+    for (var i=0; i<dataG.length;i++) {
+        var list = dataG[i].Sponsors.split(", ");
+        for (var j = 0; j < list.length; j++) {
+            if (isContainObject(sponsorlist,list[j])==false){
+                var obj = {};
+                obj.name = list[j];
+                obj.Amount = 0;   // initialize the amount of money
+                sponsorlist.push(obj);
+                indexOfsponsorlist[obj.name] = sponsorlist.length-1;
+            }
+        }
+    }
+
+    // Compute Sponsors Money
+    for (var i=0; i<dataG.length;i++) {
+        var list = dataG[i].Sponsors.split(", ");
+        if (list.length>0){
+            var money = dataG[i].Amount/list.length;
+            for (var k = 0; k < list.length; k++) {
+                var index =  indexOfsponsorlist[list[k]];
+                sponsorlist[index].Amount += money;
+            }
+        }
     }
 
     // Search student nicknam
@@ -363,7 +374,7 @@ function main(){
           return d.source.name=="Sara Sartoli" ? 0 : 0.5;
         });           
   
-  var radiusScale = d3.scaleLinear().range([10, 30]).domain([Math.sqrt(minAmount),Math.sqrt(maxAmount)]) ;
+  var radiusScale = d3.scaleLinear().range([7, 20]).domain([Math.sqrt(minAmount),Math.sqrt(maxAmount)]) ;
   function getRadius(d,i){
     if (i%2==0)
       return 0; 
@@ -380,8 +391,9 @@ function main(){
             if (i%2==0)
               return "#110"; 
             else
-              return color(d.group);
+              return color(d.SponsorList[0]);
         })
+          .attr("stroke", "#000")
         .on("mouseover", mouseoverNode)
         .on("mouseout", mouseoutNode)
         .on("click", function(d){
@@ -446,33 +458,19 @@ function searchNode() {
       svg.selectAll(".nodeImage")
         .transition().duration(dur)
         .attr("stroke-opacity", function (d2){ return d1.name==d2.name ? 1 : 0.05; })
-        .attr("fill-opacity", function (d2){ return d1.name==d2.name ? 1 : 0.1; });  
-      if (revealIdentity){   
-        svg.selectAll(".nodeImageP1")
-          .transition().duration(dur)
-          .attr("stroke-opacity", function (d2){ 
-            if (!document.getElementById("checkboxP1").checked) return 0;
-            return d1.name==d2.name ? 1 : 0.05; })
-          .attr("fill-opacity", function (d2){ 
-            if (!document.getElementById("checkboxP1").checked) return 0;
-            return d1.name==d2.name ? 1 : 0.1; });   
-        svg.selectAll(".nodeCircle")  
-        .transition().duration(dur)
-        .attr("fill-opacity", 0);    
-      } 
-      else{
-        //debugger;
-        svg.selectAll(".nodeCircle")
-          .transition().duration(dur)
-          .attr("stroke-opacity", function (d2){ 
-          //  if (!document.getElementById("checkboxP1").checked) return 0;
-            return d1.name==d2.name ? 1 : 0.05; })
-          .attr("fill-opacity", function (d2){ 
-          //  if (!document.getElementById("checkboxP1").checked) return 0;
-            return d1.name==d2.name ? 1 : 0.1; });   
-      } 
+        .attr("fill-opacity", function (d2){ return d1.name==d2.name ? 1 : 0.1; });
 
-      svg.selectAll(".links")  
+
+    svg.selectAll(".nodeCircle")
+        .transition().duration(dur)
+        .attr("stroke-opacity", function (d2){
+            //  if (!document.getElementById("checkboxP1").checked) return 0;
+            return d1.name==d2.name ? 1 : 0.05; })
+        .attr("fill-opacity", function (d2){
+            //  if (!document.getElementById("checkboxP1").checked) return 0;
+            return d1.name==d2.name ? 1 : 0.1; });
+
+        svg.selectAll(".links")
         .transition().duration(dur)
         .attr("stroke-opacity", function (d2){ return d1.name==d2.source.name ? 1 : 0.1; });
       svg.selectAll(".linksP1")  
@@ -563,8 +561,8 @@ function searchNode() {
       }  
     }
 
-function mouseoverLegend(d1){
-      svg.selectAll(".legendText")
+    function mouseoverLegend(d1){
+        /*svg.selectAll(".legendText")
           .attr("fill-opacity", function (d2){
            return d1.program==d2.program ? 1 : 0.1; });
         svg.selectAll(".legendLine")
@@ -616,7 +614,7 @@ function mouseoverLegend(d1){
           .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });
         svg.selectAll(".links03")
           .transition().duration(dur)
-          .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });    
+          .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });    */
      
     }  
     function mouseoutLegend(d1){

@@ -5,10 +5,9 @@
       .offset([-8, 0])
       .html(function(d) { 
         str="";
-        str+="<b> Index card data: </b>"
         str+="<table border='0.5px'  style='width:100%'>"
         for (key in d) {
-          if (key== "x" || key== "y" || key== "vx" || key== "vy" || key== "index")
+          if (key== "x" || key== "y" || key== "vx" || key== "vy" || key== "fx" || key== "fy" || key== "index"|| key== "SponsorList")
               ;// Do nothing
           else if (key== "name")
             str+=  "<tr><td> Title</td> <td>  <span style='color:black'>" + d[key] + "</span> </td></tr>";
