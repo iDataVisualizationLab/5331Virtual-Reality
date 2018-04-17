@@ -12,7 +12,7 @@
               ;// Do nothing
           else if (key== "name")
             str+=  "<tr><td> Title</td> <td>  <span style='color:black'>" + d[key] + "</span> </td></tr>";
-          else if (key== "Link")
+          else if (key== "L ink")
             str+=  "<tr><td>"+key+"</td> <td>  <span style='color:blue'>" + d[key] + "</span> </td></tr>";
           else{
             str+=  "<tr><td>"+key+"</td> <td>  <span style='color:black'>" + d[key] + "</span> </td></tr>";
