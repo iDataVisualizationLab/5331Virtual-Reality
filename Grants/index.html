@@ -31,6 +31,32 @@ path {
   border: 0px solid rgba(0,0,0, 1);
   background-color: none;
 }
+
+/* tooltip */
+.d3-tip {
+  line-height: 1;
+  padding: 10px;
+  font-size: 14px;
+  font-family: "sans-serif";
+  background: rgba(204, 204, 204, 0.96);
+  color: #000;
+  border: 1px solid rgba(0,0,0, 1);
+  border-radius: 6px;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    padding: 2px;
+    background-color: #fff;
+}
 </style>
 <body bgcolor="white" text="black" id="mainBody">
 <svg width="2100" height="700"></svg>
@@ -54,12 +80,11 @@ path {
 </div> 
 
 <!-- load the d3.js library -->    
-<script src="jquery.min.js"></script>
-<script type='text/javascript' src="jquery-ui.min.js"> </script>
+<script src="js/jquery.min.js"></script>
+<script type='text/javascript' src="js/jquery-ui.min.js"> </script>
 <script src="js/d3.v4.js"></script>
-<script src="js/d3.tip.v0.6.3.js"></script>
+<script src="js/d3.tip.js"></script>
 <link href="jquery-ui.css" rel="stylesheet" type="text/css" />
-<script src="myscripts/tooltip.js"></script>
 
 <script>
 
@@ -214,12 +239,12 @@ function main(){
     // Draw title *******************************
      svg.append("text")
       .attr("class", "title")
-      .style("font-size", "25px")
+      .style("font-size", "22px")
       .attr("text-anchor", "left")
       .attr("fill", "#000")
       .attr("x", margin.left+230)
       .attr("y", 20)
-      .text("Class participation graph");
+      .text("Related research grants");
     
     // Draw Label for yAxis *******************************
      svg.append("text")
@@ -261,6 +286,8 @@ function main(){
       var nod1 = {};
       nod1.name = dataG[i].Title;
       nod1.Amount = dataG[i].Amount;
+      nod1.Sponsors = dataG[i].Sponsors;
+      nod1.Link = dataG[i].Link;
       nod1.Deadline = new Date(dataG[i].Deadline);
       nodes.push(nod1);
 
@@ -268,6 +295,8 @@ function main(){
       nod2.name = dataG[i].Title;
       nod2.Amount = dataG[i].Amount;
       nod2.Deadline = new Date(dataG[i].Deadline);
+      nod2.Link = dataG[i].Link;
+      nod2.Sponsors = dataG[i].Sponsors;
       nodes.push(nod2);
 
       // Compute min and max amount
@@ -286,9 +315,10 @@ function main(){
 
     // Search student nicknam
     var optArray =[];
-    for (var g in dataG) {
-       optArray.push(g.Title);
+    for (var i=0; i<dataG.length;i++){
+       optArray.push(dataG[i].Title);
     }
+
     optArray = optArray.sort();
     $(function () {
         $("#search").autocomplete({
@@ -354,6 +384,10 @@ function main(){
         })
         .on("mouseover", mouseoverNode)
         .on("mouseout", mouseoutNode)
+        .on("click", function(d){
+          window.open(d.Link,'_blank')
+          //location.replace(d.Link);
+        })
         .call(d3.drag()
             .on("start", dragstarted)
             .on("drag", dragged)
@@ -402,7 +436,7 @@ function searchNode() {
 
 
     function mouseoverNode(d1){
-       showTip(d1);
+       tool_tip.show(d1);
 
       //if (d1.P1_code!=undefined && !document.getElementById("checkboxP1").checked)
       //   return; 
@@ -436,37 +470,6 @@ function searchNode() {
           .attr("fill-opacity", function (d2){ 
           //  if (!document.getElementById("checkboxP1").checked) return 0;
             return d1.name==d2.name ? 1 : 0.1; });   
-        if (document.getElementById("checkboxP1").checked){
-          svg.selectAll(".nodeP1")
-          .transition().duration(dur)
-          .attr("stroke-opacity", function (d2){ 
-          //  if (!document.getElementById("checkboxP1").checked) return 0;
-            return d1.name==d2.name ? 1 : 0.05; })
-          .attr("fill-opacity", function (d2){ 
-          //  if (!document.getElementById("checkboxP1").checked) return 0;
-            return d1.name==d2.name ? 1 : 0.1; }); 
-
-          // Project 2
-          svg.selectAll(".nodeP2")
-          .transition().duration(dur)
-          .attr("stroke-opacity", function (d2){ 
-          //  if (!document.getElementById("checkboxP1").checked) return 0;
-            return d1.name==d2.name ? 1 : 0.05; })
-          .attr("fill-opacity", function (d2){ 
-          //  if (!document.getElementById("checkboxP1").checked) return 0;
-            return d1.name==d2.name ? 1 : 0.1; });     
-
-          // Project 3
-          svg.selectAll(".nodeP3")
-          .transition().duration(dur)
-          .attr("stroke-opacity", function (d2){ 
-          //  if (!document.getElementById("checkboxP1").checked) return 0;
-            return d1.name==d2.name ? 1 : 0.05; })
-          .attr("fill-opacity", function (d2){ 
-          //  if (!document.getElementById("checkboxP1").checked) return 0;
-            return d1.name==d2.name ? 1 : 0.1; });     
-        }  
-
       } 
 
       svg.selectAll(".links")  
@@ -504,60 +507,11 @@ function searchNode() {
           if (!document.getElementById("checkboxP1").checked) return 0;
           return d1.name==d2.source.name ? 1 : 0.1; });            
 
-      if (document.getElementById("checkboxP1").checked){
-        textP1(d1.index);
-      }  
-      textContribution(d1.index);       
     }
 
-  function textContribution(index){
-      svg.append("text")
-        .attr("class", "textContribution")
-        .style("font-size", "13px")
-        .attr("text-anchor", "left")
-        .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
-        .attr("fill", "#000")
-        .attr("x", radius+nodes[index].x+5)
-        .attr("y", nodes[index].y+3)
-        .text("Participation: "+nodes[index].score+"%");
-
-       if (nodes[index].studentTalk>0){
-        svg.append("text")
-            .attr("class", "textStudentTalk")
-            .style("font-size", "13px")
-            .attr("text-anchor", "left")
-            .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
-            .attr("fill", "#000")
-            .attr("x", radius+nodes[index].x+5)
-            .attr("y", nodes[index].y+20)
-            .text("SC Talk: "+nodes[index].studentTalk+"%");
-       }
-       else{
-         svg.append("text")
-             .attr("class", "textStudentTalk")
-             .style("font-size", "13px")
-             .attr("text-anchor", "left")
-             .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
-             .attr("fill", "#00f")
-             .attr("x", radius+nodes[index].x+5)
-             .attr("y", nodes[index].y+20)
-             .text("SC Talk: not yet presented");
-
-       }
-        if (nodes[index].studentReport>=0){
-            svg.append("text")
-                .attr("class", "textStudentReport")
-                .style("font-size", "13px")
-                .attr("text-anchor", "left")
-                .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
-                .attr("fill", "#000")
-                .attr("x", radius+nodes[index].x+5)
-                .attr("y", nodes[index].y+35)
-                .text("SC Report: "+nodes[index].studentReport+"%");
-        }
-    }  
-
     function mouseoutNode(d1){
+       tool_tip.hide(d1);
+
       svg.selectAll(".lineGraph")
         .transition().duration(dur)
         .attr("stroke-opacity", 1);
@@ -706,4 +660,6 @@ function dragended(d) {
 }
 
 </script>
+<script src="myscripts/tooltip.js"></script>
+
 </body>
