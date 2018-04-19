@@ -164,11 +164,7 @@ var radius = 8;
 
 var node, link;
 var node2, link2;
-<<<<<<< HEAD
-var nodeArcs;
-=======
 var nodePie;
->>>>>>> abbe728627bf94f0edd38072e57ddd24e9ee300f
 
 var dur = 400;  // animation duration
 
@@ -429,20 +425,11 @@ function main(){
 
 
 
-<<<<<<< HEAD
-    nodeArcs = svg.append("g").selectAll("path")
-        .data(nodes)
-        .enter().append("g")
-        .attr("class", "linkArc")
-        .style("stroke", "#000")
-        .style("stroke-width", 1);
-=======
     // Draw nodePie
     nodePie = svg.selectAll(".nodePie")
         .data(nodes)
         .enter().append("g")
         .attr("class", "nodePie");
->>>>>>> abbe728627bf94f0edd38072e57ddd24e9ee300f
 
     var arc = d3.arc()
         .innerRadius(0);
@@ -451,13 +438,7 @@ function main(){
         .value(function (d) {
             return d.value;
         });
-<<<<<<< HEAD
-    
-    nodeArcs.data(function (d) {
-      debugger;
-=======
     nodePie.selectAll("path").data(function (d) {
->>>>>>> abbe728627bf94f0edd38072e57ddd24e9ee300f
         var list = d.Sponsors.split(", ");
         if (list.length>0){
             var money = d.Amount/list.length;
