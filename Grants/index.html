@@ -164,7 +164,7 @@ var radius = 8;
 
 var node, link;
 var node2, link2;
-var linkArcs;
+var nodeArcs;
 
 var dur = 400;  // animation duration
 
@@ -455,9 +455,9 @@ function main(){
 
 
 
-    linkArcs = svg.append("g").selectAll("path")
+    nodeArcs = svg.append("g").selectAll("path")
         .data(nodes)
-        .enter().append("path")
+        .enter().append("g")
         .attr("class", "linkArc")
         .style("stroke", "#000")
         .style("stroke-width", 1);
@@ -472,9 +472,9 @@ function main(){
         .value(function (d) {
             return d.value;
         });
-    linkArcs.selectAll(".aaaa").remove();
-
-    linkArcs.selectAll(".aaaa").data(function (d) {
+    
+    nodeArcs.data(function (d) {
+      debugger;
         var list = d.Sponsors.split(", ");
         if (list.length>0){
             var money = d.Amount/list.length;
