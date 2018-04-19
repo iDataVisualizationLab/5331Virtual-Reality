@@ -137,13 +137,17 @@ var yAxis= d3.scaleLinear().range([height, 0]);
 
 
 // Student info data  
-var data2 = {};
 var dataG = {};
-var groupCount = [{},{},{},{}];
 d3.csv("data/Students.csv", function(error, data_) {
   d3.csv("data/ResearchInsights.csv", function(error, dataG_) {
-    dataG = dataG_;
-    main();
+      // Filter data by endDate
+      dataG = dataG_.filter(function(d,i){
+          var date = new Date(dataG_[i].Deadline);
+          if (date<endtDate)
+              return d;
+      });
+
+      main();
   })  
 })
 
@@ -270,6 +274,7 @@ function main(){
             return 1;
     })
 
+
     var minAmount= +dataG[0].Amount;
     var maxAmount= +dataG[0].Amount;
     for (var i=0; i<dataG.length;i++){
@@ -277,7 +282,7 @@ function main(){
 
       var nod1 = {};
       nod1.name = dataG[i].Title;
-      nod1.Amount = dataG[i].Amount;
+      nod1.Amount = +dataG[i].Amount;
       nod1.Sponsors = dataG[i].Sponsors;
       nod1.Link = dataG[i].Link;
       nod1.Deadline = new Date(dataG[i].Deadline);
@@ -286,7 +291,7 @@ function main(){
 
       var nod2 = {};
       nod2.name = dataG[i].Title;
-      nod2.Amount = dataG[i].Amount;
+      nod2.Amount = +dataG[i].Amount;
       nod2.Deadline = new Date(dataG[i].Deadline);
       nod2.Link = dataG[i].Link;
       nod2.Sponsors = dataG[i].Sponsors;
@@ -296,7 +301,7 @@ function main(){
 
       // Compute min and max amount
       if (dataG[i].Amount<minAmount)
-        minAMount = dataG[i].Amount;
+          minAmount = dataG[i].Amount;
       if (dataG[i].Amount>maxAmount)
         maxAmount = dataG[i].Amount;
 
@@ -306,7 +311,7 @@ function main(){
       lin.group = nod1.group;
       links.push(lin);
     }
-
+    
     function isContainObject(array, name) {
         var found = false;
         for(var i = 0; i < array.length; i++) {
@@ -410,8 +415,7 @@ function main(){
         .attr("stroke-opacity", 0.02)
         .attr("stroke-width",0.5);
          
-  radiusScale = d3.scaleLinear().range([7, 25]).domain([Math.sqrt(minAmount),Math.sqrt(maxAmount)]) ;
-
+  radiusScale = d3.scaleLinear().range([3, 20]).domain([Math.sqrt(minAmount),Math.sqrt(maxAmount)]) ;
 
   sponsorlist = sponsorlist.sort(function(a,b){
     if (a.name=="None")
@@ -452,27 +456,31 @@ function main(){
                 d.valueList.push(obj);
             }
         }
-        console.log(pie(d.valueList));
         return pie(d.valueList);
         })
-        .enter().append("svg:path")
-        .attr("d", function(d,i) {
-            if (d.data.originalOrder%2==0)
-                arc.outerRadius(0);
-            else
-                arc.outerRadius(d.data.r);
-            return arc(d);
-        })
-        .style("fill", function(d) {
-            return getColor(getGrantName(d.data.sponsor));
-        });
+    .enter().append("svg:path")
+    .attr("d", function(d,i) {
+        if (d.data.originalOrder%2==0)
+            arc.outerRadius(0);
+        else
+            arc.outerRadius(d.data.r);
+        return arc(d);
+    })
+    .style("fill", function(d) {
+        return getColor(getGrantName(d.data.sponsor));
+    });
+
 
     // Transparent nodes
     node = svg.selectAll(".nodeCircle")
         .data(nodes)
         .enter().append("circle")
         .attr("class","nodeCircle")
-        .attr("r", getRadius)
+        .attr("r", function(d,i){
+            if (i%2==1)
+                console.log(getRadius(d,i)+ " "+ d.Amount +" sqrt="+Math.sqrt(d.Amount));
+            return getRadius(d,i);
+        })
         .attr("fill", function(d,i) {
             if (i%2==0)
                 return "#000";
@@ -500,7 +508,7 @@ function main(){
             .on("end", dragended));
 
 
-
+    mouseoutNode();
 
 
     link2 = svg2.selectAll(".links")
@@ -612,62 +620,60 @@ function ticked() {
 
 
 
-function searchNode() {
-    //searchTerm = document.getElementById('search').value;
-    var value = document.getElementById('search').value;
-    svg.selectAll(".nodeCircle")
-        .transition().duration(dur*4)
-        .attr("r", function (d,i){
-          if (i%2==0)
-            return 0;
-          if (d.name.toLowerCase().indexOf(value.toLowerCase())>=0)
-            return radiusScale(Math.sqrt(d.Amount));
-          else
-            return 0;
-         });
-    svg.selectAll(".nodePie")
-        .transition().duration(dur*4)
-        .style("fill-opacity", function (d,i){
-            if (i%2==0)
+    function searchNode() {
+        //searchTerm = document.getElementById('search').value;
+        var value = document.getElementById('search').value;
+        svg.selectAll(".nodeCircle")
+            .transition().duration(dur*4)
+            .attr("r", function (d,i){
+              if (i%2==0)
                 return 0;
-            if (d.name.toLowerCase().indexOf(value.toLowerCase())>=0)
-                return 1;
-            else
+              if (d.name.toLowerCase().indexOf(value.toLowerCase())>=0)
+                return radiusScale(Math.sqrt(d.Amount));
+              else
                 return 0;
-        });
-}
+             });
+        svg.selectAll(".nodePie")
+            .transition().duration(dur*4)
+            .style("fill-opacity", function (d,i){
+                if (i%2==0)
+                    return 0;
+                if (d.name.toLowerCase().indexOf(value.toLowerCase())>=0){
 
-function check1() {
-    simulation.stop();
-    simulation.alphaTarget(0.03).restart();
-}
+                    if (d.Deadline<today)
+                        return 0.1;
+                    else
+                        return 1;
+
+                }
+
+                else
+                    return 0;
+            });
+     //   mouseoutNode();
+    }
+
+    function check1() {
+        simulation.stop();
+        simulation.alphaTarget(0.03).restart();
+    }
 
 
-function mouseoverNode(d1){
-    tool_tip.show(d1);
-    svg.selectAll(".nodePie")
-        .transition().duration(dur)
-        .attr("stroke-opacity", function (d2){
-            //  if (!document.getElementById("checkboxP1").checked) return 0;
-            return d1.name==d2.name ? 1 : 0.05; })
-        .attr("fill-opacity", function (d2){
-            return d1.name==d2.name ? 1 : 0.1; });
+    function mouseoverNode(d1){
+        tool_tip.show(d1);
+        svg.selectAll(".nodePie")
+            .transition().duration(dur)
+            .attr("stroke-opacity", function (d2){
+                //  if (!document.getElementById("checkboxP1").checked) return 0;
+                return d1.name==d2.name ? 1 : 0.05; })
+            .attr("fill-opacity", function (d2){
+                return d1.name==d2.name ? 1 : 0.1; });
 
-    svg.selectAll(".nodeCircle")
-        .transition().duration(dur)
-        .attr("stroke-opacity", function (d2){
-            //  if (!document.getElementById("checkboxP1").checked) return 0;
-            return d1.name==d2.name ? 1 : 0.05; });
-
-
-        svg.selectAll(".links")
-        .transition().duration(dur)
-        .attr("stroke-opacity", function (d2){ return d1.name==d2.source.name ? 1 : 0.1; });
-      svg.selectAll(".links01")  
-        .transition().duration(dur)
-        .attr("stroke-opacity", function (d2){ 
-          if (!document.getElementById("checkboxP1").checked) return 0;
-          return d1.name==d2.source.name ? 1 : 0.1; }); 
+        svg.selectAll(".nodeCircle")
+            .transition().duration(dur)
+            .attr("stroke-opacity", function (d2){
+                //  if (!document.getElementById("checkboxP1").checked) return 0;
+                return d1.name==d2.name ? 1 : 0.05; });
     }
 
     function mouseoutNode(d1){
@@ -675,7 +681,6 @@ function mouseoverNode(d1){
 
        svg.selectAll(".nodePie")
         .transition().duration(dur)
-        .attr("stroke-opacity", 1)
         .attr("fill-opacity", function(d){
           if (d.Deadline<today)
             return 0.1;
@@ -685,8 +690,12 @@ function mouseoverNode(d1){
 
         svg.selectAll(".nodeCircle")
             .transition().duration(dur)
-            .attr("stroke-opacity", 1);
-
+            .attr("stroke-opacity", function(d){
+                if (d.Deadline<today)
+                    return 0.1;
+                else
+                    return 1;
+            });
       
       //svg.selectAll(".links")  
       //  .transition().duration(dur)
