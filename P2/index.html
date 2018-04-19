@@ -375,6 +375,7 @@ An example github report can be found <a href="https://github.com/CreativeCoding
                 <td>Team</td>
                 <td width="15%">Members</td>
                 <td width="50%">Abstract</td>
+                <td>Screenshot</td>
                 <td>GitHub</td>
                 <td>Presented Date</td>
                 <td>Evaluation link</td>
@@ -435,9 +436,8 @@ An example github report can be found <a href="https://github.com/CreativeCoding
                  var localdata = rawdata.sort(function (a,b) {
                      return a.order - b.order;
                  });
-                 console.log(localdata);
                  localdata.forEach(function (row,index) {
-                     $('#tbl_assiged').append('<tr><td align="center" >'+row.group+'</td><td>'+row.names+'</td><td>'+row.abstract+'</td><td><a href="'+row.github+'" target="_blank">Link</a> </td><td>'+row.presented_date+'</td><td><a href="'+row.evaluation_link+'">Evaluate</a> </td></tr>')
+                     $('#tbl_assiged').append('<tr><td align="center" >'+row.group+'</td><td>'+row.names+'</td><td>'+row.abstract+'</td><td><img style="width:250px;height: 200px" src="'+row.thumbnail+'" ></td><td><a href="'+row.github+'" target="_blank">Link</a> </td><td>'+row.presented_date+'</td><td><a href="'+row.evaluation_link+'">Evaluate</a> </td></tr>')
                  });
 //                 var grouped_filer = d3.nest().key(function (d) {
 //                     return d.Group;
