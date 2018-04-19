@@ -67,6 +67,11 @@ table, th, td {
     padding: 2px;
     background-color: #fff;
 }
+
+#graph {
+    width: 900px;
+    height: 500px;
+}
 </style>
 <body bgcolor="white" text="black" id="mainBody">
 <svg width="2100" height="700"></svg>
@@ -92,6 +97,7 @@ table, th, td {
 <div id="networkHolder"  class="networkHolder">
 </div>
 
+<div id="graph"></div>
 <!-- load the d3.js library -->    
 <script src="js/jquery.min.js"></script>
 <script type='text/javascript' src="js/jquery-ui.min.js"> </script>
@@ -100,6 +106,7 @@ table, th, td {
 <link href="jquery-ui.css" rel="stylesheet" type="text/css" />
 
 <script>
+
 
 // Set the dimensions of the canvas / graph
 var margin = {top: 5, right: 30, bottom: 50, left: 70};
@@ -157,6 +164,7 @@ var radius = 8;
 
 var node, link;
 var node2, link2;
+var linkArcs;
 
 var dur = 400;  // animation duration
 
@@ -254,6 +262,13 @@ function main(){
      // svg.append("g")
      //   .style("font-size", "14px")
      //   .call(d3.axisLeft(yAxis).ticks(12));
+    dataG.sort(function(a,b){
+        if (new Date(a.Deadline)<new Date(b.Deadline)){
+            return -1;
+        }
+        else
+            return 1;
+    })
 
     var minAmount= +dataG[0].Amount;
     var maxAmount= +dataG[0].Amount;
@@ -266,6 +281,7 @@ function main(){
       nod1.Sponsors = dataG[i].Sponsors;
       nod1.Link = dataG[i].Link;
       nod1.Deadline = new Date(dataG[i].Deadline);
+      nod1.originalOrder = nodes.length;
       nodes.push(nod1);
 
       var nod2 = {};
@@ -275,8 +291,8 @@ function main(){
       nod2.Link = dataG[i].Link;
       nod2.Sponsors = dataG[i].Sponsors;
       nod2.SponsorList = dataG[i].Sponsors.split(", ");
-
-        nodes.push(nod2);
+      nod2.originalOrder = nodes.length;
+      nodes.push(nod2);
 
       // Compute min and max amount
       if (dataG[i].Amount<minAmount)
@@ -371,7 +387,7 @@ function main(){
         }
       }  
     }     
-    // Search student nicknam
+    // Search student nickname
     var optArray =[];
     for (var i=0; i<dataG.length;i++){
        optArray.push(dataG[i].Title);
@@ -395,12 +411,7 @@ function main(){
         .attr("stroke-width",0.5);
          
   radiusScale = d3.scaleLinear().range([7, 25]).domain([Math.sqrt(minAmount),Math.sqrt(maxAmount)]) ;
-  function getRadius(d,i){
-    if (i%2==0)
-      return 0; 
-    else
-      return radiusScale(Math.sqrt(d.Amount));
-  } 
+
 
   sponsorlist = sponsorlist.sort(function(a,b){
     if (a.name=="None")
@@ -439,8 +450,58 @@ function main(){
         .call(d3.drag()
             .on("start", dragstarted)
             .on("drag", dragged)
-            .on("end", dragended));   
-  link2 = svg2.selectAll(".links")
+            .on("end", dragended));
+
+
+
+
+    linkArcs = svg.append("g").selectAll("path")
+        .data(nodes)
+        .enter().append("path")
+        .attr("class", "linkArc")
+        .style("stroke", "#000")
+        .style("stroke-width", 1);
+
+    var arc = d3.arc()
+        .innerRadius(3)
+        .startAngle(45 * (Math.PI/180)) //converting from degs to radians
+        .endAngle(3) //just radians
+
+    var pie = d3.pie()
+        .sort(null)
+        .value(function (d) {
+            return d.value;
+        });
+    linkArcs.selectAll(".aaaa").remove();
+
+    linkArcs.selectAll(".aaaa").data(function (d) {
+        var list = d.Sponsors.split(", ");
+        if (list.length>0){
+            var money = d.Amount/list.length;
+            d.valueList = [];
+            for (var k = 0; k < list.length; k++) {
+                obj = {};
+                obj.value = money;
+                d.valueList.push(obj);
+            }
+        }
+        console.log(pie(d.valueList));
+        return pie(d.valueList);
+    })
+        .enter().append("circle")
+        .attr("class","aaaa")
+        //.attr("d", function(d) {
+        //    arc.outerRadius(getRadius(d));
+        //    return arc(d);
+        //})
+        .attr("r", 100)
+        .attr("cx", 100)
+        .attr("cy", 100)
+        .style("fill", "#f00");
+
+
+
+    link2 = svg2.selectAll(".links")
       .data(links2)
       .enter().append("line")
         .attr("class", "links")
@@ -488,12 +549,46 @@ function main(){
   
 }
 
-  function ticked() {
-    for (var i=0;i<nodes.length;i=i+2){
-      nodes[i].x = x(nodes[i].Deadline);       
-      nodes[i].y = height-100; 
-    }
-    link
+function getRadius(d,i){
+    if (i%2==0)
+        return 0;
+    else
+        return radiusScale(Math.sqrt(d.Amount));
+}
+
+function ticked() {
+      if (document.getElementById("checkboxP1").checked) {
+          var startY = 210;
+          for (var i=0;i<nodes.length;i=i+2){
+              nodes[i].x = x(nodes[i].Deadline);
+
+              if (i==0){
+                  nodes[i].y =startY;
+              }
+              else {
+                  nodes[i].y = startY+i*3;
+              }
+
+          }
+      }
+      else{
+
+          for (var i=0;i<nodes.length;i=i+2){
+              nodes[i].x = x(nodes[i].Deadline);
+              nodes[i].y = height-100;
+          }
+      }
+
+
+
+
+
+
+    linkArcs.attr("transform", function (d) {
+        return "translate(" + d.x + "," + d.y + ")";
+    });
+
+      link
         .attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
         .attr("x2", function(d) { return d.target.x; })
@@ -533,18 +628,8 @@ function searchNode() {
 }
 
 function check1() {
-    //searchTerm = document.getElementById('search').value;
-    var value = document.getElementById('search').value;
-    svg.selectAll(".nodeCircle")
-        .transition().duration(dur*4)
-        .attr("r", function (d,i){
-          if (i%2==0)
-            return 0;
-          if (d.name.toLowerCase().indexOf(value.toLowerCase())>=0)
-            return radiusScale(Math.sqrt(d.Amount));
-          else
-            return 0;
-         });
+    simulation.stop();
+    simulation.alphaTarget(0.03).restart();
 }
 
 
@@ -641,7 +726,7 @@ function mouseoverNode(d1){
           .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });
         svg.selectAll(".links03")
           .transition().duration(dur)
-          .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });    */
+          .attr("stroke-opacity", function (d2){ return getCategoty(d1.program)==d2.source.group ? 1 : 0.1; });*/
      
     }  
     function mouseoutLegend(d1){
@@ -665,7 +750,9 @@ function mouseoverNode(d1){
           .transition().duration(dur)
           .attr("fill-opacity", 1);  
           
-    }  
+    }
+
+
 
 function dragstarted(d) {
   if (!d3.event.active) simulation.alphaTarget(0.3).restart();
