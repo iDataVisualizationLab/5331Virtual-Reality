@@ -7,7 +7,7 @@
         str="";
         str+="<table border='0.5px'  style='width:100%'>"
         for (key in d) {
-          if (key== "x" || key== "y" || key== "vx" || key== "vy" || key== "fx" || key== "fy" || key== "index"|| key== "SponsorList")
+          if (key== "x" || key== "y" || key== "vx" || key== "vy" || key== "fx" || key== "fy" || key== "index"|| key== "SponsorList"|| key== "originalOrder"|| key== "valueList")
               ;// Do nothing
           else if (key== "Amount")
             str+=  "<tr><td> Amount</td> <td>  <span style='color:black'>" + d[key].toLocaleString() + "</span> </td></tr>";
