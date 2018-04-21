@@ -287,53 +287,13 @@ An example github report can be found <a href="https://github.com/CreativeCoding
             </tr>
         </table>
         <hr style="width: 100%; height: 1px;">
-        <!--<div>Group NOT Assigned</div>-->
-        <!--<table style="width:98%;" border="1" cellpadding="3" cellspacing="0" id="tbl_unassiged">-->
-            <!--<tr bgcolor="#aaa">-->
-                <!--<td>No</td>-->
-                <!--<td>Students</td>-->
-                <!--<td>Note</td>-->
-            <!--</tr>-->
-        <!--</table>-->
     </div>
       <div align="right"><font style="font-family:
         Helvetica,Arial,sans-serif;" color="black" size="2">&copy; Last revised: April 19, 2018  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</font></div>
      <script>
-//         d3.csv('P2.csv', function (data) {
-//
-//             var grouped_filer = d3.nest().key(function (d) {
-//                 return d.Group;
-//             }).entries(data);
-//
-//             grouped_filer.forEach(function (d) {
-//                 d.position = +d.key;
-//             })
-//             grouped_filer =grouped_filer.sort(function (a,b) { return d3.ascending(a.position,b.position) })
-//             console.log(grouped_filer)
-//             grouped_filer.forEach(function (group, index) {
-//                 if(group.key ==""){
-//                     // group.values.forEach(function (student,i) {
-//                     //     $('#tbl_unassiged').append('<tr><td>'+(i+1)+'</td> <td >'+student.Student+'</td> <td>unassingned</td></tr>');
-//                     // })
-//
-//                 }else {
-//                     var students =[];
-//                     var Githublink="";
-//                     group.values.forEach(function (student) {
-//                        students.push(student.Student);
-//                        if(student.Github !=""){
-//                            if(Githublink==""){
-//                                Githublink='<a href='+student.Github+'>Link</a>';
-//                            }
-//                        }
-//                     });
-//                     console.log(group)
-//                     $('#tbl_assiged').append('<tr><td align="center" >'+group.key+'</td><td>'+students.join(', ')+'</td><td>'+group.values[0].Abstract.replace(/'/g, '')+'</td><td>'+Githublink+'</td></tr>')
-//                 }
-//             })
-//         })
+
          function init() {
-             d3.csv('P2Group.csv', function (rawdata) {
+             d3.csv('P3Group.csv', function (rawdata) {
                  rawdata.forEach(function (t) {
                      t.order = +t.order;
                      t.group = +t.group;
@@ -345,36 +305,6 @@ An example github report can be found <a href="https://github.com/CreativeCoding
                  localdata.forEach(function (row,index) {
                      $('#tbl_assiged').append('<tr><td align="center" >'+row.group+'</td><td>'+row.names+'</td><td>'+row.abstract+'</td><td><a href="'+row.github+'" target="_blank">Link</a> </td><td>'+row.presented_date+'</td><td><a href="'+row.evaluation_link+'">Evaluate</a> </td></tr>')
                  });
-//                 var grouped_filer = d3.nest().key(function (d) {
-//                     return d.Group;
-//                 }).entries(data);
-//
-//                 grouped_filer.forEach(function (d) {
-//                     d.position = +d.key;
-//                 })
-//                 grouped_filer =grouped_filer.sort(function (a,b) { return d3.ascending(a.position,b.position) })
-//                 console.log(grouped_filer)
-//                 grouped_filer.forEach(function (group, index) {
-//                     if(group.key ==""){
-//                         // group.values.forEach(function (student,i) {
-//                         //     $('#tbl_unassiged').append('<tr><td>'+(i+1)+'</td> <td >'+student.Student+'</td> <td>unassingned</td></tr>');
-//                         // })
-//
-//                     }else {
-//                         var students =[];
-//                         var Githublink="";
-//                         group.values.forEach(function (student) {
-//                             students.push(student.Student);
-//                             if(student.Github !=""){
-//                                 if(Githublink==""){
-//                                     Githublink='<a href='+student.Github+'>Link</a>';
-//                                 }
-//                             }
-//                         });
-//                         console.log(group)
-//                         $('#tbl_assiged').append('<tr><td align="center" >'+group.key+'</td><td>'+students.join(', ')+'</td><td>'+group.values[0].Abstract.replace(/'/g, '')+'</td><td>'+Githublink+'</td></tr>')
-//                     }
-//                 })
              })
          }
          init();
