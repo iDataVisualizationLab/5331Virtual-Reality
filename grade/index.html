@@ -1057,8 +1057,7 @@ function tickedP2() {
         nodesP2[i].x = width*0.8;
         var yy = nodesP2[i].P2_code+nodesP2[i].P2_talk+nodesP2[i].P2_report
                 +nodesP2[i].P2_review;
-        nodesP2[i].y = yP1(yy*20/35);  // 35% compared to 20%
-     //   nodesP2[i].y = (nodesP2[i].y)/3;
+        nodesP2[i].y = yP1(yy*25/27);  // 35% compared to 20%
       }
       else{
         nodesP2[i].x = x(nodesP2[i].date);  
@@ -1089,7 +1088,6 @@ function tickedP3() {
         var yy = nodesP3[i].P3_code+nodesP3[i].P3_talk+nodesP3[i].P3_report
                 +nodesP3[i].P3_review;
         nodesP3[i].y = yP1(yy*20/35);  // 35% compared to 20%
-     //   nodesP2[i].y = (nodesP2[i].y)/3;
       }
       else{
         nodesP3[i].x = x(nodesP3[i].date);  
@@ -1155,7 +1153,7 @@ function showP1(){
     // Project 2  
     svg.selectAll(".links02")
       .transition().duration(400)
-      .attr("stroke-opacity",0);   // 2018 Tommy
+      .attr("stroke-opacity",1);   // 2018 Tommy
 
     // Project 3
     svg.selectAll(".links03")
