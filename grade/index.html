@@ -1057,7 +1057,7 @@ function tickedP2() {
         nodesP2[i].x = width*0.8;
         var yy = nodesP2[i].P2_code+nodesP2[i].P2_talk+nodesP2[i].P2_report
                 +nodesP2[i].P2_review;
-        nodesP2[i].y = yP1(yy*22.5/27);  // 35% compared to 20%
+        nodesP2[i].y = yP1(yy*22/27);  // 35% compared to 20%
       }
       else{
         nodesP2[i].x = x(nodesP2[i].date);  
@@ -1185,32 +1185,32 @@ function showP1(){
         .attr("stroke", "#000")
         .attr("stroke-width", 1)
         .attr("x1", width*0.99)
-        .attr("y1", yP1(aGrades[i])-50)
+        .attr("y1", yP1(aGrades[i])-80)
         .attr("x2", width*0.99)
-        .attr("y2", yP1(aGrades[i+1]+0.3)-50);
+        .attr("y2", yP1(aGrades[i+1]+0.3)-80);
        svg.append("line")
         .attr("class", "lineGradeP1")
         .attr("stroke", "#000")
         .attr("stroke-width", 1)
         .attr("x1", width*0.98)
-        .attr("y1", yP1(aGrades[i])-50)
+        .attr("y1", yP1(aGrades[i])-80)
         .attr("x2", width*0.99)
-        .attr("y2", yP1(aGrades[i])-50); 
+        .attr("y2", yP1(aGrades[i])-80);
       svg.append("line")
         .attr("class", "lineGradeP1")
         .attr("stroke", "#000")
         .attr("stroke-width", 1)
         .attr("x1", width*0.98)
-        .attr("y1", yP1(aGrades[i+1]+0.3)-50)
+        .attr("y1", yP1(aGrades[i+1]+0.3)-80)
         .attr("x2", width*0.99)
-        .attr("y2", yP1(aGrades[i+1]+0.3)-50);    
+        .attr("y2", yP1(aGrades[i+1]+0.3)-80);
       svg.append("text")
         .attr("class", "textGradeP1")
         .style("font-size", "18px")
         .attr("text-anchor", "start")
         .attr("fill", "#000")
         .attr("x", width*0.99+4)
-        .attr("y", (yP1(aGrades[i])+yP1(aGrades[i+1]))/2)
+        .attr("y", (yP1(aGrades[i])+yP1(aGrades[i+1]))/2-80)
         .text(aText[i]);   
     }             
   }
