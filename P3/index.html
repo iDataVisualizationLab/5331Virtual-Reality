@@ -271,6 +271,7 @@ An example github report can be found <a href="https://github.com/CreativeCoding
     </ul>
     
     <hr style="width: 100%; height: 1px;">
+    Course Evaluation Link: <a href="https://goo.gl/forms/9BY2KXYlwTqrn9Mh2">Evaluate</a>
     <div id="students">
         <div>Group Assigned</div>
         <table style="width:98%;" border="1" cellpadding="3" cellspacing="0" id="tbl_assiged">
@@ -279,6 +280,7 @@ An example github report can be found <a href="https://github.com/CreativeCoding
                 <td width="15%">Members</td>
                 <td width="50%">Abstract</td>
                 <td>GitHub</td>
+                <td>Screenshot</td>
                 <td>Presented Date</td>
                 <td>Evaluation link</td>
             </tr>
@@ -286,7 +288,7 @@ An example github report can be found <a href="https://github.com/CreativeCoding
         <hr style="width: 100%; height: 1px;">
     </div>
       <div align="right"><font style="font-family:
-        Helvetica,Arial,sans-serif;" color="black" size="2">&copy; Last revised: April 19, 2018  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</font></div>
+        Helvetica,Arial,sans-serif;" color="black" size="2">&copy; Last revised: May 6, 2018  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</font></div>
      <script>
 
          function init() {
@@ -300,7 +302,15 @@ An example github report can be found <a href="https://github.com/CreativeCoding
                  });
                  console.log(localdata);
                  localdata.forEach(function (row,index) {
-                     $('#tbl_assiged').append('<tr><td align="center" >'+row.group+'</td><td>'+row.names+'</td><td>'+row.abstract+'</td><td><a href="'+row.github+'" target="_blank">Link</a> </td><td>'+row.presented_date+'</td><td><a href="'+row.evaluation_link+'">Evaluate</a> </td></tr>')
+                     $('#tbl_assiged').append('<tr>' +
+                         '<td align="center" >'+row.group+'</td>' +
+                         '<td>'+row.names+'</td>' +
+                         '<td>'+row.abstract+'</td>' +
+                         '<td><a href="'+row.github+'" target="_blank">Link</a> </td>' +
+                         '<td><img width="150px" height="150px" src="'+row.thumbnail+'"/> </td>' +
+                         '<td>'+row.presented_date+'</td>' +
+                         '<td><a href="'+row.evaluation_link+'">Evaluate</a> </td>' +
+                         '</tr>')
                  });
              })
          }
