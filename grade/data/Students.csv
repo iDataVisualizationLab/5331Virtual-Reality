@@ -6,8 +6,8 @@ Cheol Hwan Im,Andrew,10,5,5,1,1,No abstract,13.21,13.21,5,5,2,14.89,14.89,5,4.5,
 Cody Otterbine,Dauntless,9,5,4,0,1,No abstract,13.21,13.21,5,5,2,14.89,14.89,5,4.5,2,-1,BS,Undegraduate,7,Cody.Otterbine@ttu.edu,Cody.jpg,https://dauntlessdash.github.io/Personal-Website/,5,4
 Megan Taylor,MKT,12,5,5,2,1,No abstract,13.21,13.21,5,5,2,14.89,14.89,5,4.5,2,-1,BS,Undegraduate,4,Megan.Taylor@ttu.edu,Megan.png,https://github.com/mktaylor5,4.5,4.5
 Thomas Sanchez,Blue Leader,10,5,5,2,1,No abstract,13.21,13.71,5,5,2,14.89,14.89,5,4.5,2,-1,BS,Undegraduate,3,Thomas.Sanchez@ttu.edu,Thomas_Sanchez.JPG,https://github.com/Thomas245166,5,5
-Luciano Wolff,Lucho,9.5,5,3,2,2,No picture,12.2,12.2,5,4.5,2,-1,-1,-1,-1,-1,-1,BS,Undegraduate,6,Luciano.Wolff@ttu.edu,LucianoWolffPhoto.jpg,https://github.com/SpeedyRacoon/Luciano_Wolff_Virtual_Reality_CS4331.git,4.5,4
-Reynaldo Garcia,qcf4,8,4.5,3.5,2,2,,12.2,12.2,5,4.5,2,-1,-1,-1,-1,-1,-1,BS,Undegraduate,4,Reynaldo.Garcia@ttu.edu,Reynaldo.png,https://raygar.github.io/,5,3
+Luciano Wolff,Lucho,9.5,5,3,2,2,No picture,12.2,12.2,5,4.5,2,12.5,12.5,5,4.5,-1,-1,BS,Undegraduate,6,Luciano.Wolff@ttu.edu,LucianoWolffPhoto.jpg,https://github.com/SpeedyRacoon/Luciano_Wolff_Virtual_Reality_CS4331.git,4.5,4
+Reynaldo Garcia,qcf4,8,4.5,3.5,2,2,,12.2,12.2,5,4.5,2,12.5,12.5,5,4.5,-1,-1,BS,Undegraduate,4,Reynaldo.Garcia@ttu.edu,Reynaldo.png,https://raygar.github.io/,5,3
 Amitsingh Pardeshi,Amit,9.5,5,4.5,2,3,,12.35,12.35,5,5,2,13.02,13.02,5,5,2,-1,MSCS,Graduate,6,Amitsingh.Pardeshi@ttu.edu,Amit.jpg,https://github.com/pardeshiamitsingh,5,4.5
 Jonathan Bouligny,Jon,9,4.5,4.5,2,3,,12.35,12.85,5,5,0,13.02,13.02,5,5,2,-1,BS,Undegraduate,6,Jonathan.Bouligny@ttu.edu,Jonathan.jpg,JonathanBouligny.github.io,5,5
 Prerit Datta,predat,9.5,5,4.5,2,3,,12.35,11.85,5,5,2,13.02,13.02,5,5,2,-1,PhD,PhD,8,Prerit.Datta@ttu.edu,Prerit_Datta.jpg,https://github.com/prd90/CS-5331-Virtual-Reality,5,5
@@ -29,10 +29,10 @@ Darien Sokolov,Darien,9,4.5,3.5,2,9,,12.83,13.83,5,5,2,-1,-1,-1,-1,-1,-1,BS,Unde
 Jordan Coe,JJC,9,5,5,2,9,,12.83,12.83,5,5,2,-1,-1,-1,-1,-1,-1,BS,Undegraduate,4,Jordan.J.Coe@ttu.edu,Jordan.jpg,https://github.com/JuJoCoe/Virtual-Reality-CS-4331.git,5,5
 Matthew Jordan,R11033860,9,5,3,2,9,,12.83,12.83,5,5,2,-1,-1,-1,-1,-1,-1,BS,Undegraduate,3,Matt.Jordan@ttu.edu,Matthew.png,https://github.com/Mattjordan29,5,5
 Jessica Hao,JJJJ,8.5,5,4.5,2,10,,10.87,10.87,3.5,3,2,-1,-1,-1,-1,-1,-1,BS,Undegraduate,4.5,Yanan.Hao@ttu.edu,Jessica.jpeg,https://github.com/hujiku9/VR-Designing.git,4.5,4.5
-Emre Unal,Emrrr,8.5,4.5,3.5,2,11,No abstract,13.96,12.9,5,4,2,9.46,10.46,3.5,3,-1,-1,BS,Undegraduate,4,Emre.Unal@ttu.edu,Emre_Unal.jpg,https://github.com/emreunal93/CS-4331---Virtual-Reality,5,5
-Eddie Garcia,gar37012,8,4.5,3,2,11,,13.96,11.9,5,4,0,9.46,10.46,3.5,3,-1,-1,BS,Undegraduate,2,Eddie.Garcia@ttu.edu,EddieGarcia.PNG,github: gar37012,5,4.5
-Justin Wright,Ghidorah,8.5,4.5,4,2,11,,13.96,13.96,5,4,2,9.46,10.46,3.5,3,-1,-1,BS,Undegraduate,4,,no-image-icon-11.PNG,https://github.com/justinmwright,4.5,3.5
-Travis Ahlberg,Travis,8.5,4.5,4,2,11,,13.96,15,5,4,2,9.46,10.46,3.5,3,-1,-1,BS,Undegraduate,3,Travis.Ahlberg@ttu.edu,Travis Ahlberg.jpeg,https://github.com/ahlbergta,5,4
+Emre Unal,Emrrr,8.5,4.5,3.5,2,11,No abstract,13.96,12.9,5,4,2,9.46,10.46,3,2,2,-1,BS,Undegraduate,4,Emre.Unal@ttu.edu,Emre_Unal.jpg,https://github.com/emreunal93/CS-4331---Virtual-Reality,5,5
+Eddie Garcia,gar37012,8,4.5,3,2,11,,13.96,11.9,5,4,0,9.46,10.46,3,2,2,-1,BS,Undegraduate,2,Eddie.Garcia@ttu.edu,EddieGarcia.PNG,github: gar37012,5,4.5
+Justin Wright,Ghidorah,8.5,4.5,4,2,11,,13.96,13.96,5,4,2,9.46,10.46,3,2,2,-1,BS,Undegraduate,4,,no-image-icon-11.PNG,https://github.com/justinmwright,4.5,3.5
+Travis Ahlberg,Travis,8.5,4.5,4,2,11,,13.96,15,5,4,2,9.46,10.46,3,2,2,-1,BS,Undegraduate,3,Travis.Ahlberg@ttu.edu,Travis Ahlberg.jpeg,https://github.com/ahlbergta,5,4
 Gantaphon Chalumporn,Golf,9.5,5,5,2,12,No video,13.05,13,5,4,2,-1,-1,-1,-1,-1,-1,PhD,PhD,6,G.Chalumporn@ttu.edu,Chalumporn.jpg,https://github.com/gchalump/CS5331-Virtual-Reality-TTU,5,5
 Jijun Sui,Jay,8,4.5,5,2,12,,13.05,12,5,4,2,-1,-1,-1,-1,-1,-1,BS,Undegraduate,2,Jijun.Sui@ttu.edu,sui.png,https://github.com/Tih1st,5,1
 Luis Rausseo,lrausseo,10,5,4,2,12,,13.05,15,5,4,2,-1,-1,-1,-1,-1,-1,BS,Undegraduate,6,Luis.Rausseo@ttu.edu,Luis-Rausseo.png,https://github.com/luisrausseo,5,5
