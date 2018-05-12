@@ -1087,7 +1087,7 @@ function tickedP3() {
         nodesP3[i].x = width*0.95;
         var yy = nodesP3[i].P3_code+nodesP3[i].P3_talk+nodesP3[i].P3_report
                 +nodesP3[i].P3_review;
-        nodesP3[i].y = yP1(yy*20/35);  // 35% compared to 20%
+        nodesP3[i].y = yP1(yy*21.5/27);  // 35% compared to 20%
       }
       else{
         nodesP3[i].x = x(nodesP3[i].date);  
@@ -1160,7 +1160,6 @@ function showP1(){
       .transition().duration(400)
       .attr("stroke-opacity",1); // 2018 Tommy
 
-      
 
     if (!revealIdentity){
       svg.selectAll(".nodeP1")
@@ -1216,8 +1215,7 @@ function showP1(){
   }
   else{
       fadeP1();
-  }    
-
+  }
   simulation.restart();
   simulation.alpha(0.3);
   simulationP1.restart();
@@ -1226,7 +1224,6 @@ function showP1(){
   simulationP2.alpha(0.3);
   simulationP3.restart();
   simulationP3.alpha(0.3);
-
   svg.selectAll(".lineGraph")
       .transition().duration(300)
       .attr("d", function(d) {
