@@ -11,9 +11,9 @@ Reynaldo Garcia,qcf4,8,4.5,3.5,2,2,,12.2,12.2,5,4.5,2,12.5,12.5,5,4.5,-1,-1,BS,U
 Amitsingh Pardeshi,Amit,9.5,5,4.5,2,3,,12.35,12.35,5,5,2,13.02,13.02,5,5,2,-1,MSCS,Graduate,6,Amitsingh.Pardeshi@ttu.edu,Amit.jpg,https://github.com/pardeshiamitsingh,5,4.5
 Jonathan Bouligny,Jon,9,4.5,4.5,2,3,,12.35,12.85,5,5,0,13.02,13.02,5,5,2,-1,BS,Undegraduate,6,Jonathan.Bouligny@ttu.edu,Jonathan.jpg,JonathanBouligny.github.io,5,5
 Prerit Datta,predat,9.5,5,4.5,2,3,,12.35,11.85,5,5,2,13.02,13.02,5,5,2,-1,PhD,PhD,8,Prerit.Datta@ttu.edu,Prerit_Datta.jpg,https://github.com/prd90/CS-5331-Virtual-Reality,5,5
-Michael Acosta,M1221,10,5,3,2,4,,13.078,12.6,5,5,2,14.17,14.17,5,5,-1,-1,BS,Undegraduate,2,Michael.Acosta@ttu.edu,Michael.png,https://www.linkedin.com/in/michael-acosta-b8472414a/,5,4.5
-Christine Huber,C,12,5,5,2,4,,13.078,13.3,5,5,2,14.17,14.17,5,5,-1,-1,BS,Undegraduate,5.5,Christine.Huber@ttu.edu,Christine.jpg,https://github.com/christine-elise,5,4.5
-Trent Myers,Rusty Shackleford,12,5,5,2,4,,13.078,13.3,5,5,2,14.17,14.17,5,5,-1,-1,BS,Undegraduate,4,Trent.Myers@ttu.edu,Trent.jpg,https://github.com/Trentm95,5,5
+Michael Acosta,M1221,10,5,3,2,4,,13.078,12.6,5,5,2,14.17,14.17,5,5,2,-1,BS,Undegraduate,2,Michael.Acosta@ttu.edu,Michael.png,https://www.linkedin.com/in/michael-acosta-b8472414a/,5,4.5
+Christine Huber,C,12,5,5,2,4,,13.078,13.3,5,5,2,14.17,14.17,5,5,2,-1,BS,Undegraduate,5.5,Christine.Huber@ttu.edu,Christine.jpg,https://github.com/christine-elise,5,4.5
+Trent Myers,Rusty Shackleford,12,5,5,2,4,,13.078,13.3,5,5,2,14.17,14.17,5,5,2,-1,BS,Undegraduate,4,Trent.Myers@ttu.edu,Trent.jpg,https://github.com/Trentm95,5,5
 Derek Fritz,DJ,9,5,4,2,5,Does not anwser questions from survey,23.5,13.8,5,4.5,2,-1,-1,-1,-1,-1,-1,BS,Undegraduate,3.5,Derek.Fritz@ttu.edu,Derek.png,https://github.com/defritz,5,5
 Joyelle Woodson,Joy,9,5,4,2,5,,23.5,13.8,5,4.5,2,-1,-1,-1,-1,-1,-1,BS,Undegraduate,5,Joyelle.Woodson@ttu.edu,JoyelleWoodson.jpg,joyellealina.github.io,5,4.5
 Jakob Dozier,Ezio,8.5,4.5,3.5,2,6,,11.5,11.5,5,5,2,-1,-1,-1,-1,-1,-1,BS,Undegraduate,2,Jakob.Dozier@ttu.edu,JakobDozier.JPEG,https://github.com/JakobDozier,4.5,5
@@ -36,7 +36,7 @@ Travis Ahlberg,Travis,8.5,4.5,4,2,11,,13.96,15,5,4,2,9.46,10.46,3,2,2,-1,BS,Unde
 Gantaphon Chalumporn,Golf,9.5,5,5,2,12,No video,13.05,13,5,4,2,-1,-1,-1,-1,-1,-1,PhD,PhD,6,G.Chalumporn@ttu.edu,Chalumporn.jpg,https://github.com/gchalump/CS5331-Virtual-Reality-TTU,5,5
 Jijun Sui,Jay,8,4.5,5,2,12,,13.05,12,5,4,2,-1,-1,-1,-1,-1,-1,BS,Undegraduate,2,Jijun.Sui@ttu.edu,sui.png,https://github.com/Tih1st,5,1
 Luis Rausseo,lrausseo,10,5,4,2,12,,13.05,15,5,4,2,-1,-1,-1,-1,-1,-1,BS,Undegraduate,6,Luis.Rausseo@ttu.edu,Luis-Rausseo.png,https://github.com/luisrausseo,5,5
-Kevon Manahan,SuperKev,9,5,3.5,0,13,,13.2,11.2,4.5,4,2,-1,-1,-1,-1,-1,-1,BS,Undegraduate,4,Kevon.Manahan@ttu.edu,Kevon.JPG,http://www.myweb.ttu.edu/kemanaha,5,0
-Lino Abiel Virgen Gracia,L12,8,4,2.5,2,13,,13.2,14.2,4.5,4,2,-1,-1,-1,-1,-1,-1,MSSE,MSSE,5,Lino.Virgen@ttu.edu,VirgenGraciaLino_1.jpg,github.com/lvrg12,4.5,3.5
-Wenhao Ge,Wen,7,4,3,2,13,,13.2,12.2,4.5,4,2,-1,-1,-1,-1,-1,-1,BS,Undegraduate,2.5,Wenhao.Ge@ttu.edu,Wenhao.jpeg,http://github.com/WenhaoGe,4,3
+Kevon Manahan,SuperKev,9,5,3.5,0,13,,13.2,11.2,4.5,4,2,11.66,10.66,4,5,2,-1,BS,Undegraduate,4,Kevon.Manahan@ttu.edu,Kevon.JPG,http://www.myweb.ttu.edu/kemanaha,5,0
+Lino Abiel Virgen Gracia,L12,8,4,2.5,2,13,,13.2,14.2,4.5,4,2,11.66,13.66,4,5,2,-1,MSSE,MSSE,5,Lino.Virgen@ttu.edu,VirgenGraciaLino_1.jpg,github.com/lvrg12,4.5,3.5
+Wenhao Ge,Wen,7,4,3,2,13,,13.2,12.2,4.5,4,2,11.66,10.66,4,5,2,-1,BS,Undegraduate,2.5,Wenhao.Ge@ttu.edu,Wenhao.jpeg,http://github.com/WenhaoGe,4,3
 Athaa Bader M Alotaibi,3tb,6.5,3.5,3.5,2,14,,9,9,3,3,1,8.11,8.11,3.5,3,1,-1,MSCS,Graduate,5,Athaa.Alotaibi@ttu.edu,no-image-icon-11.PNG,https://github.com/Abdrotb,4,5
