@@ -663,7 +663,7 @@ function main(){
                 +nodesP2[i].P2_review+nodesP2[i].P2_reviewForOthers;          
       var p3 = nodesP3[i].P3_code+nodesP3[i].P3_talk+nodesP3[i].P3_report
                 +nodesP3[i].P3_review+nodesP3[i].P3_reviewForOthers;  
-      var studentChoice = nodes[i+1].studentTalk +nodes[i+1].studentReport;        
+      var studentChoice =  nodes[i+1].studentTalk +nodes[i+1].studentReport;        
 
       var sum= p0+p1+p2+p3+studentChoice;
       var finalGrade = " ";
@@ -695,9 +695,14 @@ function main(){
         countC++;
         finalGrade = "C";
       }    
-      console.log( finalGrade+ " "+nodesP1[i].name+" sum="+sum);           
+      nodes[i].finalScore = sum;
+      nodes[i].finalLetter = finalGrade;
+      nodes[i+1].finalScore = sum;
+      nodes[i+1].finalLetter = finalGrade;
+      
+      //console.log( finalGrade+ " "+nodesP1[i].name+" sum="+sum);           
     }  
-    console.log("countA="+countA+" countB="+countB +" countC="+countC);   
+    //console.log("countA="+countA+" countB="+countB +" countC="+countC);   
     link = svg.selectAll(".links")
       .data(links)
       .enter().append("line")
@@ -1467,6 +1472,26 @@ function searchNode() {
                 .attr("y", nodes[index].y+35)
                 .text("SC Report: "+nodes[index].studentReport+"%");
         }
+        
+
+      svg.append("text")
+        .attr("class", "textFinal")
+        .style("font-size", "14px")
+        .attr("text-anchor", "left")
+        .style("text-shadow", "1px 1px 0 rgba(0, 0, 0")
+        .attr("fill", "#f00")
+        .attr("x", radius+nodes[index].x)
+        .attr("y", nodes[index].y+55)
+        .text("Final grade: "+nodes[index].finalLetter);
+      svg.append("text")
+        .attr("class", "textFinal")
+        .style("font-size", "14px")
+        .attr("text-anchor", "left")
+        .style("text-shadow", "1px 1px 0 rgba(0, 0, 0")
+        .attr("fill", "#a00")
+        .attr("x", radius+nodes[index].x+60)
+        .attr("y", nodes[index].y+70)
+        .text(nodes[index].finalScore+"%");
     }  
     
 function textP1(index){
@@ -1485,7 +1510,7 @@ function textP1(index){
         .attr("text-anchor", "middle")
         .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
         .attr("fill", "#000")
-        .attr("x", radius+nodesP1[index].x+23)
+        .attr("x", radius+nodesP1[index].x+26)
         .attr("y", nodesP1[index].y+3)
         .text("Talk: "+nodesP1[index].P1_talk+"%");
       svg.append("text")
@@ -1524,7 +1549,7 @@ function textP1(index){
         .attr("text-anchor", "middle")
         .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
         .attr("fill", "#000")
-        .attr("x", radius+nodesP2[index].x+23)
+        .attr("x", radius+nodesP2[index].x+26)
         .attr("y", nodesP2[index].y+3)
         .text("Talk: "+nodesP2[index].P2_talk+"%");
       svg.append("text")
@@ -1573,7 +1598,7 @@ function textP1(index){
         .attr("text-anchor", "middle")
         .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
         .attr("fill", "#000")
-        .attr("x", radius+nodesP3[index].x+23)
+        .attr("x", radius+nodesP3[index].x+26)
         .attr("y", nodesP3[index].y+3)
         .text("Talk: "+nodesP3[index].P3_talk+"%");
       svg.append("text")
@@ -1674,6 +1699,7 @@ function textP1(index){
       svg.selectAll(".textContribution").remove();
       svg.selectAll(".textStudentTalk").remove();
       svg.selectAll(".textStudentReport").remove();
+      svg.selectAll(".textFinal").remove();
     }
 function dragstarted(d) {
   if (!d3.event.active) simulation.alphaTarget(0.3).restart();
