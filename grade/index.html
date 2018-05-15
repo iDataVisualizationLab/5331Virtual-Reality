@@ -195,11 +195,13 @@ function main(){
       data[d.Students].array.P2_talk = parseFloat(data2[d.Students].P2_talk);
       data[d.Students].array.P2_report = parseFloat(data2[d.Students].P2_report);
       data[d.Students].array.P2_review = parseFloat(data2[d.Students].P2_review);
+      data[d.Students].array.P2_reviewForOthers = parseFloat(data2[d.Students].P2_reviewForOthers);
       data[d.Students].array.P2_group_score = parseFloat(data2[d.Students].P2_group_score); 
       data[d.Students].array.P3_code = parseFloat(data2[d.Students].P3_code);
       data[d.Students].array.P3_talk = parseFloat(data2[d.Students].P3_talk);
       data[d.Students].array.P3_report = parseFloat(data2[d.Students].P3_report);
       data[d.Students].array.P3_review = parseFloat(data2[d.Students].P3_review);
+      data[d.Students].array.P3_reviewForOthers = parseFloat(data2[d.Students].P3_reviewForOthers);
       data[d.Students].array.P3_group_score = parseFloat(data2[d.Students].P3_group_score); 
       data[d.Students].array.index = data[d.Students].array.length-1;
     });
@@ -587,6 +589,7 @@ function main(){
       nodeP21.P2_talk = aData[i].P2_talk;
       nodeP21.P2_report = aData[i].P2_report;
       nodeP21.P2_review = aData[i].P2_review;
+      nodeP21.P2_reviewForOthers = aData[i].P2_reviewForOthers;
       nodeP21.date = aData[i].date;
       nodeP21.image = aData[i].image;
       nodesP2.push(nodeP21);
@@ -600,6 +603,7 @@ function main(){
       nodeP22.P2_talk = aData[i].P2_talk;
       nodeP22.P2_report = aData[i].P2_report;
       nodeP22.P2_review = aData[i].P2_review;
+      nodeP22.P2_reviewForOthers = aData[i].P2_reviewForOthers;
       nodeP22.date = aData[i].date;
       nodeP22.image = aData[i].image;
       nodesP2.push(nodeP22);
@@ -620,6 +624,7 @@ function main(){
       nodeP31.P3_talk = aData[i].P3_talk;
       nodeP31.P3_report = aData[i].P3_report;
       nodeP31.P3_review = aData[i].P3_review;
+      nodeP31.P3_reviewForOthers = aData[i].P3_reviewForOthers;
       nodeP31.date = aData[i].date;
       nodeP31.image = aData[i].image;
       nodesP3.push(nodeP31);
@@ -633,6 +638,7 @@ function main(){
       nodeP32.P3_talk = aData[i].P3_talk;
       nodeP32.P3_report = aData[i].P3_report;
       nodeP32.P3_review = aData[i].P3_review;
+      nodeP32.P3_reviewForOthers = aData[i].P3_reviewForOthers;
       nodeP32.date = aData[i].date;
       nodeP32.image = aData[i].image;
       nodesP3.push(nodeP32);
@@ -652,44 +658,46 @@ function main(){
       var p0 = nodes[i].score;
       if (p0>10)
         p0=10;
-      var p1 = nodesP1[i].P1_code+nodesP1[i].P1_talk+nodesP1[i].P1_report; 
+      var p1 = nodesP1[i].P1_code+nodesP1[i].P1_talk+nodesP1[i].P1_report+nodesP1[i].P1_survey; 
       var p2 = nodesP2[i].P2_code+nodesP2[i].P2_talk+nodesP2[i].P2_report
-                +nodesP2[i].P2_review;          
+                +nodesP2[i].P2_review+nodesP2[i].P2_reviewForOthers;          
       var p3 = nodesP3[i].P3_code+nodesP3[i].P3_talk+nodesP3[i].P3_report
-                +nodesP3[i].P3_review;  
-      var sum= p0+p1+p2+p3;
+                +nodesP3[i].P3_review+nodesP3[i].P3_reviewForOthers;  
+      var studentChoice = nodes[i+1].studentTalk +nodes[i+1].studentReport;        
+
+      var sum= p0+p1+p2+p3+studentChoice;
       var finalGrade = " ";
-      if (sum>=91){
+      if (sum>=95){
         countA++;
         finalGrade = "A+";
       } 
-      else if (sum>=86){
+      else if (sum>=90){
         finalGrade = "A ";
         countA++;
       }  
-      else if (sum>=78){
+      else if (sum>=85){
         finalGrade = "A-";
         countA++;
       }  
-      else if (sum>=72){
+      else if (sum>=80){
         finalGrade = "B+";
         countB++;
       }
-      else if (sum>=66){
+      else if (sum>=75){
         finalGrade = "B";
         countB++;
       }
-      else if (sum>=60){
+      else if (sum>=70){
         finalGrade = "B-";
         countB++;
       }      
-      else if (sum>=40){
+      else if (sum>=50){
         countC++;
         finalGrade = "C";
       }    
-      //console.log( finalGrade+ " "+nodesP1[i].name+" sum="+sum);           
+      console.log( finalGrade+ " "+nodesP1[i].name+" sum="+sum);           
     }  
-    //console.log("countA="+countA+" countB="+countB +" countC="+countC);   
+    console.log("countA="+countA+" countB="+countB +" countC="+countC);   
     link = svg.selectAll(".links")
       .data(links)
       .enter().append("line")
@@ -1421,7 +1429,7 @@ function searchNode() {
         .attr("text-anchor", "left")
         .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
         .attr("fill", "#000")
-        .attr("x", radius+nodes[index].x+5)
+        .attr("x", radius+nodes[index].x)
         .attr("y", nodes[index].y+3)
         .text("Participation: "+nodes[index].score+"%");
 
@@ -1432,7 +1440,7 @@ function searchNode() {
             .attr("text-anchor", "left")
             .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
             .attr("fill", "#000")
-            .attr("x", radius+nodes[index].x+5)
+            .attr("x", radius+nodes[index].x)
             .attr("y", nodes[index].y+20)
             .text("SC Talk: "+nodes[index].studentTalk+"%");
        }
@@ -1443,7 +1451,7 @@ function searchNode() {
              .attr("text-anchor", "left")
              .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
              .attr("fill", "#00f")
-             .attr("x", radius+nodes[index].x+5)
+             .attr("x", radius+nodes[index].x)
              .attr("y", nodes[index].y+20)
              .text("SC Talk: not yet presented");
 
@@ -1455,7 +1463,7 @@ function searchNode() {
                 .attr("text-anchor", "left")
                 .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
                 .attr("fill", "#000")
-                .attr("x", radius+nodes[index].x+5)
+                .attr("x", radius+nodes[index].x)
                 .attr("y", nodes[index].y+35)
                 .text("SC Report: "+nodes[index].studentReport+"%");
         }
@@ -1465,46 +1473,46 @@ function textP1(index){
       svg.append("text")
         .attr("class", "textP1")
         .style("font-size", "13px")
-        .attr("text-anchor", "left")
+        .attr("text-anchor", "middle")
         .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
         .attr("fill", "#000")
-        .attr("x", radius+nodesP1[index].x+12)
+        .attr("x", radius+nodesP1[index].x)
         .attr("y", nodesP1[index].y-12)
         .text("Code: "+nodesP1[index].P1_code+"%");
       svg.append("text")
         .attr("class", "textP1")
         .style("font-size", "13px")
-        .attr("text-anchor", "left")
+        .attr("text-anchor", "middle")
         .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
         .attr("fill", "#000")
-        .attr("x", radius+nodesP1[index].x+20)
+        .attr("x", radius+nodesP1[index].x+23)
         .attr("y", nodesP1[index].y+3)
         .text("Talk: "+nodesP1[index].P1_talk+"%");
       svg.append("text")
         .attr("class", "textP1")
         .style("font-size", "13px")
-        .attr("text-anchor", "left")
+        .attr("text-anchor", "middle")
         .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
         .attr("fill", "#000")
-        .attr("x", radius+nodesP1[index].x+5)
+        .attr("x", radius+nodesP1[index].x)
         .attr("y", nodesP1[index].y+18)
         .text("Report: "+nodesP1[index].P1_report+"%");
 
       svg.append("text")
         .attr("class", "textP1")
         .style("font-size", "13px")
-        .attr("text-anchor", "left")
+        .attr("text-anchor", "middle")
         .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
         .attr("fill", "#000")
-        .attr("x", radius+nodesP1[index].x+5)
+        .attr("x", radius+nodesP1[index].x)
         .attr("y", nodesP1[index].y+33)
-        .text("Survey: "+nodesP1[index].P1_survey+"%");  
+        .text("P1 Survey: "+nodesP1[index].P1_survey+"%");  
 
        // Project 2
        svg.append("text")
         .attr("class", "textP2")
         .style("font-size", "13px")
-        .attr("text-anchor", "left")
+        .attr("text-anchor", "middle")
         .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
         .attr("fill", "#000")
         .attr("x", radius+nodesP2[index].x+12)
@@ -1513,16 +1521,16 @@ function textP1(index){
       svg.append("text")
         .attr("class", "textP2")
         .style("font-size", "13px")
-        .attr("text-anchor", "left")
+        .attr("text-anchor", "middle")
         .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
         .attr("fill", "#000")
-        .attr("x", radius+nodesP2[index].x+20)
+        .attr("x", radius+nodesP2[index].x+23)
         .attr("y", nodesP2[index].y+3)
         .text("Talk: "+nodesP2[index].P2_talk+"%");
       svg.append("text")
         .attr("class", "textP2")
         .style("font-size", "13px")
-        .attr("text-anchor", "left")
+        .attr("text-anchor", "middle")
         .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
         .attr("fill", "#000")
         .attr("x", radius+nodesP2[index].x+5)
@@ -1531,19 +1539,29 @@ function textP1(index){
       svg.append("text")
         .attr("class", "textP2")
         .style("font-size", "13px")
-        .attr("text-anchor", "left")
+        .attr("text-anchor", "middle")
         .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
         .attr("fill", "#000")
         .attr("x", radius+nodesP2[index].x+5)
         .attr("y", nodesP2[index].y+33)
-        .text("Review: "+nodesP2[index].P2_review+"%");   
+        .text("P2 Review Teammates: "+nodesP2[index].P2_review+"%");   
+
+      svg.append("text")
+        .attr("class", "textP2")
+        .style("font-size", "13px")
+        .attr("text-anchor", "middle")
+        .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
+        .attr("fill", "#000")
+        .attr("x", radius+nodesP2[index].x+5)
+        .attr("y", nodesP2[index].y+48)
+        .text("P2 Review Others: "+nodesP2[index].P2_reviewForOthers+"%");     
 
 
        // Project 3
        svg.append("text")
         .attr("class", "textP3")
         .style("font-size", "13px")
-        .attr("text-anchor", "left")
+        .attr("text-anchor", "middle")
         .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
         .attr("fill", "#000")
         .attr("x", radius+nodesP3[index].x+12)
@@ -1552,16 +1570,16 @@ function textP1(index){
       svg.append("text")
         .attr("class", "textP3")
         .style("font-size", "13px")
-        .attr("text-anchor", "left")
+        .attr("text-anchor", "middle")
         .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
         .attr("fill", "#000")
-        .attr("x", radius+nodesP3[index].x+20)
+        .attr("x", radius+nodesP3[index].x+23)
         .attr("y", nodesP3[index].y+3)
         .text("Talk: "+nodesP3[index].P3_talk+"%");
       svg.append("text")
         .attr("class", "textP3")
         .style("font-size", "13px")
-        .attr("text-anchor", "left")
+        .attr("text-anchor", "middle")
         .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
         .attr("fill", "#000")
         .attr("x", radius+nodesP3[index].x+5)
@@ -1570,12 +1588,21 @@ function textP1(index){
       svg.append("text")
         .attr("class", "textP3")
         .style("font-size", "13px")
-        .attr("text-anchor", "left")
+        .attr("text-anchor", "middle")
         .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
         .attr("fill", "#000")
         .attr("x", radius+nodesP3[index].x+5)
         .attr("y", nodesP3[index].y+33)
-        .text("Review: "+nodesP3[index].P3_review+"%");             
+        .text("P3 Review Teammates: "+nodesP3[index].P3_review+"%");   
+      svg.append("text")
+        .attr("class", "textP3")
+        .style("font-size", "13px")
+        .attr("text-anchor", "middle")
+        .style("text-shadow", "1px 1px 0 rgba(200, 200, 200, 0.9")
+        .attr("fill", "#000")
+        .attr("x", radius+nodesP3[index].x+5)
+        .attr("y", nodesP3[index].y+48)
+        .text("P3 Review Others: "+nodesP3[index].P3_reviewForOthers+"%");               
     }
     
     function mouseoutNode(d1){
